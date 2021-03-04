@@ -31,13 +31,27 @@ typedef struct _lmsrp_mess {
 	pj_str_t success_report;
 	pj_int64_t max_expries;
 	pj_int64_t min_expries;
-	pj_int64_t express;
+	pj_int64_t expries;
 	pj_str_t contend;
 	char *flag;
 } lmsrp_mess;
-
+typedef struct lmsrp_mess_endline {
+	pj_str_t tid;
+	char flag;
+	int vt;
+} lmsrp_mess_endline;
 pj_bool_t lmsrp_check_end(const char *buff, int leng, char *flag);
 
-lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool,  char *data, int end);
+pj_bool_t lmsrp_check_end2( char *buff, int leng, lmsrp_mess_endline *end);
+
+/**
+ * 	to save memory , i only use ponter to point data , not copy it
+ * 	this is important to remember that you data will lost if you don't use dynamic alloc
+ * @param pool pj_pool
+ * @param data data buffer
+ * @param end  poniter
+ * @return
+ */
+lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end);
 
 #endif /* LMSRP_MESS_H_ */

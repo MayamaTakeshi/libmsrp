@@ -8,15 +8,16 @@
 static int find_CRLF(char *data, int end) {
 	for (int i = 0; i < end; i++) {
 		if (data[i] == '\n')
-			return i;
+			return i + 1;
 	}
 	return end;
 }
 static int lmsrp_mess_check(char d, void *arg) {
-	if (d == ' ' || d == ':')
+	if (d == ' ' || d == ':' || d == '\r' || d == '\n')
 		return 1;
 	return 0;
 }
+
 typedef enum lmsrp_mess_header_type {
 	lmsrp_mess_header_msrp,
 	lmsrp_mess_header_to_path,
@@ -92,30 +93,43 @@ void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		lmsrp_content_type_prase(pool, mess->content_type, data, end);
 		break;
 	case lmsrp_mess_header_messid:
-		out.ptr = data;
-		out.slen = end;
-		rs = pj_strtrim(&out);
-		pj_memcpy(&mess->messid, rs, ls);
+		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		pj_memcpy(&mess->messid, &out, ls);
 		break;
 	case lmsrp_mess_header_failure_report:
-		;
-		pj_str_t out;
-		out.ptr = data;
-		out.slen = end;
-		pj_str_t *rs = pj_strtrim(&out);
-		pj_memcpy(&mess->failure_report, rs, ls);
+		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		pj_memcpy(&mess->failure_report, &out, ls);
 		break;
 	case lmsrp_mess_header_sucess_report:
-		;
-
-		out.ptr = data;
-		out.slen = end;
-		rs = pj_strtrim(&out);
-		pj_memcpy(&mess->success_report, rs, ls);
+		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		pj_memcpy(&mess->success_report, &out, ls);
 		break;
 	case lmsrp_mess_header_status:
 		mess->status = pj_pool_alloc(pool, sizeof(lmsrp_status_h));
 		lmsrp_status_h_prase(pool, mess->status, data, end);
+		break;
+	case lmsrp_mess_header_max_express:
+		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		mess->max_expries = pj_strtol(&out);
+		break;
+	case lmsrp_mess_header_min_express:
+		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		mess->min_expries = pj_strtol(&out);
+		break;
+	case lmsrp_mess_header_express:
+		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		mess->expries = pj_strtol(&out);
+		break;
+	case lmsrp_mess_header_www_auth:
+		mess->www = pj_pool_alloc(pool, sizeof(lmsrp_www_h));
+		lmsrp_www_h_prase(pool, mess->www, data, end);
+
+		break;
+	case lmsrp_mess_header_authorization:
+		mess->auth = pj_pool_alloc(pool, sizeof(lmsrp_authorization_h));
+		lmsrp_authorization_header_prase(pool, mess->auth, data, end);
+		break;
+	default:
 		break;
 	}
 }
@@ -123,7 +137,7 @@ pj_bool_t lmsrp_check_end(const char *buff, int leng, char *flag) {
 	static int back = 20; // olyread 20 character
 
 	int i = 1;
-	for (; i <= back; i++) {
+	for (; i <= back && i < leng; i++) {
 		if (buff[leng - i] > '"') {
 			if (buff[leng - i] == '#' || buff[leng - i] == '$'
 					|| buff[leng - i] == '+') {
@@ -135,7 +149,7 @@ pj_bool_t lmsrp_check_end(const char *buff, int leng, char *flag) {
 	}
 	int dem = 0;
 
-	while (i < back + 7) {
+	while (i < back + 7 && i < leng) {
 		if (buff[leng - i] == '-') {
 			dem++;
 			if (dem == 7)
@@ -147,11 +161,45 @@ pj_bool_t lmsrp_check_end(const char *buff, int leng, char *flag) {
 	}
 	return PJ_FALSE;
 }
+pj_bool_t lmsrp_check_end2(char *buff, int leng, lmsrp_mess_endline *end) {
+	static int back = 40; // olyread 20 character
+	end->vt = -1;
+	int i = 1;
+	for (; i <= leng; i++) {
+		if (buff[leng - i] > '"') {
+			if (buff[leng - i] == '#' || buff[leng - i] == '$'
+					|| buff[leng - i] == '+') {
+				end->flag = buff[leng - i];
+				break;
+			} else
+				return PJ_FALSE;
+		}
+	}
+	int check = leng - i;
+	int dem = 0;
 
+	while (i < back + 7) {
+		if (buff[leng - i] == '-') {
+			dem++;
+			if (dem == 7) {
+				end->tid.ptr = buff + (leng - i + 7);
+				end->tid.slen = check - (leng - i + 7);
+				end->vt = leng - i;
+				return PJ_TRUE;
+			}
+		} else {
+			dem = 0;
+		}
+		i++;
+	}
+	return PJ_FALSE;
+}
 lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
-	char flag;
-	pj_bool_t rs = lmsrp_check_end(data, end, &flag);
-	if (!rs) {
+	lmsrp_mess_endline line;
+	// luu gia bien dem
+	int keep = 0;
+	lmsrp_check_end2(data, end, &line);
+	if (line.vt < 0) {
 		PJ_LOG(2, (__FILE__,"this is not msrp mess"));
 		return NULL;
 	}
@@ -163,10 +211,23 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 		dem = lmsrp_get_str(&name, data, end, &lmsrp_mess_check, NULL);
 		if (dem < 1)
 			break;
+		keep = keep + dem;
 		data = data + dem;
 		end = end - dem;
 		lend = find_CRLF(data, end);
+		keep = keep + lend;
+
 		lmsrp_mess_set_header(mess, &name, data, lend);
+		data = data + lend;
+		end = end - lend;
+		if (data[0] == '\n' || data[1] == '\n') {
+			// this is contend data
+			name.ptr = data;
+			name.slen = line.vt - keep;
+			pj_str_t *lp = pj_strtrim(&name);
+			pj_memcpy(&mess->contend, lp, sizeof(pj_str_t));
+			break;
+		}
 	}
 	return mess;
 }

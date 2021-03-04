@@ -12,6 +12,18 @@
 
 pj_caching_pool cp;
 pj_pool_t *lpool;
+static char msrp_mess[] =
+		"MSRP fhdw SEND\r\n"
+				"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
+				"From-Path: msrp://test1@192.168.4.38/s.64.8.1017189353;tcp msrp://dccan@192.168.4.38/s.63.8.1126255474;tcp\r\n"
+				"Message-Id :fbedekjd\r\n"
+				"Byte-Range: 1-16/16\r\n"
+				"Failure-Report :no\r\n"
+				"WWW-Authenticate: Digest realm=\"192.168.4.38\", nonce=\"YD8Qt2A/D4uVOmRTm+NlYe1PaAUkt4HpJVL70IA=\" ,  qop=\"auth\", opaque=\"c52854eebc40626ab22f751cf58bc722\""
+				"\r\n"
+				"\r\n"
+				"abbdefghiklmcwqvawrcfaerqgvWFDFYREVBAEWRH6BVQ32nopq\r\n"
+				"-------fhdw$\r\n\r\n";
 void init() {
 	pj_init();
 	pjlib_util_init();
@@ -21,9 +33,9 @@ void init() {
 }
 int main(void) {
 	init();
-	char uri[] = " kieoc/hdweqhx wged/cpim dwgh/sgsg";
-	int end = strlen(uri);
-	lmsrp_content_type_h inf ;
-	lmsrp_content_type_prase(lpool, &inf, uri, end);
-	end = strlen(uri);
+
+	int end = strlen(msrp_mess);
+	lmsrp_mess *inf;
+	inf = lmsrp_mess_create_from_buff(lpool, msrp_mess, end);
+	end = strlen(msrp_mess);
 }

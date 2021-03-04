@@ -29,7 +29,7 @@ void lmsrp_list_uri_prase(pj_pool_t *pool, lmsrp_list_uri *dst, char *data,
 	lmsrp_list_uri *point = dst;
 	while (1) {
 		dem = lmsrp_uri_prase(pool, &lst, data, end);
-		if (dem < 0)
+		if (dem < 1)
 			break;
 		else {
 			data = data + dem;
