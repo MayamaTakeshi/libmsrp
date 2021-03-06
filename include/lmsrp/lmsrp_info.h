@@ -17,7 +17,7 @@ typedef union _lmsrp_info {
 	} request;
 
 	struct {
-		pj_str_t reasone;
+		pj_str_t reason;
 		int code;
 	} respone;
 } lmsrp_info;

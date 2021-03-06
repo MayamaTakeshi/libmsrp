@@ -4,7 +4,7 @@
  *  Created on: Mar 3, 2021
  *      Author: amneiht
  */
-#include <lmsrp_common.h>
+#include <lmsrp.h>
 
 static char sperate[] = { ' ', ':', '/', '@', ';' };
 static int check(char d, void *arg) {

@@ -9,7 +9,7 @@
 static char split[] = { ',', ' ', '=' };
 static char sprc = '"';
 
-static header_property pro[] = { //
+static const header_property pro[] = { //
 		{ { "realm", 5 }, lmsrp_auth_header_realm }, //
 				{ { "nonce", 5 }, lmsrp_auth_header_nonce }, //
 				{ { "opaque", 6 }, lmsrp_auth_header_opaque }, //
@@ -19,7 +19,8 @@ static header_property pro[] = { //
 				{ { "qop", 3 }, lmsrp_auth_header_qop } //
 
 		};
-int lmsrp_find_header_property(header_property *pro, int size, pj_str_t *in) {
+int lmsrp_find_header_property(const header_property *pro, const int size,
+		pj_str_t *in) {
 	for (int i = 0; i < size; i++) {
 		if (pj_stricmp(&(pro[i].name), in) == 0) {
 			return pro[i].pro;
@@ -72,7 +73,8 @@ static void lmsrp_set_pro(void *data, pj_str_t *name, pj_str_t *value) {
 	static int ls = sizeof(pj_str_t);
 	if (name == NULL || name->slen == 0)
 		return;
-	int st = lmsrp_find_header_property(pro, 7, name);
+	static const int wwwl = sizeof(pro) / sizeof(header_property);
+	int st = lmsrp_find_header_property(pro, wwwl, name);
 	switch (st) {
 	case lmsrp_auth_header_realm:
 		pj_memcpy(&dst->realm, value, ls);

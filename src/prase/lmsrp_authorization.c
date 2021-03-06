@@ -7,26 +7,26 @@
 
 #include <lmsrp.h>
 
-static header_property auth_msrp[] = {
+static const header_property auth_msrp[] = {
 		{ { "realm", 5 }, lmsrp_auth_header_realm }, //
 		{ { "nonce", 5 }, lmsrp_auth_header_nonce }, //
 		{ { "opaque", 6 }, lmsrp_auth_header_opaque }, //
 		{ { "algorithm", 9 }, lmsrp_auth_header_algorithm }, //
-		{ { "uri", 6 }, lmsrp_auth_header_uri }, //
+		{ { "uri", 3 }, lmsrp_auth_header_uri }, //
 		{ { "Digest", 6 }, lmsrp_auth_header_scheme }, //
 		{ { "qop", 3 }, lmsrp_auth_header_qop }, //
 		{ { "username", 8 }, lmsrp_auth_header_username }, //
 		{ { "nc", 2 }, lmsrp_auth_header_nc }, //
 		{ { "cnonce", 6 }, lmsrp_auth_header_cnonce }, //
-		{ { "response", 6 }, lmsrp_auth_header_response } //
+		{ { "response", 8 }, lmsrp_auth_header_response } //
 };
 void lmsrp_authorization_set_pro(void *header, pj_str_t *name, pj_str_t *value) {
 	lmsrp_authorization_h *dst = header;
 	static const int ls = sizeof(pj_str_t);
 	if (name == NULL || name->slen == 0)
 		return;
-
-	int st = lmsrp_find_header_property(auth_msrp, 11, name);
+	static const int auth_leng = sizeof(auth_msrp) / sizeof(header_property);
+	int st = lmsrp_find_header_property(auth_msrp, auth_leng, name);
 	switch (st) {
 	case lmsrp_auth_header_realm:
 		pj_memcpy(&dst->realm, value, ls);
@@ -47,19 +47,19 @@ void lmsrp_authorization_set_pro(void *header, pj_str_t *name, pj_str_t *value) 
 		pj_memcpy(&dst->scheme, name, ls);
 		break;
 	case lmsrp_auth_header_qop:
-		pj_memcpy(&dst->qop, name, ls);
+		pj_memcpy(&dst->qop, value, ls);
 		break;
 	case lmsrp_auth_header_username:
-		pj_memcpy(&dst->username, name, ls);
+		pj_memcpy(&dst->username, value, ls);
 		break;
 	case lmsrp_auth_header_nc:
-		pj_memcpy(&dst->nc, name, ls);
+		pj_memcpy(&dst->nc, value, ls);
 		break;
 	case lmsrp_auth_header_cnonce:
-		pj_memcpy(&dst->cnonce, name, ls);
+		pj_memcpy(&dst->cnonce, value, ls);
 		break;
 	case lmsrp_auth_header_response:
-		pj_memcpy(&dst->response, name, ls);
+		pj_memcpy(&dst->response, value, ls);
 		break;
 	default:
 		;

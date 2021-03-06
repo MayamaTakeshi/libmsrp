@@ -1,6 +1,12 @@
-#include<lmsrp.h>
-
-int lmsrp_www_h_to_string(lmsrp_www_h *header, char *buff, int size) {
+/*
+ * lmsrp_auth_tostring.c
+ *
+ *  Created on: Mar 4, 2021
+ *      Author: amneiht
+ */
+#include <lmsrp.h>
+int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
+		char *buff, int size) {
 	int dem = 0;
 	int tong = 0;
 	char *point = buff;
@@ -29,9 +35,25 @@ int lmsrp_www_h_to_string(lmsrp_www_h *header, char *buff, int size) {
 			return -1;
 		point = point + dem;
 	}
+	if (header->nc.slen) {
+		dem = sprintf(point, ",nc=%.*s", (int) header->nc.slen,
+				header->nc.ptr);
+		tong = tong + dem;
+		if (tong > size)
+			return -1;
+		point = point + dem;
+	}
 	if (header->nonce.slen) {
 		dem = sprintf(point, ",nonce=\"%.*s\"", (int) header->nonce.slen,
 				header->nonce.ptr);
+		tong = tong + dem;
+		if (tong > size)
+			return -1;
+		point = point + dem;
+	}
+	if (header->cnonce.slen) {
+		dem = sprintf(point, ",cnonce=\"%.*s\"", (int) header->cnonce.slen,
+				header->cnonce.ptr);
 		tong = tong + dem;
 		if (tong > size)
 			return -1;
@@ -45,17 +67,33 @@ int lmsrp_www_h_to_string(lmsrp_www_h *header, char *buff, int size) {
 			return -1;
 		point = point + dem;
 	}
-	if (header->qop.slen) {
-		dem = sprintf(point, ",qop=%.*s", (int) header->qop.slen,
-				header->qop.ptr);
+	if (header->username.slen) {
+		dem = sprintf(point, ",username=\"%.*s\"", (int) header->username.slen,
+				header->username.ptr);
 		tong = tong + dem;
 		if (tong > size)
 			return -1;
 		point = point + dem;
 	}
-	if (header->domain.slen) {
-		dem = sprintf(point, ",domain=%.*s", (int) header->domain.slen,
-				header->domain.ptr);
+	if (header->response.slen) {
+		dem = sprintf(point, ",response=\"%.*s\"", (int) header->response.slen,
+				header->response.ptr);
+		tong = tong + dem;
+		if (tong > size)
+			return -1;
+		point = point + dem;
+	}
+	if (header->uri.slen) {
+		dem = sprintf(point, ",uri=\"%.*s\"", (int) header->uri.slen,
+				header->uri.ptr);
+		tong = tong + dem;
+		if (tong > size)
+			return -1;
+		point = point + dem;
+	}
+	if (header->qop.slen) {
+		dem = sprintf(point, ",qop=%.*s", (int) header->qop.slen,
+				header->qop.ptr);
 		tong = tong + dem;
 		if (tong > size)
 			return -1;

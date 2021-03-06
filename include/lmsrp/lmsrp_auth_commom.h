@@ -31,7 +31,7 @@ enum lmsrp_auth_header_pro {
 	lmsrp_auth_header_username,
 
 };
-int lmsrp_find_header_property(header_property *pro, int size, pj_str_t *in);
+int lmsrp_find_header_property(const header_property *pro, const int size, pj_str_t *in);
 
 int lmsrp_header_check_equal(char *data, int end, int *result);
 void lmsrp_auth_common_prase(pj_pool_t *pool, lmsrp_auth_common_header *dst,

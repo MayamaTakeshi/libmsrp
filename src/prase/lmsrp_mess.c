@@ -36,8 +36,8 @@ typedef enum lmsrp_mess_header_type {
 	lmsrp_mess_header_authorization
 } lmsrp_mess_header_type;
 // 15 phan tu
-static int hmess_leng = 15;
-static header_property hmess[] = { //
+
+const static header_property hmess[] = { //
 		{ { "MSRP", 4 }, lmsrp_mess_header_msrp }, // rfc 4975
 				{ { "To-Path", 7 }, lmsrp_mess_header_to_path }, //  rfc 4975
 				{ { "Status", 6 }, lmsrp_mess_header_status }, //  rfc 4975
@@ -56,6 +56,7 @@ static header_property hmess[] = { //
 		};
 void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		int end) {
+	static const int hmess_leng =sizeof(hmess) / sizeof(header_property);
 	int st = lmsrp_find_header_property(hmess, hmess_leng, name);
 	static int ls = sizeof(pj_str_t);
 	pj_pool_t *pool = mess->pool;
@@ -205,8 +206,10 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 	}
 	lmsrp_mess *mess = pj_pool_zalloc(pool, sizeof(lmsrp_mess));
 	mess->pool = pool;
+	mess->flag =  line.flag ;
 	pj_str_t name;
 	int dem, lend;
+	int kt = 0;
 	while (1) {
 		dem = lmsrp_get_str(&name, data, end, &lmsrp_mess_check, NULL);
 		if (dem < 1)
@@ -216,8 +219,11 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 		end = end - dem;
 		lend = find_CRLF(data, end);
 		keep = keep + lend;
-
-		lmsrp_mess_set_header(mess, &name, data, lend);
+		if (data[lend - 2] == '\r')
+			kt = 2;
+		else
+			kt = 1;
+		lmsrp_mess_set_header(mess, &name, data, lend - kt);
 		data = data + lend;
 		end = end - lend;
 		if (data[0] == '\n' || data[1] == '\n') {

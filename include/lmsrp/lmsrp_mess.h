@@ -33,7 +33,7 @@ typedef struct _lmsrp_mess {
 	pj_int64_t min_expries;
 	pj_int64_t expries;
 	pj_str_t contend;
-	char *flag;
+	char flag;
 } lmsrp_mess;
 typedef struct lmsrp_mess_endline {
 	pj_str_t tid;
@@ -42,7 +42,7 @@ typedef struct lmsrp_mess_endline {
 } lmsrp_mess_endline;
 pj_bool_t lmsrp_check_end(const char *buff, int leng, char *flag);
 
-pj_bool_t lmsrp_check_end2( char *buff, int leng, lmsrp_mess_endline *end);
+pj_bool_t lmsrp_check_end2(char *buff, int leng, lmsrp_mess_endline *end);
 
 /**
  * 	to save memory , i only use ponter to point data , not copy it
@@ -53,5 +53,5 @@ pj_bool_t lmsrp_check_end2( char *buff, int leng, lmsrp_mess_endline *end);
  * @return
  */
 lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end);
-
+int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size);
 #endif /* LMSRP_MESS_H_ */

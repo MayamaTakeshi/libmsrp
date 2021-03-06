@@ -8,14 +8,15 @@
 #ifndef LMSRP_H_
 #define LMSRP_H_
 
-#include <lmsrp_common.h>
-#include <lmsrp_www_auth.h>
-#include <lmsrp_auth_commom.h>
-#include <lmsrp_authorization.h>
-#include <lmsrp_info.h>
-#include <lmsrp_status.h>
-#include <lmsrp_byte_range.h>
-#include <lmsrp_content_type.h>
-#include <lmsrp_mess.h>
+#include <pjlib.h>
+#include <lmsrp/lmsrp_common.h>
+#include <lmsrp/lmsrp_www_auth.h>
+#include <lmsrp/lmsrp_auth_commom.h>
+#include <lmsrp/lmsrp_authorization.h>
+#include <lmsrp/lmsrp_info.h>
+#include <lmsrp/lmsrp_status.h>
+#include <lmsrp/lmsrp_byte_range.h>
+#include <lmsrp/lmsrp_content_type.h>
+#include <lmsrp/lmsrp_mess.h>
 
 #endif /* LMSRP_H_ */

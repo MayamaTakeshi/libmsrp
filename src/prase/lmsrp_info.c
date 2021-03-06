@@ -29,6 +29,6 @@ int lmsrp_info_prase(lmsrp_info *inf, char *data, int end) {
 	in.ptr = data;
 	in.slen = dem;
 	pj_str_t *out = pj_strtrim(&in);
-	pj_memcpy(&inf->respone.reasone, out, sizeof(pj_str_t));
+	pj_memcpy(&inf->respone.reason, out, sizeof(pj_str_t));
 	return lmsrp_mess_type_respone;
 }
