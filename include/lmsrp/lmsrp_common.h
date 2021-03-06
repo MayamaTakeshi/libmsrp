@@ -8,8 +8,6 @@
 #ifndef LMSRP_COMMON_H_
 #define LMSRP_COMMON_H_
 
-
-
 typedef int (lmsrp_check)(char d, void *info);
 typedef struct _lmsrp_param {
 	pj_str_t name;
@@ -17,8 +15,7 @@ typedef struct _lmsrp_param {
 } lmsrp_param;
 
 typedef struct _lmsrp_list_param {
-	PJ_DECL_LIST_MEMBER(struct _lmsrp_list_param)
-	;
+	PJ_DECL_LIST_MEMBER(struct _lmsrp_list_param);
 	lmsrp_param var;
 } lmsrp_list_param;
 
@@ -35,8 +32,7 @@ typedef struct _lmsrp_uri {
 } lmsrp_uri;
 
 typedef struct _lmsrp_list_uri {
-	PJ_DECL_LIST_MEMBER(struct _lmsrp_list_uri)
-	;
+	PJ_DECL_LIST_MEMBER(struct _lmsrp_list_uri);
 	pj_pool_t *pool;
 	lmsrp_uri *uri;
 } lmsrp_list_uri;
@@ -58,4 +54,9 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end);
 int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check *test,
 		void *arg);
 int lmsrp_list_uri_tostring(lmsrp_list_uri *urs, char *buff, int leng);
+lmsrp_uri* lmsrp_list_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
+		pj_str_t *sessid, int transport);
+
+void lmsrp_list_uri_add(lmsrp_list_uri *list, lmsrp_uri *uri);
+lmsrp_list_uri* lmsrp_path_create(pj_pool_t *pool, lmsrp_uri *uri);
 #endif /* LMSRP_COMMON_H_ */

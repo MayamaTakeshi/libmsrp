@@ -29,4 +29,9 @@ void lmsrp_authorization_header_prase(pj_pool_t *pool,
 		lmsrp_authorization_h *dst, char *data, int end);
 int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 		char *buff, int size);
+
+lmsrp_authorization_h* lmsrp_authorization_h_create(pj_pool_t *pool,
+		pj_str_t *scheme, pj_str_t *username, pj_str_t *realm, pj_str_t *nonce,
+		pj_str_t *uri, pj_str_t *response, pj_str_t *algorithm,
+		pj_str_t *cnonce, pj_str_t *opaque, pj_str_t *qop, pj_str_t *nc);
 #endif /* LMSRP_AUTHORIZATION_H_ */

@@ -19,4 +19,8 @@
 #include <lmsrp/lmsrp_content_type.h>
 #include <lmsrp/lmsrp_mess.h>
 
+typedef enum _lmsrp_transport {
+	lmsrp_transport_udp, lmsrp_transport_tcp, lmsrp_transport_tls
+} lmsrp_transport;
+
 #endif /* LMSRP_H_ */

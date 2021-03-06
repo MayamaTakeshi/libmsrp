@@ -36,4 +36,5 @@ int lmsrp_find_header_property(const header_property *pro, const int size, pj_st
 int lmsrp_header_check_equal(char *data, int end, int *result);
 void lmsrp_auth_common_prase(pj_pool_t *pool, lmsrp_auth_common_header *dst,
 		lmsrp_check *check, lmsrp_auth_set_pro *set_pro,int size , char *data, int end);
+
 #endif /* LMSRP_AUTH_COMMOM_H_ */
