@@ -12,6 +12,16 @@ static int find_CRLF(char *data, int end) {
 	}
 	return end;
 }
+static int rm_colon(char *data, int end) {
+	for (int i = 0; i < end; i++) {
+
+		if (data[i] == ':')
+			return i + 1;
+		if (data[i] > ' ')
+			return i;
+	}
+	return end;
+}
 static int lmsrp_mess_check(char d, void *arg) {
 	if (d == ' ' || d == ':' || d == '\r' || d == '\n')
 		return 1;
@@ -56,12 +66,15 @@ const static header_property hmess[] = { //
 		};
 void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		int end) {
-	static const int hmess_leng =sizeof(hmess) / sizeof(header_property);
+	static const int hmess_leng = sizeof(hmess) / sizeof(header_property);
 	int st = lmsrp_find_header_property(hmess, hmess_leng, name);
 	static int ls = sizeof(pj_str_t);
 	pj_pool_t *pool = mess->pool;
 	static pj_str_t out;
 	static pj_str_t *rs;
+	int dem = rm_colon(data, end);
+	data = data + dem;
+	end = end - dem;
 	switch (st) {
 	case lmsrp_mess_header_msrp:
 		;
@@ -74,6 +87,7 @@ void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		break;
 	case lmsrp_mess_header_to_path:
 		mess->to_path = pj_pool_alloc(mess->pool, sizeof(lmsrp_list_uri));
+
 		lmsrp_list_uri_prase(mess->pool, mess->to_path, data, end);
 		break;
 	case lmsrp_mess_header_from_path:
@@ -206,10 +220,11 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 	}
 	lmsrp_mess *mess = pj_pool_zalloc(pool, sizeof(lmsrp_mess));
 	mess->pool = pool;
-	mess->flag =  line.flag ;
+	mess->flag = line.flag;
 	pj_str_t name;
 	int dem, lend;
 	int kt = 0;
+	int check = 0;
 	while (1) {
 		dem = lmsrp_get_str(&name, data, end, &lmsrp_mess_check, NULL);
 		if (dem < 1)
@@ -226,11 +241,15 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 		lmsrp_mess_set_header(mess, &name, data, lend - kt);
 		data = data + lend;
 		end = end - lend;
-		if (data[0] == '\n' || data[1] == '\n') {
+		if (data[0] == '\n')
+			check = 1;
+		else if (data[1] == '\n')
+			check = 2;
+		if (check) {
 			// this is contend data
-			name.ptr = data;
-			name.slen = line.vt - keep;
-			pj_str_t *lp = pj_strtrim(&name);
+			name.ptr = data + check;
+			name.slen = line.vt - keep - check - 2;
+			pj_str_t *lp = (&name);
 			pj_memcpy(&mess->contend, lp, sizeof(pj_str_t));
 			break;
 		}

@@ -102,11 +102,12 @@ static void lmsrp_set_pro(void *data, pj_str_t *name, pj_str_t *value) {
 		;
 		lmsrp_list_param *listp;
 		listp = pj_pool_alloc(dst->pool, sizeof(lmsrp_list_param));
+
 		if (dst->params == NULL) {
 			pj_list_init(listp);
 			dst->params = listp;
 		} else {
-			pj_list_insert_after(dst->params, dst->params);
+			pj_list_insert_after(dst->params, listp);
 		}
 		if (value == NULL || value->slen == 0) {
 			pj_bzero(&listp->var.value, ls);

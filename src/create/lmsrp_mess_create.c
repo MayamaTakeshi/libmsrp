@@ -16,12 +16,14 @@ lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,
 		pj_str_t *method) {
 	lmsrp_mess *res = pj_pool_zalloc(pool, sizeof(lmsrp_mess));
 	res->pool = pool;
-	pj_memcpy(&res->tid, sessid, sizeof(pj_str_t));
+	if (sessid != NULL)
+		pj_memcpy(&res->tid, sessid, sizeof(pj_str_t));
 	pj_memcpy(&res->info.request.method, method, sizeof(pj_str_t));
+	res->flag = '$';
 	return res;
 }
-lmsrp_uri* lmsrp_list_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
-		pj_str_t *sessid, int transport) {
+lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
+		pj_str_t *sessid, pj_str_t *username, int transport) {
 	lmsrp_uri *uri = PJ_POOL_ZALLOC_T(pool, lmsrp_uri);
 	uri->pool = pool;
 	pj_memcpy(&uri->session_id, sessid, sizeof(pj_str_t));
@@ -41,6 +43,16 @@ lmsrp_uri* lmsrp_list_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 		uri->scheme = lmsrp_ch_tls;
 		break;
 	}
+	if (host != NULL) {
+		pj_memcpy(&uri->authority.host, host, sizeof(pj_str_t));
+	}
+	if (sessid != NULL) {
+		uri->session_id = *sessid;
+	}
+	if (username != NULL) {
+		uri->authority.userinfo = *username;
+	}
+
 	return uri;
 }
 lmsrp_byte_range* lmsrp_byte_range_create(pj_pool_t *pool, int start, int end,
@@ -57,11 +69,12 @@ void lmsrp_list_uri_add(lmsrp_list_uri *list, lmsrp_uri *uri) {
 		list->uri = uri;
 	} else {
 		lmsrp_list_uri *res = PJ_POOL_ZALLOC_T(list->pool, lmsrp_list_uri);
+		res->pool = list->pool;
 		res->uri = uri;
 		pj_list_insert_before(list, res);
 	}
 }
-lmsrp_list_uri* lmsrp_path_create(pj_pool_t *pool, lmsrp_uri *uri) {
+lmsrp_list_uri* lmsrp_list_uri_create(pj_pool_t *pool, lmsrp_uri *uri) {
 	lmsrp_list_uri *res = PJ_POOL_ZALLOC_T(pool, lmsrp_list_uri);
 	pj_list_init(res);
 	res->pool = pool;

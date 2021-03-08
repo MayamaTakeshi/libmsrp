@@ -54,9 +54,11 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end);
 int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check *test,
 		void *arg);
 int lmsrp_list_uri_tostring(lmsrp_list_uri *urs, char *buff, int leng);
-lmsrp_uri* lmsrp_list_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
-		pj_str_t *sessid, int transport);
 
+lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
+		pj_str_t *sessid, pj_str_t *username, int transport);
+
+int lmsrp_uri_tostring(lmsrp_uri *uri, char *buff, int leng);
 void lmsrp_list_uri_add(lmsrp_list_uri *list, lmsrp_uri *uri);
-lmsrp_list_uri* lmsrp_path_create(pj_pool_t *pool, lmsrp_uri *uri);
+lmsrp_list_uri* lmsrp_list_uri_create(pj_pool_t *pool, lmsrp_uri *uri);
 #endif /* LMSRP_COMMON_H_ */

@@ -7,6 +7,8 @@
 
 #include <lmsrp.h>
 int lmsrp_uri_tostring(lmsrp_uri *uri, char *buff, int leng) {
+	if (uri == NULL)
+		return 0;
 	int dem = 0;
 	int tong = 0;
 	char *point = buff;
@@ -60,7 +62,7 @@ int lmsrp_list_uri_tostring(lmsrp_list_uri *urs, char *buff, int leng) {
 	int tong = 0;
 	char *point = buff;
 	lmsrp_uri *uri;
-	while (uri_num > 0) {
+	while (uri_num > -1) {
 		uri = urs->uri;
 		uri_num--;
 		dem = lmsrp_uri_tostring(uri, point, leng);

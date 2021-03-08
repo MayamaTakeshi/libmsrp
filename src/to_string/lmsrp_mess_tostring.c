@@ -34,7 +34,7 @@ static int path_to_string(char *buff, int size, char *path_name,
 	dem = lmsrp_list_uri_tostring(urs, point, size);
 	_LMSRP_MESSEND;
 	pj_memcpy(point, endline.ptr, endline.slen);
-	return tong +2;
+	return tong + 2;
 }
 int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size) {
 	int dem = 0;
@@ -57,11 +57,11 @@ int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size) {
 		_LMSRP_MESSEND;
 	}
 	if (mess->from_path != NULL) {
-		dem = path_to_string(point, size, "From-Path", mess->to_path);
+		dem = path_to_string(point, size, "From-Path", mess->from_path);
 		_LMSRP_MESSEND;
 	}
 	if (mess->use_path != NULL) {
-		dem = path_to_string(point, size, "Use-Path", mess->to_path);
+		dem = path_to_string(point, size, "Use-Path", mess->use_path);
 		_LMSRP_MESSEND;
 	}
 	if (mess->status != NULL) {
@@ -136,12 +136,16 @@ int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size) {
 	}
 // TODO add content type
 	if (mess->contend.slen) {
-		dem = sprintf(point, "\r\n%.*s\r\n", (int) mess->contend.slen,
-				mess->contend.ptr);
+		dem = sprintf(point, "\r\n");
+		_LMSRP_MESSEND;
+		dem = mess->contend.slen;
+		pj_memcpy(point, mess->contend.ptr, mess->contend.slen);
+		_LMSRP_MESSEND;
+		dem = sprintf(point, "\r\n");
 		_LMSRP_MESSEND;
 	}
-	dem = sprintf(point, "-------%.*s%c\r\n", (int) mess->tid.slen, mess->tid.ptr,
-			mess->flag);
+	dem = sprintf(point, "-------%.*s%c\r\n\r\n", (int) mess->tid.slen,
+			mess->tid.ptr, mess->flag);
 	_LMSRP_MESSEND;
 	return tong;
 }

@@ -26,7 +26,7 @@ void lmsrp_list_uri_prase(pj_pool_t *pool, lmsrp_list_uri *dst, char *data,
 
 	lmsrp_uri lst;
 	int dem = 0;
-	lmsrp_list_uri *point = dst;
+
 	while (1) {
 		dem = lmsrp_uri_prase(pool, &lst, data, end);
 		if (dem < 1)
@@ -34,12 +34,16 @@ void lmsrp_list_uri_prase(pj_pool_t *pool, lmsrp_list_uri *dst, char *data,
 		else {
 			data = data + dem;
 			end = end - dem;
-			point->uri = pj_pool_alloc(pool, sizeof(lmsrp_uri));
-			pj_memcpy(point->uri, &lst, sizeof(lmsrp_uri));
-			lmsrp_list_uri *ls = pj_pool_alloc(pool, sizeof(lmsrp_list_uri));
-			ls->pool = pool;
-			pj_list_insert_before(dst, ls);
-			point = ls;
+			if (dst->uri == NULL) {
+				dst->uri = pj_pool_alloc(pool, sizeof(lmsrp_uri));
+				pj_memcpy(dst->uri, &lst, sizeof(lmsrp_uri));
+				dst->uri->pool = pool;
+			} else {
+				lmsrp_uri *set = pj_pool_alloc(pool, sizeof(lmsrp_uri));
+				pj_memcpy(set, &lst, sizeof(lmsrp_uri));
+				set->pool = pool;
+				lmsrp_list_uri_add(dst, set);
+			}
 		}
 	}
 

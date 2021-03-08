@@ -69,7 +69,7 @@ void lmsrp_authorization_set_pro(void *header, pj_str_t *name, pj_str_t *value) 
 			pj_list_init(listp);
 			dst->params = listp;
 		} else {
-			pj_list_insert_after(dst->params, dst->params);
+			pj_list_insert_after(dst->params, listp);
 		}
 		if (value == NULL || value->slen == 0) {
 			pj_bzero(&listp->var.value, ls);
