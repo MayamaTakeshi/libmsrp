@@ -116,7 +116,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 	//
 	if (data[0] == ':') {
 		// prase port
-		PJ_LOG(4, (__FILE__,"log port"));
+//		PJ_LOG(4, (__FILE__,"log port"));
 		dem = lmsrp_get_str(&(out), data, end, &check, NULL);
 		if (dem < 0)
 			return -1;

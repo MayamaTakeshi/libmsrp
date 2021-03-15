@@ -22,6 +22,16 @@ lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,
 	res->flag = '$';
 	return res;
 }
+lmsrp_status_h* lmsrp_status_h_create(pj_pool_t *pool, int code, int rfcode,
+		pj_str_t *reason) {
+	lmsrp_status_h *res = PJ_POOL_ZALLOC_T(pool, lmsrp_status_h);
+	res->pool = pool;
+	res->code = code;
+	res->rfc_code = rfcode;
+	if (reason != NULL)
+		pj_memcpy(&res->reason, reason, sizeof(pj_str_t));
+	return res;
+}
 lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 		pj_str_t *sessid, pj_str_t *username, int transport) {
 	lmsrp_uri *uri = PJ_POOL_ZALLOC_T(pool, lmsrp_uri);
@@ -41,6 +51,10 @@ lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 	case lmsrp_transport_tls:
 		uri->transport = lmsrp_tp_tls;
 		uri->scheme = lmsrp_ch_tls;
+		break;
+	default:
+		;
+		uri->scheme = lmsrp_ch_tcp;
 		break;
 	}
 	if (host != NULL) {

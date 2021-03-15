@@ -47,12 +47,14 @@ pj_bool_t lmsrp_check_end2(char *buff, int leng, lmsrp_mess_endline *end);
 /**
  * 	to save memory , i only use ponter to point data , not copy it
  * 	this is important to remember that you data will lost if you don't use dynamic alloc
+ *	THIS IS USEFULL TO READ ON ONE MSRP MESS , BUT IT NOT WORD FOR CHAIN OF MSRP MESS
  * @param pool pj_pool
  * @param data data buffer
  * @param end  poniter
  * @return
  */
 lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end);
+
 int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size);
 lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,
 		pj_str_t *method);

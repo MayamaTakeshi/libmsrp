@@ -5,12 +5,13 @@
  *      Author: amneiht
  */
 #include <lmsrp.h>
+//static const char lmsrp_end_line[8] = "\n-------";
 static int find_CRLF(char *data, int end) {
 	for (int i = 0; i < end; i++) {
 		if (data[i] == '\n')
 			return i + 1;
 	}
-	return end;
+	return end + 1;
 }
 static int rm_colon(char *data, int end) {
 	for (int i = 0; i < end; i++) {
@@ -29,7 +30,7 @@ static int lmsrp_mess_check(char d, void *arg) {
 }
 
 typedef enum lmsrp_mess_header_type {
-	lmsrp_mess_header_msrp,
+	lmsrp_mess_header_msrp = 1,
 	lmsrp_mess_header_to_path,
 	lmsrp_mess_header_status,
 	lmsrp_mess_header_byte_range,
@@ -43,7 +44,8 @@ typedef enum lmsrp_mess_header_type {
 	lmsrp_mess_header_min_express,
 	lmsrp_mess_header_express,
 	lmsrp_mess_header_www_auth,
-	lmsrp_mess_header_authorization
+	lmsrp_mess_header_authorization,
+	lmsrp_mess_header_unknow
 } lmsrp_mess_header_type;
 // 15 phan tu
 
@@ -64,7 +66,7 @@ const static header_property hmess[] = { //
 				{ { "WWW-Authenticate", 16 }, lmsrp_mess_header_www_auth }, //  rfc 4976
 				{ { "Authorization", 13 }, lmsrp_mess_header_authorization }, //  rfc 4976
 		};
-void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
+pj_int32_t lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		int end) {
 	static const int hmess_leng = sizeof(hmess) / sizeof(header_property);
 	int st = lmsrp_find_header_property(hmess, hmess_leng, name);
@@ -78,6 +80,8 @@ void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 	switch (st) {
 	case lmsrp_mess_header_msrp:
 		;
+		if (mess->messid.slen > 0)
+			return -1;
 		int dem = lmsrp_get_str(&out, data, end, &lmsrp_mess_check, NULL);
 		data = data + dem;
 		end = end - dem;
@@ -86,68 +90,104 @@ void lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		mess->type = lmsrp_info_prase(&mess->info, data, end);
 		break;
 	case lmsrp_mess_header_to_path:
+		if (mess->to_path != NULL) {
+			return -1;
+		}
 		mess->to_path = pj_pool_alloc(mess->pool, sizeof(lmsrp_list_uri));
 
 		lmsrp_list_uri_prase(mess->pool, mess->to_path, data, end);
 		break;
 	case lmsrp_mess_header_from_path:
+		;
+		if (mess->from_path != NULL) {
+			return -1;
+		}
 		mess->from_path = pj_pool_alloc(mess->pool, sizeof(lmsrp_list_uri));
 		lmsrp_list_uri_prase(mess->pool, mess->from_path, data, end);
 		break;
 	case lmsrp_mess_header_use_path:
+		if (mess->use_path != NULL) {
+			return -1;
+		}
 		mess->use_path = pj_pool_alloc(mess->pool, sizeof(lmsrp_list_uri));
 		lmsrp_list_uri_prase(mess->pool, mess->use_path, data, end);
 		break;
 	case lmsrp_mess_header_byte_range:
+		if (mess->byte_range != NULL) {
+			return -1;
+		}
 		mess->byte_range = pj_pool_alloc(mess->pool, sizeof(lmsrp_byte_range));
 		lmsrp_byte_range_prase(pool, mess->byte_range, data, end);
 		break;
 	case lmsrp_mess_header_content_type:
 		;
+		if (mess->content_type != NULL) {
+			return -1;
+		}
 		mess->content_type = pj_pool_alloc(pool, sizeof(lmsrp_content_type_h));
 		lmsrp_content_type_prase(pool, mess->content_type, data, end);
 		break;
 	case lmsrp_mess_header_messid:
+		if (mess->messid.slen > 0)
+			return -1;
 		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
 		pj_memcpy(&mess->messid, &out, ls);
 		break;
 	case lmsrp_mess_header_failure_report:
+		if (mess->failure_report.slen > 0)
+			return -1;
 		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
 		pj_memcpy(&mess->failure_report, &out, ls);
 		break;
 	case lmsrp_mess_header_sucess_report:
+		if (mess->success_report.slen > 0)
+			return -1;
 		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
 		pj_memcpy(&mess->success_report, &out, ls);
 		break;
 	case lmsrp_mess_header_status:
+		if (mess->status != NULL)
+			return -1;
 		mess->status = pj_pool_alloc(pool, sizeof(lmsrp_status_h));
 		lmsrp_status_h_prase(pool, mess->status, data, end);
 		break;
 	case lmsrp_mess_header_max_express:
+		if (mess->max_expries != 0)
+			return -1;
 		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
 		mess->max_expries = pj_strtol(&out);
 		break;
 	case lmsrp_mess_header_min_express:
+		if (mess->min_expries != 0)
+			return -1;
 		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
 		mess->min_expries = pj_strtol(&out);
 		break;
 	case lmsrp_mess_header_express:
+		if (mess->expries != 0)
+			return -1;
 		lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
 		mess->expries = pj_strtol(&out);
 		break;
 	case lmsrp_mess_header_www_auth:
+		if (mess->www != NULL)
+			return -1;
 		mess->www = pj_pool_alloc(pool, sizeof(lmsrp_www_h));
 		lmsrp_www_h_prase(pool, mess->www, data, end);
 
 		break;
 	case lmsrp_mess_header_authorization:
+		if (mess->www != NULL)
+			return -1;
 		mess->auth = pj_pool_alloc(pool, sizeof(lmsrp_authorization_h));
 		lmsrp_authorization_header_prase(pool, mess->auth, data, end);
 		break;
 	default:
-		break;
+		return lmsrp_mess_header_unknow;
 	}
+	return st;
 }
+
 pj_bool_t lmsrp_check_end(const char *buff, int leng, char *flag) {
 	static int back = 20; // olyread 20 character
 
@@ -255,4 +295,122 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 		}
 	}
 	return mess;
+}
+
+pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
+	lmsrp_mess *mess = ctx->mess;
+	int dem, keep, lend, kt, check;
+	keep = 0;
+	check = 0;
+	pj_str_t name;
+	pj_int32_t st;
+	if (ctx->state == lmsrp_prase_state_done)
+		ctx->state = lmsrp_prase_state_unknow;
+	else if (ctx->state == lmsrp_prase_state_content)
+		goto CONTENT;
+	{
+		while (1) {
+			dem = lmsrp_get_str(&name, data, end, &lmsrp_mess_check, NULL);
+			if (dem < 1)
+				break;
+
+			data = data + dem;
+			end = end - dem;
+			lend = find_CRLF(data, end);
+			if (lend > end) {
+				ctx->data_read = ctx->data_read + keep;
+				return PJ_TRUE;
+			}
+			keep = keep + dem;
+			if (data[lend - 2] == '\r')
+				kt = 2;
+			else
+				kt = 1;
+			st = lmsrp_mess_set_header(mess, &name, data, lend - kt);
+			if (st < 0)
+				return PJ_FALSE;
+			data = data + lend;
+			end = end - lend;
+			keep = keep + lend;
+			if (st == lmsrp_mess_header_msrp)
+				ctx->state = lmsrp_prase_state_mess;
+			else
+				ctx->state = lmsrp_prase_state_header;
+
+			if (end < 2) {
+				ctx->data_read = ctx->data_read + keep;
+				return PJ_TRUE;
+			}
+			if (data[0] == '\n')
+				check = 1;
+			else if (data[1] == '\n')
+				check = 2;
+			if (check) {
+				data = data + check;
+				end = end - check;
+				keep = keep + check;
+				ctx->state = lmsrp_prase_state_content;
+				mess->contend.ptr = data;
+				goto CONTENT;
+			}
+		}
+	}
+	CONTENT: {
+		// gioi han data
+		int all = 0;
+		if (ctx->content_leng + end >= ctx->max_byte + 20)
+			all = 1;
+		int start = ctx->content_leng;
+		dem = sprintf(ctx->tid, "\n-------%.*s", (int) mess->tid.slen,
+				mess->tid.ptr);
+		pj_str_t tid = pj_str(ctx->tid);
+		pj_str_t find = { (data + start), end - start };
+		while (1) {
+			char *el = pj_strstr(&find, &tid);
+			if (el == NULL) {
+				if (all == 1)
+					return PJ_FALSE;
+				else {
+					start = start + end - (tid.slen - 1);
+					if (start < 0)
+						start = 0;
+					ctx->data_read = ctx->data_read + keep;
+					ctx->content_leng = start;
+					return PJ_TRUE;
+				}
+			} else {
+				int slen = (el - data);
+				end = end - slen;
+				if (end - tid.slen < 5) {
+					if (all == 1)
+						return PJ_FALSE;
+					start = start + end - (tid.slen - 1);
+					if (start < 0)
+						start = 0;
+					ctx->data_read = ctx->data_read + keep;
+					ctx->content_leng = start;
+					return PJ_TRUE;
+				}
+				char flag = el[tid.slen];
+				if (flag != '+' && flag != '#' && flag != '$') {
+					find.ptr = find.ptr + slen + 1 + tid.slen;
+					find.slen = find.slen - slen - 1 - tid.slen;
+					continue;
+				}
+				pj_str_t eol = { find.ptr + slen + 1 + tid.slen, 4 };
+				if (pj_strcmp2(&eol, "\r\n\r\n") != 0) {
+					find.ptr = find.ptr + slen + 5 + tid.slen;
+					find.slen = find.slen - slen - 5 - tid.slen;
+					continue;
+				}
+				mess->flag = el[tid.slen];
+				mess->contend.slen = slen;
+				ctx->state = lmsrp_prase_state_done;
+
+				ctx->data_read = ctx->data_read + keep + mess->contend.slen
+						+ tid.slen + 5;
+			}
+		}
+	};
+	return PJ_TRUE;
 }

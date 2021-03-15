@@ -17,5 +17,6 @@ typedef struct _lmsrp_status {
 
 void lmsrp_status_h_prase(pj_pool_t *pool, lmsrp_status_h *header, char *data,
 		int end);
-
+lmsrp_status_h* lmsrp_status_h_create(pj_pool_t *pool, int code, int rfcode,
+		pj_str_t *reason) ;
 #endif /* LMSRP_STATUS_H_ */

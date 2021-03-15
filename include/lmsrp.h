@@ -18,6 +18,7 @@
 #include <lmsrp/lmsrp_byte_range.h>
 #include <lmsrp/lmsrp_content_type.h>
 #include <lmsrp/lmsrp_mess.h>
+#include <lmsrp/lmsrp_stream.h>
 
 typedef enum _lmsrp_transport {
 	lmsrp_transport_udp, lmsrp_transport_tcp, lmsrp_transport_tls
