@@ -6,6 +6,8 @@
  */
 #include <lmsrp.h>
 //static const char lmsrp_end_line[8] = "\n-------";
+#define this "lmsrp_mess.c"
+static pj_str_t lmsrp_eol = { "\r\n\r\n", 2 };
 static int find_CRLF(char *data, int end) {
 	for (int i = 0; i < end; i++) {
 		if (data[i] == '\n')
@@ -80,7 +82,7 @@ pj_int32_t lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 	switch (st) {
 	case lmsrp_mess_header_msrp:
 		;
-		if (mess->messid.slen > 0)
+		if (mess->tid.slen > 0)
 			return -1;
 		int dem = lmsrp_get_str(&out, data, end, &lmsrp_mess_check, NULL);
 		data = data + dem;
@@ -327,8 +329,11 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 			else
 				kt = 1;
 			st = lmsrp_mess_set_header(mess, &name, data, lend - kt);
-			if (st < 0)
+			if (st < 0) {
+				ctx->data_read = ctx->data_read + keep;
+				PJ_LOG(1, (this,"dulicate header"));
 				return PJ_FALSE;
+			}
 			data = data + lend;
 			end = end - lend;
 			keep = keep + lend;
@@ -353,12 +358,24 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 				mess->contend.ptr = data;
 				goto CONTENT;
 			}
+//			if (st == lmsrp_mess_header_unknow) {
+//				dem = sprintf(ctx->tid, "-------%.*s", (int) mess->tid.slen,
+//						mess->tid.ptr);
+//				pj_str_t tid = pj_str(ctx->tid);
+//				name.slen = dem;
+//				if (pj_strcmp(&tid, &name) == 0) {
+//					ctx->data_read  = keep ;
+//					ctx->state = lmsrp_prase_state_done;
+//					return PJ_TRUE;
+//				}
+//			}
 		}
+
 	}
 	CONTENT: {
 		// gioi han data
 		int all = 0;
-		if (ctx->content_leng + end >= ctx->max_byte + 20)
+		if (ctx->content_leng + end > ctx->max_byte + 20)
 			all = 1;
 		int start = ctx->content_leng;
 		dem = sprintf(ctx->tid, "\n-------%.*s", (int) mess->tid.slen,
@@ -368,9 +385,11 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 		while (1) {
 			char *el = pj_strstr(&find, &tid);
 			if (el == NULL) {
-				if (all == 1)
+				if (all == 1) {
+					ctx->data_read = ctx->data_read + keep + (el - data);
+					PJ_LOG(1, (this,"data is over when cant found endline"));
 					return PJ_FALSE;
-				else {
+				} else {
 					start = start + end - (tid.slen - 1);
 					if (start < 0)
 						start = 0;
@@ -381,9 +400,11 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 			} else {
 				int slen = (el - data);
 				end = end - slen;
-				if (end - tid.slen < 5) {
-					if (all == 1)
+				if (end - tid.slen < 1 + lmsrp_eol.slen) {
+					if (all == 1) {
+						PJ_LOG(1, (this,"data is over end line"));
 						return PJ_FALSE;
+					}
 					start = start + end - (tid.slen - 1);
 					if (start < 0)
 						start = 0;
@@ -393,22 +414,26 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 				}
 				char flag = el[tid.slen];
 				if (flag != '+' && flag != '#' && flag != '$') {
-					find.ptr = find.ptr + slen + 1 + tid.slen;
+					find.ptr = data + slen + 1 + tid.slen;
 					find.slen = find.slen - slen - 1 - tid.slen;
 					continue;
 				}
-				pj_str_t eol = { find.ptr + slen + 1 + tid.slen, 4 };
-				if (pj_strcmp2(&eol, "\r\n\r\n") != 0) {
-					find.ptr = find.ptr + slen + 5 + tid.slen;
-					find.slen = find.slen - slen - 5 - tid.slen;
+				pj_str_t eol = { data + slen + 1 + tid.slen, lmsrp_eol.slen };
+				if (pj_strcmp(&eol, &lmsrp_eol) != 0) {
+					find.ptr = data + slen + 1 + lmsrp_eol.slen + tid.slen;
+					find.slen = find.slen - slen - 1 - lmsrp_eol.slen
+							- tid.slen;
 					continue;
 				}
 				mess->flag = el[tid.slen];
 				mess->contend.slen = slen;
+				if (mess->contend.ptr[slen-1] == '\r') {
+					mess->contend.slen = slen - 1;
+				}
 				ctx->state = lmsrp_prase_state_done;
-
 				ctx->data_read = ctx->data_read + keep + mess->contend.slen
-						+ tid.slen + 5;
+						+ tid.slen + 1 + eol.slen;
+				return PJ_TRUE;
 			}
 		}
 	};

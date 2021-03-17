@@ -62,11 +62,12 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		ctx->sum = 0;
 		report = lmsrp_stream_prase(ctx, buff, size);
 		if (report == PJ_FALSE) {
+			ctx->state = lmsrp_prase_state_done ;
 			return report;
 		}
 		if (ctx->state == lmsrp_prase_state_done) {
 			ctx->export(ctx->data, ctx->mess->contend.ptr,
-					ctx->mess->contend.slen, ctx->mess->byte_range);
+					ctx->mess->contend.slen, ctx->mess);
 			if (ctx->data_read < size) {
 				buff = buff + ctx->data_read;
 				size = size - ctx->data_read;
@@ -80,7 +81,8 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		}
 		break;
 	default: {
-		int cpy = ctx->max_byte + 20 - ctx->sum;
+		//all header leng + maxbyte
+		int cpy = (ctx->max_byte +500)+ 20 - ctx->sum;
 		if (cpy > size)
 			cpy = size;
 		pj_memcpy((ctx->tmp + ctx->sum), buff, cpy);
@@ -89,11 +91,12 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		pj_size_t size2 = cpy + ctx->sum - ctx->data_read;
 		report = lmsrp_stream_prase(ctx, (ctx->tmp + ctx->data_read), size2);
 		if (report == PJ_FALSE) {
+			ctx->state = lmsrp_prase_state_done ;
 			return report;
 		}
 		if (ctx->state == lmsrp_prase_state_done) {
 			ctx->export(ctx->data, ctx->mess->contend.ptr,
-					ctx->mess->contend.slen, ctx->mess->byte_range);
+					ctx->mess->contend.slen, ctx->mess);
 			size2 = ctx->data_read - old_leng;
 			if (size2 < size) {
 				size = size - size2;
@@ -103,7 +106,7 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		} else {
 			// khang dinh sum =size
 			pj_memcpy(ctx->tmp + ctx->sum, buff, size2);
-			ctx->sum = ctx->sum + size2;
+			ctx->sum = ctx->sum + cpy;
 		}
 	}
 		break;
