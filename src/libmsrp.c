@@ -28,14 +28,16 @@ void test_msrp() {
 			"MSRP fdls REPORT\n"
 					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
 					"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-					"-------fdls$\r\n"
-					"MSRP fdls REPORT\n"
-					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-					"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-					"\r\n"
-					"wvxhqjwxujqhxwgxghqsuxhlsjdhwwjshhsssusu\n-------fdls$\r\nMSRP fdls REPORT\n"
-					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-					"From-Path:msrp://test1@192.";
+					"-------fdls$\r\n" ;
+
+
+//					"MSRP fdls REPORT\n"
+//					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
+//					"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
+//					"\r\n"
+//					"wvxhqjwxujqhxwgxghqsuxhlsjdhwwjshhsssusu\n-------fdls$\r\nMSRP fdls REPORT\n"
+//					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
+//					"From-Path:msrp://test1@192.";
 
 	char *lms = "168.4.38;tcp \r\n"
 			"\r\n"
@@ -62,6 +64,6 @@ void test_prase2() {
 }
 int main(void) {
 	init();
-	test_prase2();
-//	test_msrp();
+//	test_prase2();
+	test_msrp();
 }

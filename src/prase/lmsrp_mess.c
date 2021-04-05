@@ -342,6 +342,22 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 			else
 				ctx->state = lmsrp_prase_state_header;
 
+			if (st == lmsrp_mess_header_unknow) {
+				dem = sprintf(ctx->tid, "-------%.*s", (int) mess->tid.slen,
+						mess->tid.ptr);
+				pj_str_t tid = pj_str(ctx->tid);
+				if (name.slen < dem) {
+					ctx->data_read = keep;
+					ctx->state = lmsrp_prase_state_done;
+					return PJ_FALSE;
+				}
+				name.slen = dem;
+				if (pj_strcmp(&tid, &name) == 0) {
+					ctx->data_read = keep;
+					ctx->state = lmsrp_prase_state_done;
+					return PJ_TRUE;
+				}
+			}
 			if (end < 2) {
 				ctx->data_read = ctx->data_read + keep;
 				return PJ_TRUE;
@@ -358,17 +374,7 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 				mess->contend.ptr = data;
 				goto CONTENT;
 			}
-//			if (st == lmsrp_mess_header_unknow) {
-//				dem = sprintf(ctx->tid, "-------%.*s", (int) mess->tid.slen,
-//						mess->tid.ptr);
-//				pj_str_t tid = pj_str(ctx->tid);
-//				name.slen = dem;
-//				if (pj_strcmp(&tid, &name) == 0) {
-//					ctx->data_read  = keep ;
-//					ctx->state = lmsrp_prase_state_done;
-//					return PJ_TRUE;
-//				}
-//			}
+
 		}
 
 	}
@@ -427,7 +433,7 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 				}
 				mess->flag = el[tid.slen];
 				mess->contend.slen = slen;
-				if (mess->contend.ptr[slen-1] == '\r') {
+				if (mess->contend.ptr[slen - 1] == '\r') {
 					mess->contend.slen = slen - 1;
 				}
 				ctx->state = lmsrp_prase_state_done;

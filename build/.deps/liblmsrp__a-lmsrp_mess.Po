@@ -1,5 +1,5 @@
-../src/msrp-libmsrp.o: ../src/libmsrp.c /usr/include/stdc-predef.h \
- ../include/lmsrp.h /usr/local/include/pjlib.h \
+liblmsrp__a-lmsrp_mess.o: ../src/prase/lmsrp_mess.c \
+ /usr/include/stdc-predef.h ../include/lmsrp.h /usr/local/include/pjlib.h \
  /usr/local/include/pj/activesock.h /usr/local/include/pj/ioqueue.h \
  /usr/local/include/pj/types.h /usr/local/include/pj/config.h \
  /usr/local/include/pj/compat/cc_gcc.h \
@@ -97,7 +97,8 @@
  ../include/lmsrp/lmsrp_auth_commom.h \
  ../include/lmsrp/lmsrp_authorization.h ../include/lmsrp/lmsrp_info.h \
  ../include/lmsrp/lmsrp_status.h ../include/lmsrp/lmsrp_byte_range.h \
- ../include/lmsrp/lmsrp_content_type.h ../include/lmsrp/lmsrp_mess.h
+ ../include/lmsrp/lmsrp_content_type.h ../include/lmsrp/lmsrp_mess.h \
+ ../include/lmsrp/lmsrp_stream.h
 
 /usr/include/stdc-predef.h:
 
@@ -368,3 +369,5 @@
 ../include/lmsrp/lmsrp_content_type.h:
 
 ../include/lmsrp/lmsrp_mess.h:
+
+../include/lmsrp/lmsrp_stream.h:
