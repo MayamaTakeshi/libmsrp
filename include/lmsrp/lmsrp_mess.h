@@ -58,4 +58,7 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end);
 int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size);
 lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,
 		pj_str_t *method);
+pj_str_t* lmsrp_authorizate_mess(lmsrp_mess *mess, lmsrp_mess *respone,
+		pjsip_cred_info *cred);
+
 #endif /* LMSRP_MESS_H_ */

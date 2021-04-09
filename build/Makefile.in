@@ -13,7 +13,6 @@
 # PARTICULAR PURPOSE.
 
 @SET_MAKE@
-
 VPATH = @srcdir@
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
@@ -86,42 +85,18 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-subdir = build
+subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
+DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
+	$(am__configure_deps) $(am__DIST_COMMON)
+am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+ configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-LIBRARIES = $(noinst_LIBRARIES)
-ARFLAGS = cru
-AM_V_AR = $(am__v_AR_@AM_V@)
-am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
-am__v_AR_0 = @echo "  AR      " $@;
-am__v_AR_1 = 
-@BDIR@_lib@LIB_NAME@_a_AR = $(AR) $(ARFLAGS)
-@BDIR@_lib@LIB_NAME@_a_LIBADD =
-am_@BDIR@_lib@LIB_NAME@_a_OBJECTS =  \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_common.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_info.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_status.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.$(OBJEXT) \
-	@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.$(OBJEXT)
-@BDIR@_lib@LIB_NAME@_a_OBJECTS = $(am_@BDIR@_lib@LIB_NAME@_a_OBJECTS)
-am__dirstamp = $(am__leading_dot)dirstamp
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -134,53 +109,94 @@ AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
 am__v_at_1 = 
-DEFAULT_INCLUDES = -I.@am__isrc@
-depcomp = $(SHELL) $(top_srcdir)/depcomp
-am__maybe_remake_depfiles = depfiles
-am__depfiles_remade =  \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Po \
-	./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Po
-am__mv = mv -f
-AM_V_lt = $(am__v_lt_@AM_V@)
-am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
-am__v_lt_0 = --silent
-am__v_lt_1 = 
-COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
-	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
-AM_V_CC = $(am__v_CC_@AM_V@)
-am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
-am__v_CC_0 = @echo "  CC      " $@;
-am__v_CC_1 = 
-CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-AM_V_CCLD = $(am__v_CCLD_@AM_V@)
-am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
-am__v_CCLD_0 = @echo "  CCLD    " $@;
-am__v_CCLD_1 = 
-SOURCES = $(@BDIR@_lib@LIB_NAME@_a_SOURCES)
-DIST_SOURCES = $(@BDIR@_lib@LIB_NAME@_a_SOURCES)
+SOURCES =
+DIST_SOURCES =
+RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
+	ctags-recursive dvi-recursive html-recursive info-recursive \
+	install-data-recursive install-dvi-recursive \
+	install-exec-recursive install-html-recursive \
+	install-info-recursive install-pdf-recursive \
+	install-ps-recursive install-recursive installcheck-recursive \
+	installdirs-recursive pdf-recursive ps-recursive \
+	tags-recursive uninstall-recursive
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
+RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
+  distclean-recursive maintainer-clean-recursive
+am__recursive_targets = \
+  $(RECURSIVE_TARGETS) \
+  $(RECURSIVE_CLEAN_TARGETS) \
+  $(am__extra_recursive_targets)
+AM_RECURSIVE_TARGETS = $(am__recursive_targets:-recursive=) TAGS CTAGS \
+	cscope distdir distdir-am dist dist-all distcheck
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
-am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
+# Read a list of newline-separated strings from the standard input,
+# and print each of them once, without duplicates.  Input order is
+# *not* preserved.
+am__uniquify_input = $(AWK) '\
+  BEGIN { nonempty = 0; } \
+  { items[$$0] = 1; nonempty = 1; } \
+  END { if (nonempty) { for (i in items) print i; }; } \
+'
+# Make sure the list of sources is unique.  This is necessary because,
+# e.g., the same source file might be shared among _SOURCES variables
+# for different programs/libraries.
+am__define_uniq_tagged_files = \
+  list='$(am__tagged_files)'; \
+  unique=`for i in $$list; do \
+    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+  done | $(am__uniquify_input)`
+ETAGS = etags
+CTAGS = ctags
+CSCOPE = cscope
+DIST_SUBDIRS = $(SUBDIRS)
+am__DIST_COMMON = $(srcdir)/Makefile.in ar-lib compile depcomp \
+	install-sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+distdir = $(PACKAGE)-$(VERSION)
+top_distdir = $(distdir)
+am__remove_distdir = \
+  if test -d "$(distdir)"; then \
+    find "$(distdir)" -type d ! -perm -200 -exec chmod u+w {} ';' \
+      && rm -rf "$(distdir)" \
+      || { sleep 5 && rm -rf "$(distdir)"; }; \
+  else :; fi
+am__post_remove_distdir = $(am__remove_distdir)
+am__relativize = \
+  dir0=`pwd`; \
+  sed_first='s,^\([^/]*\)/.*$$,\1,'; \
+  sed_rest='s,^[^/]*/*,,'; \
+  sed_last='s,^.*/\([^/]*\)$$,\1,'; \
+  sed_butlast='s,/*[^/]*$$,,'; \
+  while test -n "$$dir1"; do \
+    first=`echo "$$dir1" | sed -e "$$sed_first"`; \
+    if test "$$first" != "."; then \
+      if test "$$first" = ".."; then \
+        dir2=`echo "$$dir0" | sed -e "$$sed_last"`/"$$dir2"; \
+        dir0=`echo "$$dir0" | sed -e "$$sed_butlast"`; \
+      else \
+        first2=`echo "$$dir2" | sed -e "$$sed_first"`; \
+        if test "$$first2" = "$$first"; then \
+          dir2=`echo "$$dir2" | sed -e "$$sed_rest"`; \
+        else \
+          dir2="../$$dir2"; \
+        fi; \
+        dir0="$$dir0"/"$$first"; \
+      fi; \
+    fi; \
+    dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
+  done; \
+  reldir="$$dir2"
+DIST_ARCHIVES = $(distdir).tar.gz
+GZIP_ENV = --best
+DIST_TARGETS = dist-gzip
+distuninstallcheck_listfiles = find . -type f -print
+am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
+  | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
+distcleancheck_listfiles = find . -type f -print
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
@@ -276,347 +292,156 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-noinst_LIBRARIES = @BDIR@/lib@LIB_NAME@.a
-@BDIR@_lib@LIB_NAME@_a_SOURCES = $(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c \
-$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c \
-$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c \
-$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c \
-$(abs_top_srcdir)/src/stream/lmsrp_ctx.c \
-$(abs_top_srcdir)/src/prase/lmsrp_www_h.c \
-$(abs_top_srcdir)/src/prase/lmsrp_authorization.c \
-$(abs_top_srcdir)/src/prase/lmsrp_common.c \
-$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c \
-$(abs_top_srcdir)/src/prase/lmsrp_info.c \
-$(abs_top_srcdir)/src/prase/lmsrp_mess.c \
-$(abs_top_srcdir)/src/prase/lmsrp_status.c \
-$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c \
-$(abs_top_srcdir)/src/prase/lmsrp_content_type.c \
-$(abs_top_srcdir)/src/create/lmsrp_mess_create.c \
-$(abs_top_srcdir)/src/create/lmsrp_auth_create.c
-
-@BDIR@_lib@LIB_NAME@_a_CFLAGS = -I $(abs_top_srcdir)/include  $(PJSIP_CFLAGS)
-all: all-am
+SUBDIRS = output
+all: all-recursive
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+am--refresh: Makefile
+	@:
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
-	      ( cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh ) \
-	        && { if test -f $@; then exit 0; else break; fi; }; \
+	      echo ' cd $(srcdir) && $(AUTOMAKE) --foreign'; \
+	      $(am__cd) $(srcdir) && $(AUTOMAKE) --foreign \
+		&& exit 0; \
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign build/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign build/Makefile
+	  $(AUTOMAKE) --foreign Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
-	    cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh;; \
+	    echo ' $(SHELL) ./config.status'; \
+	    $(SHELL) ./config.status;; \
 	  *) \
-	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles)'; \
-	    cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles);; \
+	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__maybe_remake_depfiles)'; \
+	    cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__maybe_remake_depfiles);; \
 	esac;
 
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
-	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
+	$(SHELL) ./config.status --recheck
 
 $(top_srcdir)/configure:  $(am__configure_deps)
-	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
+	$(am__cd) $(srcdir) && $(AUTOCONF)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
-	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
+	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
 
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-@BDIR@/$(am__dirstamp):
-	@$(MKDIR_P) @BDIR@
-	@: > @BDIR@/$(am__dirstamp)
+# This directory's subdirectories are mostly independent; you can cd
+# into them and run 'make' without going through this Makefile.
+# To change the values of 'make' variables: instead of editing Makefiles,
+# (1) if the variable is set in 'config.status', edit 'config.status'
+#     (which will cause the Makefiles to be regenerated when you run 'make');
+# (2) otherwise, pass the desired values on the 'make' command line.
+$(am__recursive_targets):
+	@fail=; \
+	if $(am__make_keepgoing); then \
+	  failcom='fail=yes'; \
+	else \
+	  failcom='exit 1'; \
+	fi; \
+	dot_seen=no; \
+	target=`echo $@ | sed s/-recursive//`; \
+	case "$@" in \
+	  distclean-* | maintainer-clean-*) list='$(DIST_SUBDIRS)' ;; \
+	  *) list='$(SUBDIRS)' ;; \
+	esac; \
+	for subdir in $$list; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    dot_seen=yes; \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  ($(am__cd) $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	  || eval $$failcom; \
+	done; \
+	if test "$$dot_seen" = "no"; then \
+	  $(MAKE) $(AM_MAKEFLAGS) "$$target-am" || exit 1; \
+	fi; test -z "$$fail"
 
-@BDIR@/lib@LIB_NAME@.a: $(@BDIR@_lib@LIB_NAME@_a_OBJECTS) $(@BDIR@_lib@LIB_NAME@_a_DEPENDENCIES) $(EXTRA_@BDIR@_lib@LIB_NAME@_a_DEPENDENCIES) @BDIR@/$(am__dirstamp)
-	$(AM_V_at)-rm -f @BDIR@/lib@LIB_NAME@.a
-	$(AM_V_AR)$(@BDIR@_lib@LIB_NAME@_a_AR) @BDIR@/lib@LIB_NAME@.a $(@BDIR@_lib@LIB_NAME@_a_OBJECTS) $(@BDIR@_lib@LIB_NAME@_a_LIBADD)
-	$(AM_V_at)$(RANLIB) @BDIR@/lib@LIB_NAME@.a
+ID: $(am__tagged_files)
+	$(am__define_uniq_tagged_files); mkid -fID $$unique
+tags: tags-recursive
+TAGS: tags
 
-mostlyclean-compile:
-	-rm -f *.$(OBJEXT)
+tags-am: $(TAGS_DEPENDENCIES) $(am__tagged_files)
+	set x; \
+	here=`pwd`; \
+	if ($(ETAGS) --etags-include --version) >/dev/null 2>&1; then \
+	  include_option=--etags-include; \
+	  empty_fix=.; \
+	else \
+	  include_option=--include; \
+	  empty_fix=; \
+	fi; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  if test "$$subdir" = .; then :; else \
+	    test ! -f $$subdir/TAGS || \
+	      set "$$@" "$$include_option=$$here/$$subdir/TAGS"; \
+	  fi; \
+	done; \
+	$(am__define_uniq_tagged_files); \
+	shift; \
+	if test -z "$(ETAGS_ARGS)$$*$$unique"; then :; else \
+	  test -n "$$unique" || unique=$$empty_fix; \
+	  if test $$# -gt 0; then \
+	    $(ETAGS) $(ETAGSFLAGS) $(AM_ETAGSFLAGS) $(ETAGS_ARGS) \
+	      "$$@" $$unique; \
+	  else \
+	    $(ETAGS) $(ETAGSFLAGS) $(AM_ETAGSFLAGS) $(ETAGS_ARGS) \
+	      $$unique; \
+	  fi; \
+	fi
+ctags: ctags-recursive
 
-distclean-compile:
-	-rm -f *.tab.c
+CTAGS: ctags
+ctags-am: $(TAGS_DEPENDENCIES) $(am__tagged_files)
+	$(am__define_uniq_tagged_files); \
+	test -z "$(CTAGS_ARGS)$$unique" \
+	  || $(CTAGS) $(CTAGSFLAGS) $(AM_CTAGSFLAGS) $(CTAGS_ARGS) \
+	     $$unique
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Po@am__quote@ # am--include-marker
+GTAGS:
+	here=`$(am__cd) $(top_builddir) && pwd` \
+	  && $(am__cd) $(top_srcdir) \
+	  && gtags -i $(GTAGS_ARGS) "$$here"
+cscope: cscope.files
+	test ! -s cscope.files \
+	  || $(CSCOPE) -b -q $(AM_CSCOPEFLAGS) $(CSCOPEFLAGS) -i cscope.files $(CSCOPE_ARGS)
+clean-cscope:
+	-rm -f cscope.files
+cscope.files: clean-cscope cscopelist
+cscopelist: cscopelist-recursive
 
-$(am__depfiles_remade):
-	@$(MKDIR_P) $(@D)
-	@echo '# dummy' >$@-t && $(am__mv) $@-t $@
+cscopelist-am: $(am__tagged_files)
+	list='$(am__tagged_files)'; \
+	case "$(srcdir)" in \
+	  [\\/]* | ?:[\\/]*) sdir="$(srcdir)" ;; \
+	  *) sdir=$(subdir)/$(srcdir) ;; \
+	esac; \
+	for i in $$list; do \
+	  if test -f "$$i"; then \
+	    echo "$(subdir)/$$i"; \
+	  else \
+	    echo "$$sdir/$$i"; \
+	  fi; \
+	done >> $(top_builddir)/cscope.files
 
-am--depfiles: $(am__depfiles_remade)
-
-.c.o:
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c -o $@ $<
-
-.c.obj:
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.o: $(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.obj: $(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_www_tostring.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.o: $(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.obj: $(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_mess_tostring.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.o: $(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.obj: $(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_auth_tostring.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.o: $(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.o `test -f '$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.obj: $(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.obj `if test -f '$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/to_string/lmsrp_list_uri_tostring.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.o: $(abs_top_srcdir)/src/stream/lmsrp_ctx.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.o `test -f '$(abs_top_srcdir)/src/stream/lmsrp_ctx.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/stream/lmsrp_ctx.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/stream/lmsrp_ctx.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.o `test -f '$(abs_top_srcdir)/src/stream/lmsrp_ctx.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/stream/lmsrp_ctx.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.obj: $(abs_top_srcdir)/src/stream/lmsrp_ctx.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.obj `if test -f '$(abs_top_srcdir)/src/stream/lmsrp_ctx.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/stream/lmsrp_ctx.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/stream/lmsrp_ctx.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/stream/lmsrp_ctx.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.obj `if test -f '$(abs_top_srcdir)/src/stream/lmsrp_ctx.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/stream/lmsrp_ctx.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/stream/lmsrp_ctx.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.o: $(abs_top_srcdir)/src/prase/lmsrp_www_h.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_www_h.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_www_h.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_www_h.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_www_h.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_www_h.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.obj: $(abs_top_srcdir)/src/prase/lmsrp_www_h.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_www_h.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_www_h.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_www_h.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_www_h.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_www_h.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_www_h.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_www_h.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.o: $(abs_top_srcdir)/src/prase/lmsrp_authorization.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_authorization.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_authorization.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_authorization.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_authorization.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_authorization.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.obj: $(abs_top_srcdir)/src/prase/lmsrp_authorization.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_authorization.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_authorization.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_authorization.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_authorization.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_authorization.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_authorization.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_authorization.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_common.o: $(abs_top_srcdir)/src/prase/lmsrp_common.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_common.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_common.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_common.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_common.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_common.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_common.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_common.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_common.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_common.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_common.obj: $(abs_top_srcdir)/src/prase/lmsrp_common.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_common.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_common.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_common.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_common.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_common.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_common.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_common.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_common.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_common.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_common.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_common.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.o: $(abs_top_srcdir)/src/prase/lmsrp_auth_common.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.obj: $(abs_top_srcdir)/src/prase/lmsrp_auth_common.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_auth_common.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_info.o: $(abs_top_srcdir)/src/prase/lmsrp_info.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_info.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_info.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_info.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_info.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_info.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_info.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_info.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_info.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_info.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_info.obj: $(abs_top_srcdir)/src/prase/lmsrp_info.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_info.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_info.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_info.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_info.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_info.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_info.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_info.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_info.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_info.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_info.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_info.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.o: $(abs_top_srcdir)/src/prase/lmsrp_mess.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_mess.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_mess.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_mess.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_mess.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_mess.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_mess.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.obj: $(abs_top_srcdir)/src/prase/lmsrp_mess.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_mess.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_mess.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_mess.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_mess.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_mess.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_mess.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_mess.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_mess.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_status.o: $(abs_top_srcdir)/src/prase/lmsrp_status.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_status.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_status.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_status.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_status.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_status.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_status.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_status.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_status.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_status.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_status.obj: $(abs_top_srcdir)/src/prase/lmsrp_status.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_status.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_status.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_status.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_status.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_status.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_status.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_status.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_status.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_status.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_status.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_status.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.o: $(abs_top_srcdir)/src/prase/lmsrp_byte_range.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.obj: $(abs_top_srcdir)/src/prase/lmsrp_byte_range.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_byte_range.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.o: $(abs_top_srcdir)/src/prase/lmsrp_content_type.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_content_type.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_content_type.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_content_type.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.o `test -f '$(abs_top_srcdir)/src/prase/lmsrp_content_type.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/prase/lmsrp_content_type.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.obj: $(abs_top_srcdir)/src/prase/lmsrp_content_type.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_content_type.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_content_type.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_content_type.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/prase/lmsrp_content_type.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.obj `if test -f '$(abs_top_srcdir)/src/prase/lmsrp_content_type.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/prase/lmsrp_content_type.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/prase/lmsrp_content_type.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.o: $(abs_top_srcdir)/src/create/lmsrp_mess_create.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.o `test -f '$(abs_top_srcdir)/src/create/lmsrp_mess_create.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/create/lmsrp_mess_create.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/create/lmsrp_mess_create.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.o `test -f '$(abs_top_srcdir)/src/create/lmsrp_mess_create.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/create/lmsrp_mess_create.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.obj: $(abs_top_srcdir)/src/create/lmsrp_mess_create.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.obj `if test -f '$(abs_top_srcdir)/src/create/lmsrp_mess_create.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/create/lmsrp_mess_create.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/create/lmsrp_mess_create.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/create/lmsrp_mess_create.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.obj `if test -f '$(abs_top_srcdir)/src/create/lmsrp_mess_create.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/create/lmsrp_mess_create.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/create/lmsrp_mess_create.c'; fi`
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.o: $(abs_top_srcdir)/src/create/lmsrp_auth_create.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.o -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.o `test -f '$(abs_top_srcdir)/src/create/lmsrp_auth_create.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/create/lmsrp_auth_create.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/create/lmsrp_auth_create.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.o `test -f '$(abs_top_srcdir)/src/create/lmsrp_auth_create.c' || echo '$(srcdir)/'`$(abs_top_srcdir)/src/create/lmsrp_auth_create.c
-
-@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.obj: $(abs_top_srcdir)/src/create/lmsrp_auth_create.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -MT @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.obj -MD -MP -MF $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Tpo -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.obj `if test -f '$(abs_top_srcdir)/src/create/lmsrp_auth_create.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/create/lmsrp_auth_create.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/create/lmsrp_auth_create.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Tpo $(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$(abs_top_srcdir)/src/create/lmsrp_auth_create.c' object='@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(@BDIR@_lib@LIB_NAME@_a_CFLAGS) $(CFLAGS) -c -o @BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.obj `if test -f '$(abs_top_srcdir)/src/create/lmsrp_auth_create.c'; then $(CYGPATH_W) '$(abs_top_srcdir)/src/create/lmsrp_auth_create.c'; else $(CYGPATH_W) '$(srcdir)/$(abs_top_srcdir)/src/create/lmsrp_auth_create.c'; fi`
-tags TAGS:
-
-ctags CTAGS:
-
-cscope cscopelist:
-
+distclean-tags:
+	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+	-rm -f cscope.out cscope.in.out cscope.po.out cscope.files
 
 distdir: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) distdir-am
 
 distdir-am: $(DISTFILES)
+	$(am__remove_distdir)
+	test -d "$(distdir)" || mkdir "$(distdir)"
 	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
 	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
 	list='$(DISTFILES)'; \
@@ -646,19 +471,176 @@ distdir-am: $(DISTFILES)
 	    || exit 1; \
 	  fi; \
 	done
+	@list='$(DIST_SUBDIRS)'; for subdir in $$list; do \
+	  if test "$$subdir" = .; then :; else \
+	    $(am__make_dryrun) \
+	      || test -d "$(distdir)/$$subdir" \
+	      || $(MKDIR_P) "$(distdir)/$$subdir" \
+	      || exit 1; \
+	    dir1=$$subdir; dir2="$(distdir)/$$subdir"; \
+	    $(am__relativize); \
+	    new_distdir=$$reldir; \
+	    dir1=$$subdir; dir2="$(top_distdir)"; \
+	    $(am__relativize); \
+	    new_top_distdir=$$reldir; \
+	    echo " (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) top_distdir="$$new_top_distdir" distdir="$$new_distdir" \\"; \
+	    echo "     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)"; \
+	    ($(am__cd) $$subdir && \
+	      $(MAKE) $(AM_MAKEFLAGS) \
+	        top_distdir="$$new_top_distdir" \
+	        distdir="$$new_distdir" \
+		am__remove_distdir=: \
+		am__skip_length_check=: \
+		am__skip_mode_fix=: \
+	        distdir) \
+	      || exit 1; \
+	  fi; \
+	done
+	-test -n "$(am__skip_mode_fix)" \
+	|| find "$(distdir)" -type d ! -perm -755 \
+		-exec chmod u+rwx,go+rx {} \; -o \
+	  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+	  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+	  ! -type d ! -perm -444 -exec $(install_sh) -c -m a+r {} {} \; \
+	|| chmod -R a+r "$(distdir)"
+dist-gzip: distdir
+	tardir=$(distdir) && $(am__tar) | eval GZIP= gzip $(GZIP_ENV) -c >$(distdir).tar.gz
+	$(am__post_remove_distdir)
+
+dist-bzip2: distdir
+	tardir=$(distdir) && $(am__tar) | BZIP2=$${BZIP2--9} bzip2 -c >$(distdir).tar.bz2
+	$(am__post_remove_distdir)
+
+dist-lzip: distdir
+	tardir=$(distdir) && $(am__tar) | lzip -c $${LZIP_OPT--9} >$(distdir).tar.lz
+	$(am__post_remove_distdir)
+
+dist-xz: distdir
+	tardir=$(distdir) && $(am__tar) | XZ_OPT=$${XZ_OPT--e} xz -c >$(distdir).tar.xz
+	$(am__post_remove_distdir)
+
+dist-tarZ: distdir
+	@echo WARNING: "Support for distribution archives compressed with" \
+		       "legacy program 'compress' is deprecated." >&2
+	@echo WARNING: "It will be removed altogether in Automake 2.0" >&2
+	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z
+	$(am__post_remove_distdir)
+
+dist-shar: distdir
+	@echo WARNING: "Support for shar distribution archives is" \
+	               "deprecated." >&2
+	@echo WARNING: "It will be removed altogether in Automake 2.0" >&2
+	shar $(distdir) | eval GZIP= gzip $(GZIP_ENV) -c >$(distdir).shar.gz
+	$(am__post_remove_distdir)
+
+dist-zip: distdir
+	-rm -f $(distdir).zip
+	zip -rq $(distdir).zip $(distdir)
+	$(am__post_remove_distdir)
+
+dist dist-all:
+	$(MAKE) $(AM_MAKEFLAGS) $(DIST_TARGETS) am__post_remove_distdir='@:'
+	$(am__post_remove_distdir)
+
+# This target untars the dist file and tries a VPATH configuration.  Then
+# it guarantees that the distribution is self-contained by making another
+# tarfile.
+distcheck: dist
+	case '$(DIST_ARCHIVES)' in \
+	*.tar.gz*) \
+	  eval GZIP= gzip $(GZIP_ENV) -dc $(distdir).tar.gz | $(am__untar) ;;\
+	*.tar.bz2*) \
+	  bzip2 -dc $(distdir).tar.bz2 | $(am__untar) ;;\
+	*.tar.lz*) \
+	  lzip -dc $(distdir).tar.lz | $(am__untar) ;;\
+	*.tar.xz*) \
+	  xz -dc $(distdir).tar.xz | $(am__untar) ;;\
+	*.tar.Z*) \
+	  uncompress -c $(distdir).tar.Z | $(am__untar) ;;\
+	*.shar.gz*) \
+	  eval GZIP= gzip $(GZIP_ENV) -dc $(distdir).shar.gz | unshar ;;\
+	*.zip*) \
+	  unzip $(distdir).zip ;;\
+	esac
+	chmod -R a-w $(distdir)
+	chmod u+w $(distdir)
+	mkdir $(distdir)/_build $(distdir)/_build/sub $(distdir)/_inst
+	chmod a-w $(distdir)
+	test -d $(distdir)/_build || exit 0; \
+	dc_install_base=`$(am__cd) $(distdir)/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+	  && dc_destdir="$${TMPDIR-/tmp}/am-dc-$$$$/" \
+	  && am__cwd=`pwd` \
+	  && $(am__cd) $(distdir)/_build/sub \
+	  && ../../configure \
+	    $(AM_DISTCHECK_CONFIGURE_FLAGS) \
+	    $(DISTCHECK_CONFIGURE_FLAGS) \
+	    --srcdir=../.. --prefix="$$dc_install_base" \
+	  && $(MAKE) $(AM_MAKEFLAGS) \
+	  && $(MAKE) $(AM_MAKEFLAGS) dvi \
+	  && $(MAKE) $(AM_MAKEFLAGS) check \
+	  && $(MAKE) $(AM_MAKEFLAGS) install \
+	  && $(MAKE) $(AM_MAKEFLAGS) installcheck \
+	  && $(MAKE) $(AM_MAKEFLAGS) uninstall \
+	  && $(MAKE) $(AM_MAKEFLAGS) distuninstallcheck_dir="$$dc_install_base" \
+	        distuninstallcheck \
+	  && chmod -R a-w "$$dc_install_base" \
+	  && ({ \
+	       (cd ../.. && umask 077 && mkdir "$$dc_destdir") \
+	       && $(MAKE) $(AM_MAKEFLAGS) DESTDIR="$$dc_destdir" install \
+	       && $(MAKE) $(AM_MAKEFLAGS) DESTDIR="$$dc_destdir" uninstall \
+	       && $(MAKE) $(AM_MAKEFLAGS) DESTDIR="$$dc_destdir" \
+	            distuninstallcheck_dir="$$dc_destdir" distuninstallcheck; \
+	      } || { rm -rf "$$dc_destdir"; exit 1; }) \
+	  && rm -rf "$$dc_destdir" \
+	  && $(MAKE) $(AM_MAKEFLAGS) dist \
+	  && rm -rf $(DIST_ARCHIVES) \
+	  && $(MAKE) $(AM_MAKEFLAGS) distcleancheck \
+	  && cd "$$am__cwd" \
+	  || exit 1
+	$(am__post_remove_distdir)
+	@(echo "$(distdir) archives ready for distribution: "; \
+	  list='$(DIST_ARCHIVES)'; for i in $$list; do echo $$i; done) | \
+	  sed -e 1h -e 1s/./=/g -e 1p -e 1x -e '$$p' -e '$$x'
+distuninstallcheck:
+	@test -n '$(distuninstallcheck_dir)' || { \
+	  echo 'ERROR: trying to run $@ with an empty' \
+	       '$$(distuninstallcheck_dir)' >&2; \
+	  exit 1; \
+	}; \
+	$(am__cd) '$(distuninstallcheck_dir)' || { \
+	  echo 'ERROR: cannot chdir into $(distuninstallcheck_dir)' >&2; \
+	  exit 1; \
+	}; \
+	test `$(am__distuninstallcheck_listfiles) | wc -l` -eq 0 \
+	   || { echo "ERROR: files left after uninstall:" ; \
+	        if test -n "$(DESTDIR)"; then \
+	          echo "  (check DESTDIR support)"; \
+	        fi ; \
+	        $(distuninstallcheck_listfiles) ; \
+	        exit 1; } >&2
+distcleancheck: distclean
+	@if test '$(srcdir)' = . ; then \
+	  echo "ERROR: distcleancheck can only run from a VPATH build" ; \
+	  exit 1 ; \
+	fi
+	@test `$(distcleancheck_listfiles) | wc -l` -eq 0 \
+	  || { echo "ERROR: files left in build directory after distclean:" ; \
+	       $(distcleancheck_listfiles) ; \
+	       exit 1; } >&2
 check-am: all-am
-check: check-am
-all-am: Makefile $(LIBRARIES)
-installdirs:
-install: install-am
-install-exec: install-exec-am
-install-data: install-data-am
-uninstall: uninstall-am
+check: check-recursive
+all-am: Makefile
+installdirs: installdirs-recursive
+installdirs-am:
+install: install-recursive
+install-exec: install-exec-recursive
+install-data: install-data-recursive
+uninstall: uninstall-recursive
 
 install-am: all-am
 	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
 
-installcheck: installcheck-am
+installcheck: installcheck-recursive
 install-strip:
 	if test -z '$(STRIP)'; then \
 	  $(MAKE) $(AM_MAKEFLAGS) INSTALL_PROGRAM="$(INSTALL_STRIP_PROGRAM)" \
@@ -676,128 +658,101 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
-	-rm -f @BDIR@/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-clean: clean-am
+clean: clean-recursive
 
-clean-am: clean-generic clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-generic mostlyclean-am
 
-distclean: distclean-am
-		-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Po
+distclean: distclean-recursive
+	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -f Makefile
-distclean-am: clean-am distclean-compile distclean-generic
+distclean-am: clean-am distclean-generic distclean-tags
 
-dvi: dvi-am
+dvi: dvi-recursive
 
 dvi-am:
 
-html: html-am
+html: html-recursive
 
 html-am:
 
-info: info-am
+info: info-recursive
 
 info-am:
 
 install-data-am:
 
-install-dvi: install-dvi-am
+install-dvi: install-dvi-recursive
 
 install-dvi-am:
 
 install-exec-am:
 
-install-html: install-html-am
+install-html: install-html-recursive
 
 install-html-am:
 
-install-info: install-info-am
+install-info: install-info-recursive
 
 install-info-am:
 
 install-man:
 
-install-pdf: install-pdf-am
+install-pdf: install-pdf-recursive
 
 install-pdf-am:
 
-install-ps: install-ps-am
+install-ps: install-ps-recursive
 
 install-ps-am:
 
 installcheck-am:
 
-maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_common.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_create.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_auth_tostring.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_authorization.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_byte_range.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_common.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_content_type.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_ctx.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_info.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_list_uri_tostring.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_create.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_mess_tostring.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_status.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_h.Po
-	-rm -f ./$(DEPDIR)/@BDIR@_lib@LIB_NAME@_a-lmsrp_www_tostring.Po
+maintainer-clean: maintainer-clean-recursive
+	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
+	-rm -rf $(top_srcdir)/autom4te.cache
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
-mostlyclean: mostlyclean-am
+mostlyclean: mostlyclean-recursive
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-generic
 
-pdf: pdf-am
+pdf: pdf-recursive
 
 pdf-am:
 
-ps: ps-am
+ps: ps-recursive
 
 ps-am:
 
 uninstall-am:
 
-.MAKE: install-am install-strip
+.MAKE: $(am__recursive_targets) install-am install-strip
 
-.PHONY: all all-am am--depfiles check check-am clean clean-generic \
-	clean-noinstLIBRARIES cscopelist-am ctags-am distclean \
-	distclean-compile distclean-generic distdir dvi dvi-am html \
+.PHONY: $(am__recursive_targets) CTAGS GTAGS TAGS all all-am \
+	am--refresh check check-am clean clean-cscope clean-generic \
+	cscope cscopelist-am ctags ctags-am dist dist-all dist-bzip2 \
+	dist-gzip dist-lzip dist-shar dist-tarZ dist-xz dist-zip \
+	distcheck distclean distclean-generic distclean-tags \
+	distcleancheck distdir distuninstallcheck dvi dvi-am html \
 	html-am info info-am install install-am install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
 	install-info-am install-man install-pdf install-pdf-am \
 	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags-am uninstall \
-	uninstall-am
+	installcheck-am installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am tags tags-am uninstall uninstall-am
 
 .PRECIOUS: Makefile
 
 
-#cp *.o  @BDIR@
+obj-clean:
+	-rm -f output/*.o
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
