@@ -1,0 +1,471 @@
+___unknow_liblmsrp_unknow_a-lmsrp_auth_create.o: \
+ ../../src/create/lmsrp_auth_create.c /usr/include/stdc-predef.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp.h \
+ /usr/local/include/pjlib.h /usr/local/include/pj/activesock.h \
+ /usr/local/include/pj/ioqueue.h /usr/local/include/pj/types.h \
+ /usr/local/include/pj/config.h /usr/local/include/pj/compat/cc_gcc.h \
+ /usr/local/include/pj/compat/os_auto.h \
+ /usr/local/include/pj/compat/m_auto.h \
+ /usr/local/include/pj/compat/size_t.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
+ /usr/local/include/pj/config_site.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/long-double.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/local/include/pj/sock.h /usr/local/include/pj/addr_resolv.h \
+ /usr/local/include/pj/array.h /usr/local/include/pj/assert.h \
+ /usr/local/include/pj/compat/assert.h /usr/include/assert.h \
+ /usr/local/include/pj/ctype.h /usr/local/include/pj/compat/ctype.h \
+ /usr/include/ctype.h /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endianness.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/local/include/pj/errno.h /usr/local/include/pj/compat/errno.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
+ /usr/local/include/pj/except.h /usr/local/include/pj/compat/setjmp.h \
+ /usr/include/setjmp.h /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp2.h /usr/local/include/pj/log.h \
+ /usr/local/include/pj/fifobuf.h /usr/local/include/pj/file_access.h \
+ /usr/local/include/pj/file_io.h /usr/local/include/pj/guid.h \
+ /usr/local/include/pj/hash.h /usr/local/include/pj/ip_helper.h \
+ /usr/local/include/pj/string.h /usr/local/include/pj/compat/string.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/timer_t.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/local/include/pj/list.h \
+ /usr/local/include/pj/lock.h /usr/local/include/pj/math.h \
+ /usr/local/include/pj/compat/high_precision.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathinline.h \
+ /usr/local/include/pj/os.h /usr/local/include/pj/pool.h \
+ /usr/local/include/pj/pool_buf.h /usr/local/include/pj/rand.h \
+ /usr/local/include/pj/rbtree.h /usr/local/include/pj/sock_qos.h \
+ /usr/local/include/pj/sock_select.h /usr/local/include/pj/ssl_sock.h \
+ /usr/local/include/pj/timer.h /usr/local/include/pj/unicode.h \
+ /usr/local/include/pjsip.h /usr/local/include/pjsip/sip_types.h \
+ /usr/local/include/pjsip/sip_config.h \
+ /usr/local/include/pjsip/sip_autoconf.h \
+ /usr/local/include/pjsip/sip_errno.h /usr/local/include/pjsip/sip_uri.h \
+ /usr/local/include/pjlib-util/scanner.h \
+ /usr/local/include/pjlib-util/types.h \
+ /usr/local/include/pjlib-util/config.h \
+ /usr/local/include/pjlib-util/scanner_cis_bitwise.h \
+ /usr/local/include/pjsip/sip_tel_uri.h \
+ /usr/local/include/pjsip/sip_msg.h \
+ /usr/local/include/pjsip/sip_multipart.h \
+ /usr/local/include/pjsip/sip_parser.h \
+ /usr/local/include/pjsip/sip_event.h \
+ /usr/local/include/pjsip/sip_module.h \
+ /usr/local/include/pjsip/sip_endpoint.h \
+ /usr/local/include/pjsip/sip_transport.h \
+ /usr/local/include/pjsip/sip_resolve.h \
+ /usr/local/include/pjlib-util/resolver.h \
+ /usr/local/include/pjlib-util/dns.h /usr/local/include/pjsip/sip_util.h \
+ /usr/local/include/pjsip/sip_transport_udp.h \
+ /usr/local/include/pjsip/sip_transport_loop.h \
+ /usr/local/include/pjsip/sip_transport_tcp.h \
+ /usr/local/include/pjsip/sip_transport_tls.h \
+ /usr/local/include/pjsip/sip_auth.h \
+ /usr/local/include/pjsip/sip_auth_msg.h \
+ /usr/local/include/pjsip/sip_auth_aka.h \
+ /usr/local/include/pjsip/sip_transaction.h \
+ /usr/local/include/pjsip/sip_ua_layer.h \
+ /usr/local/include/pjsip/sip_dialog.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_common.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_www_auth.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_auth_commom.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_authorization.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_info.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_status.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_byte_range.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_content_type.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_mess.h \
+ /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_stream.h
+
+/usr/include/stdc-predef.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp.h:
+
+/usr/local/include/pjlib.h:
+
+/usr/local/include/pj/activesock.h:
+
+/usr/local/include/pj/ioqueue.h:
+
+/usr/local/include/pj/types.h:
+
+/usr/local/include/pj/config.h:
+
+/usr/local/include/pj/compat/cc_gcc.h:
+
+/usr/local/include/pj/compat/os_auto.h:
+
+/usr/local/include/pj/compat/m_auto.h:
+
+/usr/local/include/pj/compat/size_t.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h:
+
+/usr/local/include/pj/config_site.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/local/include/pj/sock.h:
+
+/usr/local/include/pj/addr_resolv.h:
+
+/usr/local/include/pj/array.h:
+
+/usr/local/include/pj/assert.h:
+
+/usr/local/include/pj/compat/assert.h:
+
+/usr/include/assert.h:
+
+/usr/local/include/pj/ctype.h:
+
+/usr/local/include/pj/compat/ctype.h:
+
+/usr/include/ctype.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/local/include/pj/errno.h:
+
+/usr/local/include/pj/compat/errno.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h:
+
+/usr/local/include/pj/except.h:
+
+/usr/local/include/pj/compat/setjmp.h:
+
+/usr/include/setjmp.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp2.h:
+
+/usr/local/include/pj/log.h:
+
+/usr/local/include/pj/fifobuf.h:
+
+/usr/local/include/pj/file_access.h:
+
+/usr/local/include/pj/file_io.h:
+
+/usr/local/include/pj/guid.h:
+
+/usr/local/include/pj/hash.h:
+
+/usr/local/include/pj/ip_helper.h:
+
+/usr/local/include/pj/string.h:
+
+/usr/local/include/pj/compat/string.h:
+
+/usr/include/string.h:
+
+/usr/include/strings.h:
+
+/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
+
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
+
+/usr/include/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
+/usr/local/include/pj/list.h:
+
+/usr/local/include/pj/lock.h:
+
+/usr/local/include/pj/math.h:
+
+/usr/local/include/pj/compat/high_precision.h:
+
+/usr/include/math.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathinline.h:
+
+/usr/local/include/pj/os.h:
+
+/usr/local/include/pj/pool.h:
+
+/usr/local/include/pj/pool_buf.h:
+
+/usr/local/include/pj/rand.h:
+
+/usr/local/include/pj/rbtree.h:
+
+/usr/local/include/pj/sock_qos.h:
+
+/usr/local/include/pj/sock_select.h:
+
+/usr/local/include/pj/ssl_sock.h:
+
+/usr/local/include/pj/timer.h:
+
+/usr/local/include/pj/unicode.h:
+
+/usr/local/include/pjsip.h:
+
+/usr/local/include/pjsip/sip_types.h:
+
+/usr/local/include/pjsip/sip_config.h:
+
+/usr/local/include/pjsip/sip_autoconf.h:
+
+/usr/local/include/pjsip/sip_errno.h:
+
+/usr/local/include/pjsip/sip_uri.h:
+
+/usr/local/include/pjlib-util/scanner.h:
+
+/usr/local/include/pjlib-util/types.h:
+
+/usr/local/include/pjlib-util/config.h:
+
+/usr/local/include/pjlib-util/scanner_cis_bitwise.h:
+
+/usr/local/include/pjsip/sip_tel_uri.h:
+
+/usr/local/include/pjsip/sip_msg.h:
+
+/usr/local/include/pjsip/sip_multipart.h:
+
+/usr/local/include/pjsip/sip_parser.h:
+
+/usr/local/include/pjsip/sip_event.h:
+
+/usr/local/include/pjsip/sip_module.h:
+
+/usr/local/include/pjsip/sip_endpoint.h:
+
+/usr/local/include/pjsip/sip_transport.h:
+
+/usr/local/include/pjsip/sip_resolve.h:
+
+/usr/local/include/pjlib-util/resolver.h:
+
+/usr/local/include/pjlib-util/dns.h:
+
+/usr/local/include/pjsip/sip_util.h:
+
+/usr/local/include/pjsip/sip_transport_udp.h:
+
+/usr/local/include/pjsip/sip_transport_loop.h:
+
+/usr/local/include/pjsip/sip_transport_tcp.h:
+
+/usr/local/include/pjsip/sip_transport_tls.h:
+
+/usr/local/include/pjsip/sip_auth.h:
+
+/usr/local/include/pjsip/sip_auth_msg.h:
+
+/usr/local/include/pjsip/sip_auth_aka.h:
+
+/usr/local/include/pjsip/sip_transaction.h:
+
+/usr/local/include/pjsip/sip_ua_layer.h:
+
+/usr/local/include/pjsip/sip_dialog.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_common.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_www_auth.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_auth_commom.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_authorization.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_info.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_status.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_byte_range.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_content_type.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_mess.h:
+
+/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_stream.h:
