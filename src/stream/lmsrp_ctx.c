@@ -16,7 +16,23 @@ static void convert_str(pj_str_t *sl, char *str_old, char *str) {
 	int dem = sl->ptr - str_old;
 	sl->ptr = str + dem;
 }
-static void change_point(lmsrp_mess *mess, char *str_old, char *str) {
+static void lmsrp_list_uri_change(lmsrp_list_uri * list, char *str_old,
+		char *str) {
+	lmsrp_list_uri *start = list;
+	lmsrp_uri *uri;
+	do {
+		uri = start->uri;
+		do {
+			fconvert(uri->authority.host);
+			fconvert(uri->authority.userinfo);
+			fconvert(uri->scheme);
+			fconvert(uri->session_id);
+		} while (uri != start->uri);
+		start = list->next;
+	} while (list != start);
+}
+//static
+void change_point(lmsrp_mess *mess, char *str_old, char *str) {
 
 	if (mess->tid.slen > 0) {
 		convert_str(&mess->tid, str_old, str);
@@ -47,7 +63,24 @@ static void change_point(lmsrp_mess *mess, char *str_old, char *str) {
 		fconvert(mess->www->qop);
 	}
 	// TODO : tam thoi bo qua to , from , user path
+	if (mess->to_path) {
+		lmsrp_list_uri_change(mess->to_path, str_old, str);
+	}
+	if (mess->from_path) {
+		lmsrp_list_uri_change(mess->from_path, str_old, str);
+	}
+	if (mess->use_path) {
+		lmsrp_list_uri_change(mess->use_path, str_old, str);
+	}
 
+	if (mess->content_type) {
+		lmsrp_list_param * type = mess->content_type->type;
+		do {
+			fconvert(type->var.name);
+			fconvert(type->var.value);
+			type = mess->content_type->type->next;
+		} while (type != mess->content_type->type);
+	}
 }
 pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) {
 
@@ -55,6 +88,7 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 	switch (ctx->state) {
 	case lmsrp_prase_state_done:
 		;
+		pj_pool_reset(ctx->pool);
 		ctx->mess = pj_pool_zalloc(ctx->pool, sizeof(lmsrp_mess));
 		ctx->mess->pool = ctx->pool;
 		ctx->content_leng = 0;
@@ -62,7 +96,7 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		ctx->sum = 0;
 		report = lmsrp_stream_prase(ctx, buff, size);
 		if (report == PJ_FALSE) {
-			ctx->state = lmsrp_prase_state_done ;
+			ctx->state = lmsrp_prase_state_done;
 			return report;
 		}
 		if (ctx->state == lmsrp_prase_state_done) {
@@ -82,7 +116,7 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		break;
 	default: {
 		//all header leng + maxbyte
-		int cpy = (ctx->max_byte +500)+ 20 - ctx->sum;
+		int cpy = (ctx->max_byte + 500) + 20 - ctx->sum;
 		if (cpy > size)
 			cpy = size;
 		pj_memcpy((ctx->tmp + ctx->sum), buff, cpy);
@@ -91,7 +125,7 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		pj_size_t size2 = cpy + ctx->sum - ctx->data_read;
 		report = lmsrp_stream_prase(ctx, (ctx->tmp + ctx->data_read), size2);
 		if (report == PJ_FALSE) {
-			ctx->state = lmsrp_prase_state_done ;
+			ctx->state = lmsrp_prase_state_done;
 			return report;
 		}
 		if (ctx->state == lmsrp_prase_state_done) {
@@ -113,12 +147,18 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 	}
 	return PJ_TRUE;
 }
-void lmsrp_context_init(lmsrp_context *ctx, pj_pool_t *pool, int max_size,
+void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
 		void *data, void *export) {
-	ctx->pool = pool;
+	ctx->pool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
+	ctx->spool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
 	ctx->max_byte = max_size;
-	ctx->tmp = pj_pool_alloc(pool, (max_size + 500) * 2 * sizeof(char));
+	ctx->tmp = pj_pool_alloc(ctx->spool, (max_size + 500) * 2 * sizeof(char));
 	ctx->state = lmsrp_prase_state_done;
 	ctx->data = data;
 	ctx->export = export;
 }
+void lmsrp_context_clear(lmsrp_context *ctx) {
+	pj_pool_release(ctx->pool);
+	pj_pool_release(ctx->spool);
+}
+

@@ -101,28 +101,28 @@ AM_V_AR = $(am__v_AR_$(V))
 am__v_AR_ = $(am__v_AR_$(AM_DEFAULT_VERBOSITY))
 am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
-___unknow_liblmsrp_unknow_a_AR = $(AR) $(ARFLAGS)
-___unknow_liblmsrp_unknow_a_LIBADD =
-am____unknow_liblmsrp_unknow_a_OBJECTS =  \
-	___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_auth.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_ctx.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_www_h.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_authorization.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_common.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_auth_common.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_info.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_mess.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_status.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_byte_range.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_content_type.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_mess_create.$(OBJEXT) \
-	___unknow_liblmsrp_unknow_a-lmsrp_auth_create.$(OBJEXT)
-___unknow_liblmsrp_unknow_a_OBJECTS =  \
-	$(am____unknow_liblmsrp_unknow_a_OBJECTS)
+___arm-linux_liblmsrp_arm-linux_a_AR = $(AR) $(ARFLAGS)
+___arm-linux_liblmsrp_arm-linux_a_LIBADD =
+am____arm-linux_liblmsrp_arm-linux_a_OBJECTS =  \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.$(OBJEXT) \
+	___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.$(OBJEXT)
+___arm-linux_liblmsrp_arm-linux_a_OBJECTS =  \
+	$(am____arm-linux_liblmsrp_arm-linux_a_OBJECTS)
 am__dirstamp = $(am__leading_dot)dirstamp
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -140,23 +140,23 @@ DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade =  \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Po \
-	./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Po
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Po \
+	./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Po
 am__mv = mv -f
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -174,8 +174,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(___unknow_liblmsrp_unknow_a_SOURCES)
-DIST_SOURCES = $(___unknow_liblmsrp_unknow_a_SOURCES)
+SOURCES = $(___arm-linux_liblmsrp_arm-linux_a_SOURCES)
+DIST_SOURCES = $(___arm-linux_liblmsrp_arm-linux_a_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -184,16 +184,16 @@ am__can_run_installinfo = \
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/dccan/app/code/libmsrp/build/missing aclocal-1.16
+ACLOCAL = ${SHELL} /home/amneiht/app/code/eclipse-workspace/libmsrp/build/missing aclocal-1.16
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
-AR = ar
-AUTOCONF = ${SHELL} /home/dccan/app/code/libmsrp/build/missing autoconf
-AUTOHEADER = ${SHELL} /home/dccan/app/code/libmsrp/build/missing autoheader
-AUTOMAKE = ${SHELL} /home/dccan/app/code/libmsrp/build/missing automake-1.16
+AR = arm-linux-ar
+AUTOCONF = ${SHELL} /home/amneiht/app/code/eclipse-workspace/libmsrp/build/missing autoconf
+AUTOHEADER = ${SHELL} /home/amneiht/app/code/eclipse-workspace/libmsrp/build/missing autoheader
+AUTOMAKE = ${SHELL} /home/amneiht/app/code/eclipse-workspace/libmsrp/build/missing automake-1.16
 AWK = gawk
-BDIR = unknow
-CC = gcc
+BDIR = arm-linux
+CC = arm-linux-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPPFLAGS = 
@@ -212,9 +212,9 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LDFLAGS = 
 LIBOBJS = 
 LIBS = 
-LIB_NAME = lmsrp_unknow
+LIB_NAME = lmsrp_arm-linux
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/dccan/app/code/libmsrp/build/missing makeinfo
+MAKEINFO = ${SHELL} /home/amneiht/app/code/eclipse-workspace/libmsrp/build/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = rcs_as
@@ -225,22 +225,22 @@ PACKAGE_TARNAME = rcs_as
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
-PJSIP_CFLAGS = -g -O2 -DPJ_AUTOCONF=1 -O2 -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1 -I/usr/local/include
-PJSIP_LIBS = -L/usr/local/lib -lpjsua2-x86_64-unknown-linux-gnu -lstdc++ -lpjsua-x86_64-unknown-linux-gnu -lpjsip-ua-x86_64-unknown-linux-gnu -lpjsip-simple-x86_64-unknown-linux-gnu -lpjsip-x86_64-unknown-linux-gnu -lpjmedia-codec-x86_64-unknown-linux-gnu -lpjmedia-x86_64-unknown-linux-gnu -lpjmedia-videodev-x86_64-unknown-linux-gnu -lpjmedia-audiodev-x86_64-unknown-linux-gnu -lpjmedia-x86_64-unknown-linux-gnu -lpjnath-x86_64-unknown-linux-gnu -lpjlib-util-x86_64-unknown-linux-gnu -lsrtp-x86_64-unknown-linux-gnu -lresample-x86_64-unknown-linux-gnu -lgsmcodec-x86_64-unknown-linux-gnu -lspeex-x86_64-unknown-linux-gnu -lilbccodec-x86_64-unknown-linux-gnu -lg7221codec-x86_64-unknown-linux-gnu -lyuv-x86_64-unknown-linux-gnu -lwebrtc-x86_64-unknown-linux-gnu -lpj-x86_64-unknown-linux-gnu -lbcg729 -lssl -lcrypto -luuid -lm -lrt -lpthread -lasound -lSDL2
-PKG_CONFIG = /usr/bin/pkg-config
+PJSIP_CFLAGS = -DPJ_AUTOCONF=1 -I/home/amneiht/app/arm-amneiht-linux-uclibcgnueabihf_sdk-buildroot/bin/../arm-amneiht-linux-uclibcgnueabihf/sysroot/home/amneiht/app/arm-amneiht-linux-uclibcgnueabihf_sdk-buildroot/arm-amneiht-linux-uclibcgnueabihf/sysroot/usr/include -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -DPJ_HAS_IPV6=1 -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1 -fPIC 
+PJSIP_LIBS = -L/home/amneiht/app/arm-amneiht-linux-uclibcgnueabihf_sdk-buildroot/bin/../arm-amneiht-linux-uclibcgnueabihf/sysroot/usr/lib -lpjsua2 -lstdc++ -lpjsua -lpjsip-ua -lpjsip-simple -lpjsip -lpjmedia-codec -lpjmedia-videodev -lpjmedia-audiodev -lpjmedia -lpjnath -lpjlib-util -lg7221codec -lsrtp2 -lspeex -lspeexdsp -lpj -lbcg729 -lssl -lcrypto -lsamplerate -lm -lrt -lpthread -lopencore-amrnb -lopencore-amrwb 
+PKG_CONFIG = /home/amneiht/app/arm-amneiht-linux-uclibcgnueabihf_sdk-buildroot/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
-RANLIB = ranlib
+RANLIB = arm-linux-ranlib
 SET_MAKE = 
 SHELL = /bin/bash
-STRIP = 
+STRIP = arm-linux-strip
 VERSION = 0.1
-abs_builddir = /home/dccan/app/code/libmsrp/build/output
-abs_srcdir = /home/dccan/app/code/libmsrp/build/output
-abs_top_builddir = /home/dccan/app/code/libmsrp/build
-abs_top_srcdir = /home/dccan/app/code/libmsrp/build
-ac_ct_AR = ar
-ac_ct_CC = gcc
+abs_builddir = /home/amneiht/app/code/eclipse-workspace/libmsrp/build/output
+abs_srcdir = /home/amneiht/app/code/eclipse-workspace/libmsrp/build/output
+abs_top_builddir = /home/amneiht/app/code/eclipse-workspace/libmsrp/build
+abs_top_srcdir = /home/amneiht/app/code/eclipse-workspace/libmsrp/build
+ac_ct_AR = 
+ac_ct_CC = 
 am__include = include
 am__leading_dot = .
 am__quote = 
@@ -254,11 +254,11 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host_alias = 
+host_alias = arm-linux
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/dccan/app/code/libmsrp/build/install-sh
+install_sh = ${SHELL} /home/amneiht/app/code/eclipse-workspace/libmsrp/build/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -279,8 +279,8 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-noinst_LIBRARIES = ../unknow/liblmsrp_unknow.a
-___unknow_liblmsrp_unknow_a_SOURCES = $(top_srcdir)/../src/to_string/lmsrp_www_tostring.c \
+noinst_LIBRARIES = ../arm-linux/liblmsrp_arm-linux.a
+___arm-linux_liblmsrp_arm-linux_a_SOURCES = $(top_srcdir)/../src/to_string/lmsrp_www_tostring.c \
 $(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c \
 $(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c \
 $(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c \
@@ -298,7 +298,7 @@ $(top_srcdir)/../src/prase/lmsrp_content_type.c \
 $(top_srcdir)/../src/create/lmsrp_mess_create.c \
 $(top_srcdir)/../src/create/lmsrp_auth_create.c
 
-___unknow_liblmsrp_unknow_a_CFLAGS = -I $(abs_top_srcdir)/../include  $(PJSIP_CFLAGS)
+___arm-linux_liblmsrp_arm-linux_a_CFLAGS = -I $(abs_top_srcdir)/../include  $(PJSIP_CFLAGS)
 all: all-am
 
 .SUFFIXES:
@@ -335,14 +335,14 @@ $(am__aclocal_m4_deps):
 
 clean-noinstLIBRARIES:
 	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-../unknow/$(am__dirstamp):
-	@$(MKDIR_P) ../unknow
-	@: > ../unknow/$(am__dirstamp)
+../arm-linux/$(am__dirstamp):
+	@$(MKDIR_P) ../arm-linux
+	@: > ../arm-linux/$(am__dirstamp)
 
-../unknow/liblmsrp_unknow.a: $(___unknow_liblmsrp_unknow_a_OBJECTS) $(___unknow_liblmsrp_unknow_a_DEPENDENCIES) $(EXTRA____unknow_liblmsrp_unknow_a_DEPENDENCIES) ../unknow/$(am__dirstamp)
-	$(AM_V_at)-rm -f ../unknow/liblmsrp_unknow.a
-	$(AM_V_AR)$(___unknow_liblmsrp_unknow_a_AR) ../unknow/liblmsrp_unknow.a $(___unknow_liblmsrp_unknow_a_OBJECTS) $(___unknow_liblmsrp_unknow_a_LIBADD)
-	$(AM_V_at)$(RANLIB) ../unknow/liblmsrp_unknow.a
+../arm-linux/liblmsrp_arm-linux.a: $(___arm-linux_liblmsrp_arm-linux_a_OBJECTS) $(___arm-linux_liblmsrp_arm-linux_a_DEPENDENCIES) $(EXTRA____arm-linux_liblmsrp_arm-linux_a_DEPENDENCIES) ../arm-linux/$(am__dirstamp)
+	$(AM_V_at)-rm -f ../arm-linux/liblmsrp_arm-linux.a
+	$(AM_V_AR)$(___arm-linux_liblmsrp_arm-linux_a_AR) ../arm-linux/liblmsrp_arm-linux.a $(___arm-linux_liblmsrp_arm-linux_a_OBJECTS) $(___arm-linux_liblmsrp_arm-linux_a_LIBADD)
+	$(AM_V_at)$(RANLIB) ../arm-linux/liblmsrp_arm-linux.a
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -350,23 +350,23 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Po # am--include-marker
-include ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Po # am--include-marker
+include ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Po # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -388,243 +388,243 @@ am--depfiles: $(am__depfiles_remade)
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_www_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_www_tostring.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_mess_tostring.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_auth_tostring.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.o: $(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.o `test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' object='___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.obj: $(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.obj `if test -f '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/to_string/lmsrp_list_uri_tostring.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth.o: $(top_srcdir)/../src/auth/lmsrp_auth.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth.o `test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/auth/lmsrp_auth.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/auth/lmsrp_auth.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.o: $(top_srcdir)/../src/auth/lmsrp_auth.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.o `test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/auth/lmsrp_auth.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/auth/lmsrp_auth.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth.o `test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/auth/lmsrp_auth.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.o `test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/auth/lmsrp_auth.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth.obj: $(top_srcdir)/../src/auth/lmsrp_auth.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth.obj `if test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/auth/lmsrp_auth.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/auth/lmsrp_auth.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/auth/lmsrp_auth.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.obj: $(top_srcdir)/../src/auth/lmsrp_auth.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.obj `if test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/auth/lmsrp_auth.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/auth/lmsrp_auth.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/auth/lmsrp_auth.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth.obj `if test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/auth/lmsrp_auth.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/auth/lmsrp_auth.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.obj `if test -f '$(top_srcdir)/../src/auth/lmsrp_auth.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/auth/lmsrp_auth.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/auth/lmsrp_auth.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_ctx.o: $(top_srcdir)/../src/stream/lmsrp_ctx.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_ctx.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_ctx.o `test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/stream/lmsrp_ctx.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/stream/lmsrp_ctx.c' object='___unknow_liblmsrp_unknow_a-lmsrp_ctx.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.o: $(top_srcdir)/../src/stream/lmsrp_ctx.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.o `test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/stream/lmsrp_ctx.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/stream/lmsrp_ctx.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_ctx.o `test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/stream/lmsrp_ctx.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.o `test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/stream/lmsrp_ctx.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_ctx.obj: $(top_srcdir)/../src/stream/lmsrp_ctx.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_ctx.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_ctx.obj `if test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/stream/lmsrp_ctx.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/stream/lmsrp_ctx.c' object='___unknow_liblmsrp_unknow_a-lmsrp_ctx.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.obj: $(top_srcdir)/../src/stream/lmsrp_ctx.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.obj `if test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/stream/lmsrp_ctx.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/stream/lmsrp_ctx.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_ctx.obj `if test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/stream/lmsrp_ctx.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.obj `if test -f '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/stream/lmsrp_ctx.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/stream/lmsrp_ctx.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_www_h.o: $(top_srcdir)/../src/prase/lmsrp_www_h.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_www_h.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_h.o `test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_www_h.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_www_h.c' object='___unknow_liblmsrp_unknow_a-lmsrp_www_h.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.o: $(top_srcdir)/../src/prase/lmsrp_www_h.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.o `test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_www_h.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_www_h.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_h.o `test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_www_h.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.o `test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_www_h.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_www_h.obj: $(top_srcdir)/../src/prase/lmsrp_www_h.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_www_h.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_h.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_www_h.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_www_h.c' object='___unknow_liblmsrp_unknow_a-lmsrp_www_h.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.obj: $(top_srcdir)/../src/prase/lmsrp_www_h.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_www_h.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_www_h.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_www_h.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_www_h.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_www_h.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_www_h.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_authorization.o: $(top_srcdir)/../src/prase/lmsrp_authorization.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_authorization.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_authorization.o `test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_authorization.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_authorization.c' object='___unknow_liblmsrp_unknow_a-lmsrp_authorization.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.o: $(top_srcdir)/../src/prase/lmsrp_authorization.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.o `test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_authorization.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_authorization.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_authorization.o `test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_authorization.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.o `test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_authorization.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_authorization.obj: $(top_srcdir)/../src/prase/lmsrp_authorization.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_authorization.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_authorization.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_authorization.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_authorization.c' object='___unknow_liblmsrp_unknow_a-lmsrp_authorization.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.obj: $(top_srcdir)/../src/prase/lmsrp_authorization.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_authorization.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_authorization.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_authorization.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_authorization.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_authorization.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_authorization.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_common.o: $(top_srcdir)/../src/prase/lmsrp_common.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_common.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_common.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_common.c' object='___unknow_liblmsrp_unknow_a-lmsrp_common.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.o: $(top_srcdir)/../src/prase/lmsrp_common.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_common.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_common.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_common.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_common.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_common.obj: $(top_srcdir)/../src/prase/lmsrp_common.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_common.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_common.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_common.c' object='___unknow_liblmsrp_unknow_a-lmsrp_common.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.obj: $(top_srcdir)/../src/prase/lmsrp_common.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_common.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_common.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_common.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_common.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth_common.o: $(top_srcdir)/../src/prase/lmsrp_auth_common.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth_common.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_auth_common.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_auth_common.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth_common.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.o: $(top_srcdir)/../src/prase/lmsrp_auth_common.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_auth_common.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_auth_common.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_auth_common.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.o `test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_auth_common.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth_common.obj: $(top_srcdir)/../src/prase/lmsrp_auth_common.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth_common.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_auth_common.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth_common.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.obj: $(top_srcdir)/../src/prase/lmsrp_auth_common.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_auth_common.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_auth_common.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_info.o: $(top_srcdir)/../src/prase/lmsrp_info.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_info.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_info.o `test -f '$(top_srcdir)/../src/prase/lmsrp_info.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_info.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_info.c' object='___unknow_liblmsrp_unknow_a-lmsrp_info.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.o: $(top_srcdir)/../src/prase/lmsrp_info.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.o `test -f '$(top_srcdir)/../src/prase/lmsrp_info.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_info.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_info.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_info.o `test -f '$(top_srcdir)/../src/prase/lmsrp_info.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_info.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.o `test -f '$(top_srcdir)/../src/prase/lmsrp_info.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_info.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_info.obj: $(top_srcdir)/../src/prase/lmsrp_info.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_info.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_info.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_info.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_info.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_info.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_info.c' object='___unknow_liblmsrp_unknow_a-lmsrp_info.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.obj: $(top_srcdir)/../src/prase/lmsrp_info.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_info.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_info.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_info.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_info.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_info.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_info.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_info.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_info.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_info.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_info.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_info.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_mess.o: $(top_srcdir)/../src/prase/lmsrp_mess.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_mess.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess.o `test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_mess.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_mess.c' object='___unknow_liblmsrp_unknow_a-lmsrp_mess.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.o: $(top_srcdir)/../src/prase/lmsrp_mess.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.o `test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_mess.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_mess.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess.o `test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_mess.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.o `test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_mess.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_mess.obj: $(top_srcdir)/../src/prase/lmsrp_mess.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_mess.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_mess.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_mess.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_mess.c' object='___unknow_liblmsrp_unknow_a-lmsrp_mess.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.obj: $(top_srcdir)/../src/prase/lmsrp_mess.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_mess.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_mess.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_mess.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_mess.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_mess.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_mess.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_mess.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_mess.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_status.o: $(top_srcdir)/../src/prase/lmsrp_status.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_status.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_status.o `test -f '$(top_srcdir)/../src/prase/lmsrp_status.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_status.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_status.c' object='___unknow_liblmsrp_unknow_a-lmsrp_status.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.o: $(top_srcdir)/../src/prase/lmsrp_status.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.o `test -f '$(top_srcdir)/../src/prase/lmsrp_status.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_status.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_status.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_status.o `test -f '$(top_srcdir)/../src/prase/lmsrp_status.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_status.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.o `test -f '$(top_srcdir)/../src/prase/lmsrp_status.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_status.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_status.obj: $(top_srcdir)/../src/prase/lmsrp_status.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_status.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_status.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_status.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_status.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_status.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_status.c' object='___unknow_liblmsrp_unknow_a-lmsrp_status.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.obj: $(top_srcdir)/../src/prase/lmsrp_status.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_status.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_status.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_status.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_status.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_status.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_status.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_status.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_status.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_status.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_status.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_status.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_byte_range.o: $(top_srcdir)/../src/prase/lmsrp_byte_range.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_byte_range.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_byte_range.o `test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_byte_range.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_byte_range.c' object='___unknow_liblmsrp_unknow_a-lmsrp_byte_range.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.o: $(top_srcdir)/../src/prase/lmsrp_byte_range.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.o `test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_byte_range.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_byte_range.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_byte_range.o `test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_byte_range.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.o `test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_byte_range.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_byte_range.obj: $(top_srcdir)/../src/prase/lmsrp_byte_range.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_byte_range.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_byte_range.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_byte_range.c' object='___unknow_liblmsrp_unknow_a-lmsrp_byte_range.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.obj: $(top_srcdir)/../src/prase/lmsrp_byte_range.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_byte_range.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_byte_range.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_byte_range.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_content_type.o: $(top_srcdir)/../src/prase/lmsrp_content_type.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_content_type.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_content_type.o `test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_content_type.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_content_type.c' object='___unknow_liblmsrp_unknow_a-lmsrp_content_type.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.o: $(top_srcdir)/../src/prase/lmsrp_content_type.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.o `test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_content_type.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_content_type.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_content_type.o `test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_content_type.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.o `test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/prase/lmsrp_content_type.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_content_type.obj: $(top_srcdir)/../src/prase/lmsrp_content_type.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_content_type.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_content_type.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_content_type.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_content_type.c' object='___unknow_liblmsrp_unknow_a-lmsrp_content_type.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.obj: $(top_srcdir)/../src/prase/lmsrp_content_type.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_content_type.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/prase/lmsrp_content_type.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_content_type.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_content_type.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.obj `if test -f '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/prase/lmsrp_content_type.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/prase/lmsrp_content_type.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_mess_create.o: $(top_srcdir)/../src/create/lmsrp_mess_create.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_mess_create.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_mess_create.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_mess_create.c' object='___unknow_liblmsrp_unknow_a-lmsrp_mess_create.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.o: $(top_srcdir)/../src/create/lmsrp_mess_create.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_mess_create.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_mess_create.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_mess_create.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_mess_create.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_mess_create.obj: $(top_srcdir)/../src/create/lmsrp_mess_create.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_mess_create.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_mess_create.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_mess_create.c' object='___unknow_liblmsrp_unknow_a-lmsrp_mess_create.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.obj: $(top_srcdir)/../src/create/lmsrp_mess_create.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_mess_create.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_mess_create.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_mess_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_mess_create.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_mess_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_mess_create.c'; fi`
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth_create.o: $(top_srcdir)/../src/create/lmsrp_auth_create.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth_create.o -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_auth_create.c
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_auth_create.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth_create.o' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.o: $(top_srcdir)/../src/create/lmsrp_auth_create.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.o -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_auth_create.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_auth_create.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_auth_create.c
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.o `test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c' || echo '$(srcdir)/'`$(top_srcdir)/../src/create/lmsrp_auth_create.c
 
-___unknow_liblmsrp_unknow_a-lmsrp_auth_create.obj: $(top_srcdir)/../src/create/lmsrp_auth_create.c
-	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -MT ___unknow_liblmsrp_unknow_a-lmsrp_auth_create.obj -MD -MP -MF $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Tpo -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_auth_create.c'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Tpo $(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Po
-#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_auth_create.c' object='___unknow_liblmsrp_unknow_a-lmsrp_auth_create.obj' libtool=no \
+___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.obj: $(top_srcdir)/../src/create/lmsrp_auth_create.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -MT ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.obj -MD -MP -MF $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Tpo -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_auth_create.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Tpo $(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Po
+#	$(AM_V_CC)source='$(top_srcdir)/../src/create/lmsrp_auth_create.c' object='___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___unknow_liblmsrp_unknow_a_CFLAGS) $(CFLAGS) -c -o ___unknow_liblmsrp_unknow_a-lmsrp_auth_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_auth_create.c'; fi`
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(___arm-linux_liblmsrp_arm-linux_a_CFLAGS) $(CFLAGS) -c -o ___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.obj `if test -f '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; then $(CYGPATH_W) '$(top_srcdir)/../src/create/lmsrp_auth_create.c'; else $(CYGPATH_W) '$(srcdir)/$(top_srcdir)/../src/create/lmsrp_auth_create.c'; fi`
 tags TAGS:
 
 ctags CTAGS:
@@ -695,7 +695,7 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
-	-rm -f ../unknow/$(am__dirstamp)
+	-rm -f ../arm-linux/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -705,23 +705,23 @@ clean: clean-am
 clean-am: clean-generic clean-noinstLIBRARIES mostlyclean-am
 
 distclean: distclean-am
-		-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Po
+		-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic
 
@@ -766,23 +766,23 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-		-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_common.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_create.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_auth_tostring.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_authorization.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_byte_range.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_common.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_content_type.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_ctx.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_info.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_list_uri_tostring.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_create.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_mess_tostring.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_status.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_h.Po
-	-rm -f ./$(DEPDIR)/___unknow_liblmsrp_unknow_a-lmsrp_www_tostring.Po
+		-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_common.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_create.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_auth_tostring.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_authorization.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_byte_range.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_common.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_content_type.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_ctx.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_info.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_list_uri_tostring.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_create.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_mess_tostring.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_status.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_h.Po
+	-rm -f ./$(DEPDIR)/___arm-linux_liblmsrp_arm-linux_a-lmsrp_www_tostring.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -818,7 +818,7 @@ uninstall-am:
 .PRECIOUS: Makefile
 
 
-#cp *.o  unknow
+#cp *.o  arm-linux
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

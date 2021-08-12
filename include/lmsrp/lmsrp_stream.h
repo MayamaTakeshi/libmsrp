@@ -19,6 +19,7 @@ typedef enum lmsrp_prase_state{
 typedef struct lmsrp_context{
 	pj_int32_t max_byte;
 	pj_pool_t *pool;
+	pj_pool_t *spool;
 	lmsrp_prase_state state;
 	lmsrp_mess *mess;
 	int data_read; /// number of data is prase in mess
@@ -39,7 +40,9 @@ typedef struct lmsrp_context{
 } lmsrp_context;
 
 pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end);
-void lmsrp_context_init(lmsrp_context *ctx, pj_pool_t *pool, int max_size,
-		void *data, void *export);
+void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
+		void *data, void *export) ;
+void lmsrp_context_clear(lmsrp_context *ctx);
 pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size);
+
 #endif /* LMSRP_LMSRP_STREAM_H_ */

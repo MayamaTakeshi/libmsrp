@@ -1,6 +1,6 @@
 ___unknow_liblmsrp_unknow_a-lmsrp_mess.o: ../../src/prase/lmsrp_mess.c \
  /usr/include/stdc-predef.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp.h \
  /usr/local/include/pjlib.h /usr/local/include/pj/activesock.h \
  /usr/local/include/pj/ioqueue.h /usr/local/include/pj/types.h \
  /usr/local/include/pj/config.h /usr/local/include/pj/compat/cc_gcc.h \
@@ -123,20 +123,20 @@ ___unknow_liblmsrp_unknow_a-lmsrp_mess.o: ../../src/prase/lmsrp_mess.c \
  /usr/local/include/pjsip/sip_transaction.h \
  /usr/local/include/pjsip/sip_ua_layer.h \
  /usr/local/include/pjsip/sip_dialog.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_common.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_www_auth.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_auth_commom.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_authorization.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_info.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_status.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_byte_range.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_content_type.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_mess.h \
- /home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_stream.h
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_common.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_www_auth.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_auth_commom.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_authorization.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_info.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_status.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_byte_range.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_content_type.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_mess.h \
+ /home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_stream.h
 
 /usr/include/stdc-predef.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp.h:
 
 /usr/local/include/pjlib.h:
 
@@ -450,22 +450,22 @@ ___unknow_liblmsrp_unknow_a-lmsrp_mess.o: ../../src/prase/lmsrp_mess.c \
 
 /usr/local/include/pjsip/sip_dialog.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_common.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_common.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_www_auth.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_www_auth.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_auth_commom.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_auth_commom.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_authorization.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_authorization.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_info.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_info.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_status.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_status.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_byte_range.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_byte_range.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_content_type.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_content_type.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_mess.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_mess.h:
 
-/home/dccan/app/code/libmsrp/build/../include/lmsrp/lmsrp_stream.h:
+/home/amneiht/app/code/eclipse-workspace/libmsrp/build/../include/lmsrp/lmsrp_stream.h:
