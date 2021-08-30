@@ -7,6 +7,10 @@
 
 #include <lmsrp.h>
 static pj_str_t endline = { "\r\n", 2 };
+
+/* fixme : check data before write when create messages string from lmsrp_mess
+ *
+ */
 // fast witer to chek out of data
 #define _LMSRP_MESSEND      \
 	if (dem == -1) return -1; \
@@ -65,7 +69,7 @@ int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size) {
 		_LMSRP_MESSEND;
 	}
 	if (mess->status != NULL) {
-		if (mess->status->reason.slen >0) {
+		if (mess->status->reason.slen > 0) {
 			dem = sprintf(point, "Status : %d %d %.*s\r\n", mess->status->code,
 					mess->status->rfc_code, (int) mess->status->reason.slen,
 					mess->status->reason.ptr);
@@ -146,7 +150,7 @@ int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size) {
 		dem = mess->contend.slen;
 		pj_memcpy(point, mess->contend.ptr, mess->contend.slen);
 		_LMSRP_MESSEND;
-		dem = sprintf(point, "\r\n");
+		dem = sprintf(point, "\n");
 		_LMSRP_MESSEND;
 	}
 	dem = sprintf(point, "-------%.*s%c\r\n\r\n", (int) mess->tid.slen,

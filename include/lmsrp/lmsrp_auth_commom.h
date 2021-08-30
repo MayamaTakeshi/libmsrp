@@ -17,7 +17,7 @@ typedef struct _lmsrp_auth_common_header {
 	pj_pool_t *pool;
 } lmsrp_auth_common_header;
 enum lmsrp_auth_header_pro {
-	lmsrp_auth_header_realm,
+	lmsrp_auth_header_realm = 0,
 	lmsrp_auth_header_nonce,
 	lmsrp_auth_header_cnonce,
 	lmsrp_auth_header_qop,
@@ -29,7 +29,7 @@ enum lmsrp_auth_header_pro {
 	lmsrp_auth_header_response,
 	lmsrp_auth_header_uri,
 	lmsrp_auth_header_username,
-
+	lmsrp_auth_header_unknow
 };
 int lmsrp_find_header_property(const header_property *pro, const int size, pj_str_t *in);
 

@@ -24,34 +24,25 @@ void static test_export(void *data, char *buff, int leng, lmsrp_mess *rang) {
 	PJ_LOG(1, ("export","allss"));
 }
 void test_msrp() {
-	char *lms2 = "MSRP fdls REPORT\n"
+	char *lms2 = "MSRP fdls SEND\n"
 			"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
 			"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
+			"\r\n"
+			"thien ha vo dich thach hac long"
 			"-------fdls$\r\n";
-
-//					"MSRP fdls REPORT\n"
-//					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-//					"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-//					"\r\n"
-//					"wvxhqjwxujqhxwgxghqsuxhlsjdhwwjshhsssusu\n-------fdls$\r\nMSRP fdls REPORT\n"
-//					"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-//					"From-Path:msrp://test1@192.";
-
-	char *lms = "168.4.38;tcp \r\n"
-			"\r\n"
-			"wvxhqjwxujqhxwwgxghqsuxhlsjdhwjshhsssusu\n-----";
-
-	char *lms3 = "--fdls$\r\n"
-			"MSRP fdls REPORT\n"
-			"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-			"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-			"\r\n"
-			"wvxhqjwxujqhxwgxghqsuxhlsjdhwwjshhsssusu\n-------fdls$\r\n";
+	lmsrp_mess * ms = lmsrp_mess_create_from_buff(lpool, lms2, strlen(lms2));
 	lmsrp_context ctx;
-	lmsrp_context_init(&ctx, &cp, 40, NULL, &test_export);
-	lmsrp_context_update(&ctx, lms2, strlen(lms2));
-	lmsrp_context_update(&ctx, lms, strlen(lms));
-	lmsrp_context_update(&ctx, lms3, strlen(lms3));
+	lmsrp_context_init(&ctx, &cp, 4000, NULL, &test_export);
+	int pkm = strlen(lms2);
+	int step = 20;
+	while (pkm > 0) {
+		if (pkm < step)
+			step = pkm;
+		pkm = pkm - step;
+		lmsrp_context_update(&ctx, lms2, step);
+		lms2 = lms2 + step;
+	}
+
 	PJ_LOG(1, ("stop","all"));
 }
 void test_prase2() {
@@ -60,21 +51,17 @@ void test_prase2() {
 	char *rm = pj_strstr(&log, &find);
 	printf("%s", rm);
 }
-extern void change_point(lmsrp_mess *mess, char *str_old, char *str);
 int main(void) {
 	init();
-	char *lms2 = "MSRP fdls REPORT\n"
-			"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-			"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-			"-------fdls$\r\n";
-	char *test2 = "MSRP fdwq REPORT\n"
-			"To-Path: msrp://t3w31@192.168.4.58;tcp\r\n"
-			"From-Path: msrp://t3w31@192.168.4.58;tcp \r\n"
-			"-------fdls$\r\n";
+//	char *lms2 = "MSRP fdls REPORT\n"
+//			"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
+//			"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
+//			"-------fdls$\r\n";
+//	char *test2 = "MSRP fdwq REPORT\n"
+//			"To-Path: msrp://t3w31@192.168.4.58;tcp\r\n"
+//			"From-Path: msrp://t3w31@192.168.4.58;tcp \r\n"
+//			"-------fdls$\r\n";
 //	test_prase2();
-//	test_msrp();
-	lmsrp_mess * mess = lmsrp_mess_create_from_buff(lpool, lms2, strlen(lms2));
-	puts("ok");
-	change_point(mess, lms2, test2);
-	puts("oke");
+	test_msrp();
+
 }

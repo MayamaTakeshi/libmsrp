@@ -16,19 +16,17 @@ static void convert_str(pj_str_t *sl, char *str_old, char *str) {
 	int dem = sl->ptr - str_old;
 	sl->ptr = str + dem;
 }
-static void lmsrp_list_uri_change(lmsrp_list_uri * list, char *str_old,
+static void lmsrp_list_uri_change(lmsrp_list_uri *list, char *str_old,
 		char *str) {
 	lmsrp_list_uri *start = list;
 	lmsrp_uri *uri;
 	do {
 		uri = start->uri;
-		do {
-			fconvert(uri->authority.host);
-			fconvert(uri->authority.userinfo);
-			fconvert(uri->scheme);
-			fconvert(uri->session_id);
-		} while (uri != start->uri);
-		start = list->next;
+		fconvert(uri->authority.host);
+		fconvert(uri->authority.userinfo);
+		fconvert(uri->scheme);
+		fconvert(uri->session_id);
+		start = start->next;
 	} while (list != start);
 }
 //static
@@ -74,7 +72,7 @@ void change_point(lmsrp_mess *mess, char *str_old, char *str) {
 	}
 
 	if (mess->content_type) {
-		lmsrp_list_param * type = mess->content_type->type;
+		lmsrp_list_param *type = mess->content_type->type;
 		do {
 			fconvert(type->var.name);
 			fconvert(type->var.value);
@@ -109,6 +107,11 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 			}
 		} else {
 			// perpare for new update
+			if (size > ctx->max_byte) {
+				PJ_LOG(3, ("msrp ctx", "over data to prase"));
+				ctx->state = lmsrp_prase_state_done;
+				return -1;
+			}
 			pj_memcpy(ctx->tmp, buff, size);
 			ctx->sum = size;
 			change_point(ctx->mess, buff, ctx->tmp);
@@ -116,9 +119,16 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		break;
 	default: {
 		//all header leng + maxbyte
-		int cpy = (ctx->max_byte + 500) + 20 - ctx->sum;
-		if (cpy > size)
+		int cpy = ctx->max_byte - ctx->sum;
+		if (cpy > size) {
 			cpy = size;
+		} else {
+			if (cpy < size) {
+				PJ_LOG(3, ("msrp ctx", "over data to prase"));
+				ctx->state = lmsrp_prase_state_done;
+				return -1;
+			}
+		}
 		pj_memcpy((ctx->tmp + ctx->sum), buff, cpy);
 		// so data can doc
 		int old_leng = ctx->sum;
@@ -131,6 +141,9 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 		if (ctx->state == lmsrp_prase_state_done) {
 			ctx->export(ctx->data, ctx->mess->contend.ptr,
 					ctx->mess->contend.slen, ctx->mess);
+			/*
+			 * after update ctx , ctx->data_read=total byte are readed
+			 */
 			size2 = ctx->data_read - old_leng;
 			if (size2 < size) {
 				size = size - size2;
@@ -151,8 +164,8 @@ void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
 		void *data, void *export) {
 	ctx->pool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
 	ctx->spool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
-	ctx->max_byte = max_size;
-	ctx->tmp = pj_pool_alloc(ctx->spool, (max_size + 500) * 2 * sizeof(char));
+	ctx->max_byte = (max_size + 500) * 2;
+	ctx->tmp = pj_pool_alloc(ctx->spool, ctx->max_byte * sizeof(char));
 	ctx->state = lmsrp_prase_state_done;
 	ctx->data = data;
 	ctx->export = export;

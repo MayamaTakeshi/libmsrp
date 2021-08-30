@@ -61,10 +61,12 @@ lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 		pj_memcpy(&uri->authority.host, host, sizeof(pj_str_t));
 	}
 	if (sessid != NULL) {
-		uri->session_id = *sessid;
+//		uri->session_id = *sessid;
+		pj_memcpy(&uri->session_id, sessid, sizeof(pj_str_t));
 	}
 	if (username != NULL) {
-		uri->authority.userinfo = *username;
+//		uri->authority.userinfo = *username;
+		pj_memcpy(&uri->authority.userinfo, username, sizeof(pj_str_t));
 	}
 
 	return uri;
@@ -85,6 +87,7 @@ void lmsrp_list_uri_add(lmsrp_list_uri *list, lmsrp_uri *uri) {
 		lmsrp_list_uri *res = PJ_POOL_ZALLOC_T(list->pool, lmsrp_list_uri);
 		res->pool = list->pool;
 		res->uri = uri;
+		uri->pool = list->pool;
 		pj_list_insert_before(list, res);
 	}
 }
