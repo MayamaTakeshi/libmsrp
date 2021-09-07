@@ -8,10 +8,11 @@
 #include <lmsrp.h>
 
 void lmsrp_auth_common_prase(pj_pool_t *pool, lmsrp_auth_common_header *dst,
-		lmsrp_check *check, lmsrp_auth_set_pro *set_pro,int size , char *data, int end) {
+		lmsrp_check check, lmsrp_auth_set_pro set_pro, int header_size, char *data,
+		int end) {
 	int status = 0;
 	pj_str_t name, value;
-	pj_bzero(dst, sizeof(size));
+	pj_bzero(dst, header_size);
 	dst->pool = pool;
 
 	int dem = 0;

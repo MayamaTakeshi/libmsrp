@@ -22,12 +22,10 @@ AC_SUBST([LIB_NAME])
 
 #AC_SUBST([NAME])
 
-if test -z $host
-    then
-    LIB_NAME="lmsrp_unknow"
-    else
-      LIB_NAME="lmsrp_$host"
-fi
+
+LIB_NAME="lmsrp"
+
+
 
 if test -z $host
     then

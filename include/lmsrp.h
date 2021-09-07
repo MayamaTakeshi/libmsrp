@@ -27,4 +27,7 @@ typedef enum _lmsrp_transport {
 
 lmsrp_mess* lmsrp_gen_auth_mess(pj_pool_t *pool, pjsip_cred_info *cred,
 		int port, pj_str_t *session_id, lmsrp_transport pro);
+pj_status_t lmsrp_authorizate_mess(lmsrp_mess *mess, lmsrp_mess *respone,
+		pjsip_cred_info *cred , pj_str_t* out_put);
+
 #endif /* LMSRP_H_ */

@@ -18,19 +18,19 @@ void lmsrp_byte_range_prase(pj_pool_t *pool, lmsrp_byte_range *header,
 	pj_bzero(header, sizeof(lmsrp_byte_range));
 	header->pool = pool;
 	pj_str_t out;
-	dem = lmsrp_get_str(&out, data, end, &lmsrp_byte_range_check, NULL);
+	dem = lmsrp_get_str(&out, data, end, lmsrp_byte_range_check, NULL);
 	data = data + dem;
 	end = end - dem;
 	header->start = pj_strtol(&out);
 	if (dem < 1)
 		return;
-	dem = lmsrp_get_str(&out, data, end, &lmsrp_byte_range_check, NULL);
+	dem = lmsrp_get_str(&out, data, end, lmsrp_byte_range_check, NULL);
 	data = data + dem;
 	end = end - dem;
 	header->end = pj_strtol(&out);
 	if (dem < 1)
 		return;
-	dem = lmsrp_get_str(&out, data, end, &lmsrp_byte_range_check, NULL);
+	dem = lmsrp_get_str(&out, data, end, lmsrp_byte_range_check, NULL);
 	data = data + dem;
 	end = end - dem;
 	header->total = pj_strtol(&out);

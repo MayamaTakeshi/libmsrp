@@ -11,57 +11,46 @@
 #include <lmsrp.h>
 
 pj_caching_pool cp;
-pj_pool_t *lpool;
-
-void init() {
+pj_pool_t *pool;
+void test_msrp();
+static void init() {
 	pj_init();
 //	pjlib_util_init();
 	pj_caching_pool_init(&cp, &pj_pool_factory_default_policy, 0);
-	lpool = pj_pool_create(&(cp.factory), "Sip pool", 4000, 4000, NULL);
+	pool = pj_pool_create(&(cp.factory), "Sip pool", 4000, 4000, NULL);
 	pj_log_set_level(5);
 }
-void static test_export(void *data, char *buff, int leng, lmsrp_mess *rang) {
-	PJ_LOG(1, ("export","allss"));
-}
 void test_msrp() {
-	char *lms2 = "MSRP fdls SEND\n"
-			"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-			"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-			"\r\n"
-			"thien ha vo dich thach hac long"
-			"-------fdls$\r\n";
-	lmsrp_mess * ms = lmsrp_mess_create_from_buff(lpool, lms2, strlen(lms2));
-	lmsrp_context ctx;
-	lmsrp_context_init(&ctx, &cp, 4000, NULL, &test_export);
-	int pkm = strlen(lms2);
-	int step = 20;
-	while (pkm > 0) {
-		if (pkm < step)
-			step = pkm;
-		pkm = pkm - step;
-		lmsrp_context_update(&ctx, lms2, step);
-		lms2 = lms2 + step;
-	}
+	pj_str_t method = pj_str("SEND");
+	pj_str_t sess_id = pj_str("sdwdeax");
+	pj_str_t host = pj_str("1.1.1.1");
+	pj_str_t user_1 = pj_str("pikakaka");
+	pj_str_t user_2 = pj_str("d4p4pd");
+	lmsrp_mess *mess = lmsrp_mess_create_request(pool, &sess_id, &method);
+	mess->byte_range = lmsrp_byte_range_create(pool, 10088, 100000, 202020202);
+	lmsrp_uri *urs = lmsrp_uri_create(pool, &host, 3343, &sess_id, &user_1,
+			lmsrp_transport_tcp);
+	lmsrp_uri *urd = lmsrp_uri_create(pool, &host, 3343, &sess_id, &user_2,
+			lmsrp_transport_tcp);
 
-	PJ_LOG(1, ("stop","all"));
+	mess->to_path = lmsrp_list_uri_create(pool, urs);
+	mess->from_path = lmsrp_list_uri_create(pool, urd);
+	lmsrp_list_uri_add(mess->to_path, urs);
+	char buff[1000];
+	lmsrp_mess_tostring(mess, buff, 1000);
+	puts(buff);
+
 }
-void test_prase2() {
-	pj_str_t log = { "hdgcwx aujh\0shdauuodghrs", 20 };
-	pj_str_t find = { "dauuo", 5 };
-	char *rm = pj_strstr(&log, &find);
-	printf("%s", rm);
-}
+extern void test_prase(pj_pool_t *pool);
+extern void test_authenticaion(pj_pool_t *pool);
+extern void test_encode();
+extern void test_base64();
 int main(void) {
 	init();
-//	char *lms2 = "MSRP fdls REPORT\n"
-//			"To-Path: msrp://test1@192.168.4.38;tcp\r\n"
-//			"From-Path: msrp://test1@192.168.4.38;tcp \r\n"
-//			"-------fdls$\r\n";
-//	char *test2 = "MSRP fdwq REPORT\n"
-//			"To-Path: msrp://t3w31@192.168.4.58;tcp\r\n"
-//			"From-Path: msrp://t3w31@192.168.4.58;tcp \r\n"
-//			"-------fdls$\r\n";
-//	test_prase2();
-	test_msrp();
+//	test_encode();
+	test_base64();
+//	test_authenticaion(pool);
+//	test_prase(pool);
+//	test_msrp();
 
 }

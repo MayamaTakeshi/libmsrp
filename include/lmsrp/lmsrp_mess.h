@@ -9,6 +9,25 @@
 #define LMSRP_MESS_H_
 
 #include <lmsrp.h>
+typedef enum lmsrp_mess_header_type {
+	lmsrp_mess_header_msrp = 1,
+	lmsrp_mess_header_to_path,
+	lmsrp_mess_header_status,
+	lmsrp_mess_header_byte_range,
+	lmsrp_mess_header_content_type,
+	lmsrp_mess_header_from_path,
+	lmsrp_mess_header_use_path,
+	lmsrp_mess_header_messid,
+	lmsrp_mess_header_failure_report,
+	lmsrp_mess_header_sucess_report,
+	lmsrp_mess_header_max_express,
+	lmsrp_mess_header_min_express,
+	lmsrp_mess_header_express,
+	lmsrp_mess_header_www_auth,
+	lmsrp_mess_header_authorization,
+	lmsrp_mess_header_end
+} lmsrp_mess_header_type;
+
 typedef struct _lmsrp_mess {
 	pj_pool_t *pool;
 	pj_str_t tid;
@@ -58,7 +77,5 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end);
 int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size);
 lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,
 		pj_str_t *method);
-pj_str_t* lmsrp_authorizate_mess(lmsrp_mess *mess, lmsrp_mess *respone,
-		pjsip_cred_info *cred);
 
 #endif /* LMSRP_MESS_H_ */

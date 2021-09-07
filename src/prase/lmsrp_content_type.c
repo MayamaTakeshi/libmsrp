@@ -18,7 +18,7 @@ void lmsrp_content_type_prase(pj_pool_t *pool, lmsrp_content_type_h *header,
 	pj_str_t name, value;
 	header->pool = pool;
 	while (1) {
-		dem = lmsrp_get_str(&name, data, end, &lmsrp_content_type_check, NULL);
+		dem = lmsrp_get_str(&name, data, end, lmsrp_content_type_check, NULL);
 		data = data + dem;
 		end = end - dem;
 		if (dem < 1) {
@@ -26,7 +26,7 @@ void lmsrp_content_type_prase(pj_pool_t *pool, lmsrp_content_type_h *header,
 		}
 		if (data[0] != '/')
 			break;
-		dem = lmsrp_get_str(&value, data, end, &lmsrp_content_type_check, NULL);
+		dem = lmsrp_get_str(&value, data, end, lmsrp_content_type_check, NULL);
 		data = data + dem;
 		end = end - dem;
 

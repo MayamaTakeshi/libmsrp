@@ -7,11 +7,12 @@
 
 #include <lmsrp.h>
 
-static pj_str_t lmsrp_tp_tcp = { "tcp", 3 };
-static pj_str_t lmsrp_tp_tls = { "tls", 3 };
-static pj_str_t lmsrp_tp_udp = { "udp", 3 };
-static pj_str_t lmsrp_ch_tls = { "msrps", 5 };
-static pj_str_t lmsrp_ch_tcp = { "msrp", 4 };
+const static pj_str_t lmsrp_tp_tcp = { "tcp", 3 };
+const static pj_str_t lmsrp_tp_tls = { "tls", 3 };
+const static pj_str_t lmsrp_tp_udp = { "udp", 3 };
+const static pj_str_t lmsrp_ch_tls = { "msrps", 5 };
+const static pj_str_t lmsrp_ch_tcp = { "msrp", 4 };
+
 lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,
 		pj_str_t *method) {
 	lmsrp_mess *res = pj_pool_zalloc(pool, sizeof(lmsrp_mess));
@@ -36,7 +37,8 @@ lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 		pj_str_t *sessid, pj_str_t *username, int transport) {
 	lmsrp_uri *uri = PJ_POOL_ZALLOC_T(pool, lmsrp_uri);
 	uri->pool = pool;
-	pj_memcpy(&uri->session_id, sessid, sizeof(pj_str_t));
+//	pj_memcpy(&uri->session_id, sessid, sizeof(pj_str_t));
+	uri->session_id = *sessid;
 	if (port > 0)
 		uri->authority.port = port;
 	switch (transport) {
@@ -58,21 +60,22 @@ lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 		break;
 	}
 	if (host != NULL) {
-		pj_memcpy(&uri->authority.host, host, sizeof(pj_str_t));
+//		pj_memcpy(&uri->authority.host, host, sizeof(pj_str_t));
+		uri->authority.host = *host;
 	}
 	if (sessid != NULL) {
-//		uri->session_id = *sessid;
-		pj_memcpy(&uri->session_id, sessid, sizeof(pj_str_t));
+		uri->session_id = *sessid;
+//		pj_memcpy(&uri->session_id, sessid, sizeof(pj_str_t));
 	}
 	if (username != NULL) {
-//		uri->authority.userinfo = *username;
-		pj_memcpy(&uri->authority.userinfo, username, sizeof(pj_str_t));
+		uri->authority.userinfo = *username;
+//		pj_memcpy(&uri->authority.userinfo, username, sizeof(pj_str_t));
 	}
 
 	return uri;
 }
-lmsrp_byte_range* lmsrp_byte_range_create(pj_pool_t *pool, int start, int end,
-		int total) {
+lmsrp_byte_range* lmsrp_byte_range_create(pj_pool_t *pool, pj_uint64_t start,
+		pj_uint64_t end, pj_uint64_t total) {
 	lmsrp_byte_range *res = PJ_POOL_ALLOC_T(pool, lmsrp_byte_range);
 	res->pool = pool;
 	res->start = start;
@@ -98,3 +101,18 @@ lmsrp_list_uri* lmsrp_list_uri_create(pj_pool_t *pool, lmsrp_uri *uri) {
 	res->uri = uri;
 	return res;
 }
+
+lmsrp_content_type_h* lmsrp_content_type_create(pj_pool_t *pool, pj_str_t *name,
+		pj_str_t *value) {
+	if (!name || !pool || !value)
+		return NULL;
+	lmsrp_content_type_h *cont = pj_pool_alloc(pool,
+			sizeof(lmsrp_content_type_h));
+	cont->pool = pool;
+	cont->type = pj_pool_alloc(pool, sizeof(lmsrp_list_param));
+	pj_list_init(cont->type);
+	cont->type->var.name = *name;
+	cont->type->var.value = *value;
+	return cont;
+}
+

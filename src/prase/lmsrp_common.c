@@ -7,7 +7,7 @@
 #include <lmsrp.h>
 
 static char sperate[] = { ' ', ':', '/', '@', ';' };
-static int check(char d, void *arg) {
+static int _check(char d, void *arg) {
 	int dem = sizeof(sperate);
 	for (int i = 0; i < dem; i++) {
 		if (sperate[i] == d) {
@@ -27,7 +27,7 @@ void lmsrp_list_uri_prase(pj_pool_t *pool, lmsrp_list_uri *dst, char *data,
 	lmsrp_uri lst;
 	int dem = 0;
 
-	while (1) {
+	while (end > 0) {
 		dem = lmsrp_uri_prase(pool, &lst, data, end);
 		if (dem < 1)
 			break;
@@ -48,7 +48,7 @@ void lmsrp_list_uri_prase(pj_pool_t *pool, lmsrp_list_uri *dst, char *data,
 	}
 
 }
-int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check *test,
+int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check test,
 		void *arg) {
 	int i = 0;
 	str->slen = 0;
@@ -61,8 +61,7 @@ int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check *test,
 	str->ptr = data + i;
 	while (!test(data[i], arg)) {
 		i++;
-		if (i > end) {
-			i--;
+		if (i >= end) {
 			break;
 		}
 	}
@@ -79,7 +78,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 	pj_bzero(dst, sizeof(lmsrp_uri));
 	dst->pool = pool;
 	int prase = 0;
-	int dem = lmsrp_get_str(&(dst->scheme), data, end, &check, NULL);
+	int dem = lmsrp_get_str(&(dst->scheme), data, end, _check, NULL);
 	pj_str_t out;
 	prase += dem;
 
@@ -88,7 +87,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 	data = data + dem;
 	end = end - dem;
 
-	dem = lmsrp_get_str(&(out), data, end, &check, NULL);
+	dem = lmsrp_get_str(&(out), data, end, _check, NULL);
 	if (dem < 0)
 		return -1;
 	prase += dem;
@@ -100,7 +99,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 		dst->authority.userinfo.slen = out.slen;
 
 		//prase host
-		dem = lmsrp_get_str(&(out), data, end, &check, NULL);
+		dem = lmsrp_get_str(&(out), data, end, _check, NULL);
 		if (dem < 0)
 			return -1;
 		prase += dem;
@@ -117,7 +116,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 	if (data[0] == ':') {
 		// prase port
 //		PJ_LOG(4, (__FILE__,"log port"));
-		dem = lmsrp_get_str(&(out), data, end, &check, NULL);
+		dem = lmsrp_get_str(&(out), data, end, _check, NULL);
 		if (dem < 0)
 			return -1;
 		prase += dem;
@@ -129,7 +128,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 
 	if (data[0] == '/') {
 		// prase session id
-		dem = lmsrp_get_str(&(out), data, end, &check, NULL);
+		dem = lmsrp_get_str(&(out), data, end, _check, NULL);
 		if (dem < 0)
 			return -1;
 		prase += dem;
@@ -141,7 +140,7 @@ int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end) {
 
 	if (data[0] == ';') {
 		// prase tranport
-		dem = lmsrp_get_str(&(out), data, end, &check, NULL);
+		dem = lmsrp_get_str(&(out), data, end, _check, NULL);
 		if (dem < 0)
 			return -1;
 		prase += dem;

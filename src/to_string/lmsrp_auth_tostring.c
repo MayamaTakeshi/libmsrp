@@ -11,7 +11,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 	int tong = 0;
 	char *point = buff;
 
-	if (header->scheme.slen) {
+	if (header->scheme.slen>0) {
 		dem = sprintf(point, "%.*s ", (int) header->scheme.slen,
 				header->scheme.ptr);
 		tong = tong + dem;
@@ -19,7 +19,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->realm.slen) {
+	if (header->realm.slen>0) {
 		dem = sprintf(point, "realm=\"%.*s\"", (int) header->realm.slen,
 				header->realm.ptr);
 		tong = tong + dem;
@@ -27,7 +27,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->algorithm.slen) {
+	if (header->algorithm.slen>0) {
 		dem = sprintf(point, ",algorithm=\"%.*s\"",
 				(int) header->algorithm.slen, header->algorithm.ptr);
 		tong = tong + dem;
@@ -35,7 +35,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->nc.slen) {
+	if (header->nc.slen>0) {
 		dem = sprintf(point, ",nc=%.*s", (int) header->nc.slen,
 				header->nc.ptr);
 		tong = tong + dem;
@@ -43,7 +43,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->nonce.slen) {
+	if (header->nonce.slen>0) {
 		dem = sprintf(point, ",nonce=\"%.*s\"", (int) header->nonce.slen,
 				header->nonce.ptr);
 		tong = tong + dem;
@@ -51,7 +51,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->cnonce.slen) {
+	if (header->cnonce.slen>0) {
 		dem = sprintf(point, ",cnonce=\"%.*s\"", (int) header->cnonce.slen,
 				header->cnonce.ptr);
 		tong = tong + dem;
@@ -59,7 +59,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->opaque.slen) {
+	if (header->opaque.slen>0) {
 		dem = sprintf(point, ",opaque=\"%.*s\"", (int) header->opaque.slen,
 				header->opaque.ptr);
 		tong = tong + dem;
@@ -67,7 +67,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->username.slen) {
+	if (header->username.slen>0) {
 		dem = sprintf(point, ",username=\"%.*s\"", (int) header->username.slen,
 				header->username.ptr);
 		tong = tong + dem;
@@ -75,7 +75,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->response.slen) {
+	if (header->response.slen>0) {
 		dem = sprintf(point, ",response=\"%.*s\"", (int) header->response.slen,
 				header->response.ptr);
 		tong = tong + dem;
@@ -83,7 +83,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->uri.slen) {
+	if (header->uri.slen>0) {
 		dem = sprintf(point, ",uri=\"%.*s\"", (int) header->uri.slen,
 				header->uri.ptr);
 		tong = tong + dem;
@@ -91,7 +91,7 @@ int lmsrp_authorization_header_to_string(lmsrp_authorization_h *header,
 			return -1;
 		point = point + dem;
 	}
-	if (header->qop.slen) {
+	if (header->qop.slen>0) {
 		dem = sprintf(point, ",qop=%.*s", (int) header->qop.slen,
 				header->qop.ptr);
 		tong = tong + dem;

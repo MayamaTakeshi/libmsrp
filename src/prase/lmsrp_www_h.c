@@ -19,11 +19,11 @@ static const header_property pro[] = { //
 				{ { "qop", 3 }, lmsrp_auth_header_qop } //
 
 		};
-int lmsrp_find_header_property(const header_property *pro, const int size,
+int lmsrp_find_header_property(const header_property *list, const int size,
 		pj_str_t *in) {
 	for (int i = 0; i < size; i++) {
-		if (pj_stricmp(&(pro[i].name), in) == 0) {
-			return pro[i].pro;
+		if (pj_stricmp(&(list[i].name), in) == 0) {
+			return list[i].pro;
 		}
 	}
 	return -1;
@@ -56,19 +56,19 @@ int lmsrp_header_check_equal(char *data, int end, int *result) {
 	int i = 0;
 	*result = 0;
 	while (1) {
-		if (data[i] == ' ' || data[i] == ',') {
-
-		} else if (data[i] == '=') {
-			*result = 1;
-		} else {
-			return i;
-		}
-		if (i == end)
+		if (i >= end)
 			return -1;
+		if (data[i] != ' ' && data[i] != ',') {
+			if (data[i] == '=') {
+				*result = 1;
+			} else {
+				return i;
+			}
+		}
 		i++;
 	}
 }
-static void lmsrp_set_pro(void *data, pj_str_t *name, pj_str_t *value) {
+static void _lmsrp_set_pro(void *data, pj_str_t *name, pj_str_t *value) {
 	lmsrp_www_h *dst = data;
 	static int ls = sizeof(pj_str_t);
 	if (name == NULL || name->slen == 0)
@@ -121,5 +121,5 @@ static void lmsrp_set_pro(void *data, pj_str_t *name, pj_str_t *value) {
 }
 void lmsrp_www_h_prase(pj_pool_t *pool, lmsrp_www_h *dst, char *data, int end) {
 	lmsrp_auth_common_prase(pool, (lmsrp_auth_common_header*) dst,
-			&lmsrp_www_check, &lmsrp_set_pro, sizeof(lmsrp_www_h), data, end);
+			lmsrp_www_check, _lmsrp_set_pro, sizeof(lmsrp_www_h), data, end);
 }

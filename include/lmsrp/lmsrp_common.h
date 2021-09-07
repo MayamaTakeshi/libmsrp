@@ -8,7 +8,7 @@
 #ifndef LMSRP_COMMON_H_
 #define LMSRP_COMMON_H_
 
-typedef int (lmsrp_check)(char d, void *info);
+typedef int (*lmsrp_check)(char d, void *info);
 typedef struct _lmsrp_param {
 	pj_str_t name;
 	pj_str_t value;
@@ -51,7 +51,7 @@ typedef struct _header_property {
 void lmsrp_list_uri_prase(pj_pool_t *pool, lmsrp_list_uri *dst, char *data,
 		int end);
 int lmsrp_uri_prase(pj_pool_t *pool, lmsrp_uri *dst, char *data, int end);
-int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check *test,
+int lmsrp_get_str(pj_str_t *str, char *data, int end, lmsrp_check test,
 		void *arg);
 int lmsrp_list_uri_tostring(lmsrp_list_uri *urs, char *buff, int leng);
 

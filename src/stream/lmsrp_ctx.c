@@ -30,7 +30,7 @@ static void lmsrp_list_uri_change(lmsrp_list_uri *list, char *str_old,
 	} while (list != start);
 }
 //static
-void change_point(lmsrp_mess *mess, char *str_old, char *str) {
+static void change_point(lmsrp_mess *mess, char *str_old, char *str) {
 
 	if (mess->tid.slen > 0) {
 		convert_str(&mess->tid, str_old, str);
@@ -161,7 +161,7 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 	return PJ_TRUE;
 }
 void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
-		void *data, void *export) {
+		void *data,void (*export)(void *data, char *buff, int leng, lmsrp_mess *arg)) {
 	ctx->pool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
 	ctx->spool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
 	ctx->max_byte = (max_size + 500) * 2;

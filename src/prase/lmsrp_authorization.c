@@ -20,7 +20,7 @@ static const header_property auth_msrp[] = {
 		{ { "cnonce", 6 }, lmsrp_auth_header_cnonce }, //
 		{ { "response", 8 }, lmsrp_auth_header_response } //
 };
-void lmsrp_authorization_set_pro(void *header, pj_str_t *name, pj_str_t *value) {
+static void lmsrp_authorization_set_pro(void *header, pj_str_t *name, pj_str_t *value) {
 	lmsrp_authorization_h *dst = header;
 	static const int ls = sizeof(pj_str_t);
 	if (name == NULL || name->slen == 0)
@@ -103,6 +103,6 @@ static int lmsrp_auth_check(char d, void *arg) {
 void lmsrp_authorization_header_prase(pj_pool_t *pool,
 		lmsrp_authorization_h *dst, char *data, int end) {
 	lmsrp_auth_common_prase(pool, (lmsrp_auth_common_header*) dst,
-			&lmsrp_auth_check, &lmsrp_authorization_set_pro,
+			lmsrp_auth_check, lmsrp_authorization_set_pro,
 			sizeof(lmsrp_authorization_h), data, end);
 }

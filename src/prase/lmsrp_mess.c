@@ -30,25 +30,6 @@ static int lmsrp_mess_check(char d, void *arg) {
 		return 1;
 	return 0;
 }
-
-typedef enum lmsrp_mess_header_type {
-	lmsrp_mess_header_msrp = 1,
-	lmsrp_mess_header_to_path,
-	lmsrp_mess_header_status,
-	lmsrp_mess_header_byte_range,
-	lmsrp_mess_header_content_type,
-	lmsrp_mess_header_from_path,
-	lmsrp_mess_header_use_path,
-	lmsrp_mess_header_messid,
-	lmsrp_mess_header_failure_report,
-	lmsrp_mess_header_sucess_report,
-	lmsrp_mess_header_max_express,
-	lmsrp_mess_header_min_express,
-	lmsrp_mess_header_express,
-	lmsrp_mess_header_www_auth,
-	lmsrp_mess_header_authorization,
-	lmsrp_mess_header_unknow
-} lmsrp_mess_header_type;
 // 15 phan tu
 
 const static header_property hmess[] = { //
@@ -68,9 +49,9 @@ const static header_property hmess[] = { //
 				{ { "WWW-Authenticate", 16 }, lmsrp_mess_header_www_auth }, //  rfc 4976
 				{ { "Authorization", 13 }, lmsrp_mess_header_authorization }, //  rfc 4976
 		};
-pj_int32_t lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
-		int end) {
-	static const int hmess_leng = lmsrp_mess_header_unknow - 1;
+static pj_int32_t lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name,
+		char *data, int end) {
+	static const int hmess_leng = lmsrp_mess_header_end - 1;
 	int st = lmsrp_find_header_property(hmess, hmess_leng, name);
 	static int ls = sizeof(pj_str_t);
 	pj_pool_t *pool = mess->pool;
@@ -84,9 +65,9 @@ pj_int32_t lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		;
 		if (mess->tid.slen > 0)
 			return -1;
-		int dem = lmsrp_get_str(&out, data, end, &lmsrp_mess_check, NULL);
-		data = data + dem;
-		end = end - dem;
+		int dem2 = lmsrp_get_str(&out, data, end, lmsrp_mess_check, NULL);
+		data = data + dem2;
+		end = end - dem2;
 		rs = pj_strtrim(&out);
 		pj_memcpy(&mess->tid, rs, ls);
 		mess->type = lmsrp_info_prase(&mess->info, data, end);
@@ -185,7 +166,19 @@ pj_int32_t lmsrp_mess_set_header(lmsrp_mess *mess, pj_str_t *name, char *data,
 		lmsrp_authorization_header_prase(pool, mess->auth, data, end);
 		break;
 	default:
-		return lmsrp_mess_header_unknow;
+		;
+		int end_l = 7 + mess->tid.slen + 1;
+		if (name->slen < end_l)
+			return -1;
+		char buff[end_l];
+		sprintf(buff, "-------%.*s", (int) mess->tid.slen, mess->tid.ptr);
+		char flag = name->ptr[name->slen - 1];
+		if (flag != '$' && flag != '#' && flag != '+')
+			return -1;
+		name->slen = 7 + mess->tid.slen;
+		if (pj_strcmp2(name, buff) != 0)
+			return -1;
+		st = lmsrp_mess_header_end;
 	}
 	return st;
 }
@@ -264,11 +257,12 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 	mess->pool = pool;
 	mess->flag = line.flag;
 	pj_str_t name;
+	pj_status_t st;
 	int dem, lend;
 	int kt = 0;
 	int check = 0;
 	while (1) {
-		dem = lmsrp_get_str(&name, data, end, &lmsrp_mess_check, NULL);
+		dem = lmsrp_get_str(&name, data, end, lmsrp_mess_check, NULL);
 		if (dem < 1)
 			break;
 		keep = keep + dem;
@@ -280,7 +274,11 @@ lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
 			kt = 2;
 		else
 			kt = 1;
-		lmsrp_mess_set_header(mess, &name, data, lend - kt);
+		st = lmsrp_mess_set_header(mess, &name, data, lend - kt);
+		if (st == -1)
+			return NULL;
+		if (st == lmsrp_mess_header_end)
+			return mess;
 		data = data + lend;
 		end = end - lend;
 		if (data[0] == '\n')
@@ -312,7 +310,7 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 		goto CONTENT;
 	{
 		while (1) {
-			dem = lmsrp_get_str(&name, data, end, &lmsrp_mess_check, NULL);
+			dem = lmsrp_get_str(&name, data, end, lmsrp_mess_check, NULL);
 			if (dem < 1)
 				break;
 
@@ -334,31 +332,31 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 				PJ_LOG(1, (this,"dulicate header"));
 				return PJ_FALSE;
 			}
-			data = data + lend;
-			end = end - lend;
-			keep = keep + lend;
+
 			if (st == lmsrp_mess_header_msrp)
 				ctx->state = lmsrp_prase_state_mess;
 			else
 				ctx->state = lmsrp_prase_state_header;
-
-			if (st == lmsrp_mess_header_unknow) {
-//				dem = sprintf(ctx->tid, "-------%.*s", (int) mess->tid.slen,
-//						mess->tid.ptr);
-//				pj_str_t tid = pj_str(ctx->tid);
-//				if (name.slen < dem) {
-//					ctx->data_read = keep;
-//					ctx->state = lmsrp_prase_state_done;
-//					return PJ_FALSE;
-//				}
-//				name.slen = dem;
-//				if (pj_strcmp(&tid, &name) == 0) {
-//					ctx->data_read = keep;
-//					ctx->state = lmsrp_prase_state_done;
-//					return PJ_TRUE;
-//				}
+			if (st == -1) {
 				return PJ_FALSE;
 			}
+			data = data + lend;
+			end = end - lend;
+			keep = keep + lend;
+			if (st == lmsrp_mess_header_end) {
+				ctx->state = lmsrp_prase_state_done;
+				int i = 0;
+				while (i < end) {
+					if (data[i] > ' ')
+						break;
+					i++;
+				}
+				ctx->data_read = ctx->data_read + keep + i - 1;
+				if (i < 2)
+					return PJ_FALSE;
+				return PJ_TRUE;
+			}
+
 			if (end < 2) {
 				ctx->data_read = ctx->data_read + keep;
 				return PJ_TRUE;
@@ -382,7 +380,7 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 	CONTENT: {
 		// gioi han data
 		int all = 0;
-		if (ctx->content_leng + end > ctx->max_byte )
+		if (ctx->content_leng + end > ctx->max_byte)
 			all = 1;
 		int start = ctx->content_leng;
 		dem = sprintf(ctx->tid, "\n-------%.*s", (int) mess->tid.slen,

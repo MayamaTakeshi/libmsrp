@@ -8,7 +8,7 @@
 #ifndef LMSRP_LMSRP_STREAM_H_
 #define LMSRP_LMSRP_STREAM_H_
 #include <lmsrp.h>
-typedef enum lmsrp_prase_state{
+typedef enum lmsrp_prase_state {
 	lmsrp_prase_state_mess, // prase first msrp line
 	lmsrp_prase_state_header, // header is parsing
 	lmsrp_prase_state_content, // the program is parsing contend msrp
@@ -16,7 +16,7 @@ typedef enum lmsrp_prase_state{
 	lmsrp_prase_state_done // previous data is complete
 } lmsrp_prase_state;
 
-typedef struct lmsrp_context{
+typedef struct lmsrp_context {
 	pj_int32_t max_byte;
 	pj_pool_t *pool;
 	pj_pool_t *spool;
@@ -41,7 +41,8 @@ typedef struct lmsrp_context{
 
 pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end);
 void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
-		void *data, void *export) ;
+		void *data,
+		void (*export)(void *data, char *buff, int leng, lmsrp_mess *arg));
 void lmsrp_context_clear(lmsrp_context *ctx);
 pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size);
 

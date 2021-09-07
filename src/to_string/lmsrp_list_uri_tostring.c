@@ -57,20 +57,20 @@ int lmsrp_uri_tostring(lmsrp_uri *uri, char *buff, int leng) {
 	return tong;
 }
 int lmsrp_list_uri_tostring(lmsrp_list_uri *urs, char *buff, int leng) {
-	int uri_num = pj_list_size(urs);
+
 	int dem = 0;
 	int tong = 0;
 	char *point = buff;
 	lmsrp_uri *uri;
-	while (uri_num > -1) {
-		uri = urs->uri;
-		uri_num--;
+	lmsrp_list_uri *pt = urs;
+	do {
+		uri = pt->uri;
 		dem = lmsrp_uri_tostring(uri, point, leng);
 		tong = tong + dem;
 		if (tong > leng)
 			return -1;
 		point = point + dem;
-		urs = urs->next;
-	}
+		pt = pt->next;
+	} while (pt != urs);
 	return tong;
 }
