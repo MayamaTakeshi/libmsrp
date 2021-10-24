@@ -5,7 +5,7 @@ AC_PREREQ([2.69])
 AC_INIT(RCS_AS,0.1)
 
 
-
+#LT_INIT
 AM_INIT_AUTOMAKE([ foreign -Wnone ])
 AC_CONFIG_SRCDIR([../src/libmsrp.c])
 AM_SILENT_RULES([yes])
@@ -40,7 +40,7 @@ fi
 
 AC_CONFIG_FILES([
 			Makefile
-               output/Makefile
+            output/Makefile
 ])
 AC_OUTPUT
 

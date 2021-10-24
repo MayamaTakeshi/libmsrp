@@ -13,6 +13,7 @@
 pj_caching_pool cp;
 pj_pool_t *pool;
 void test_msrp();
+#define null NULL
 static void init() {
 	pj_init();
 //	pjlib_util_init();
@@ -29,9 +30,9 @@ void test_msrp() {
 	lmsrp_mess *mess = lmsrp_mess_create_request(pool, &sess_id, &method);
 	mess->byte_range = lmsrp_byte_range_create(pool, 10088, 100000, 202020202);
 	lmsrp_uri *urs = lmsrp_uri_create(pool, &host, 3343, &sess_id, &user_1,
-			lmsrp_transport_tcp);
+			lmsrp_transport_type_tcp);
 	lmsrp_uri *urd = lmsrp_uri_create(pool, &host, 3343, &sess_id, &user_2,
-			lmsrp_transport_tcp);
+			lmsrp_transport_type_tcp);
 
 	mess->to_path = lmsrp_list_uri_create(pool, urs);
 	mess->from_path = lmsrp_list_uri_create(pool, urd);
@@ -52,5 +53,6 @@ int main(void) {
 //	test_authenticaion(pool);
 //	test_prase(pool);
 //	test_msrp();
+
 
 }

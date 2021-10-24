@@ -8,7 +8,7 @@
 #ifndef LMSRP_BYTE_RANGE_H_
 #define LMSRP_BYTE_RANGE_H_
 
-#include <lmsrp.h>
+#include <pjlib.h>
 
 typedef struct lmsrp_byte_range {
 	pj_pool_t *pool;

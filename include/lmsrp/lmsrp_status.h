@@ -7,7 +7,7 @@
 
 #ifndef LMSRP_STATUS_H_
 #define LMSRP_STATUS_H_
-#include <lmsrp.h>
+#include <pjlib.h>
 typedef struct _lmsrp_status {
 	pj_pool_t *pool;
 	int code;

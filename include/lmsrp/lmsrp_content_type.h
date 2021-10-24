@@ -8,7 +8,7 @@
 #ifndef LMSRP_CONTENT_TYPE_H_
 #define LMSRP_CONTENT_TYPE_H_
 
-#include <lmsrp.h>
+#include <pjlib.h>
 
 typedef struct _lmsrp_content_type {
 	pj_pool_t *pool;

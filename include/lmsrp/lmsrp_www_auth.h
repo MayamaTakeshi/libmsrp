@@ -8,7 +8,7 @@
 #ifndef LMSRP_WWW_AUTH_H_
 #define LMSRP_WWW_AUTH_H_
 
-#include <lmsrp.h>
+#include <pjlib.h>
 typedef struct _lmsrp_www_h {
 	pj_pool_t *pool;
 	pj_str_t scheme;

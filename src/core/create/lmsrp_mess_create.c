@@ -42,15 +42,15 @@ lmsrp_uri* lmsrp_uri_create(pj_pool_t *pool, pj_str_t *host, int port,
 	if (port > 0)
 		uri->authority.port = port;
 	switch (transport) {
-	case lmsrp_transport_tcp:
+	case lmsrp_transport_type_tcp:
 		uri->transport = lmsrp_tp_tcp;
 		uri->scheme = lmsrp_ch_tcp;
 		break;
-	case lmsrp_transport_udp:
+	case lmsrp_transport_type_udp:
 		uri->transport = lmsrp_tp_udp;
 		uri->scheme = lmsrp_ch_tcp;
 		break;
-	case lmsrp_transport_tls:
+	case lmsrp_transport_type_tls:
 		uri->transport = lmsrp_tp_tls;
 		uri->scheme = lmsrp_ch_tls;
 		break;
