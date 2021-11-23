@@ -1,8 +1,6 @@
 
-lib_LTLIBRARIES =  ../@BDIR@/lib@LIB_NAME@.la
-
-libmsrp: ../@BDIR@/lib@LIB_NAME@.la
-___@BDIR@_lib@LIB_NAME@_la_SOURCES = $(top_srcdir)/../src/file/encode/lmsrp_encode_r128.c \
+noinst_LIBRARIES =  ../@BDIR@/lib@LIB_NAME@.a
+___@BDIR@_lib@LIB_NAME@_a_SOURCES = $(top_srcdir)/../src/file/encode/lmsrp_encode_r128.c \
 $(top_srcdir)/../src/file/encode/lmsrp_encode_base64.c \
 $(top_srcdir)/../src/file/login/lmsrp_login.c \
 $(top_srcdir)/../src/file/fast_msrp/lmsrp_frecv.c \
@@ -32,13 +30,6 @@ $(top_srcdir)/../src/core/util/lmsrp_base64.c \
 $(top_srcdir)/../src/core/create/lmsrp_mess_create.c \
 $(top_srcdir)/../src/core/create/lmsrp_auth_create.c
 
-___@BDIR@_lib@LIB_NAME@_la_CFLAGS = -DPJ_AUTOCONF=1 -O2 -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1 $(PJSIP_CFLAGS) -I$(top_srcdir)/../include -std=c99
-
-
-if SHARE_LIB
-
-
-___@BDIR@_lib@LIB_NAME@_la_LDFLAGS = -share -version-info 1:0:0
-
-endif
+___@BDIR@_lib@LIB_NAME@_a_CFLAGS = -I $(top_srcdir)/../include  $(PJSIP_CFLAGS)
+#___@BDIR@_lib@LIB_NAME@_la_LDFLAGS = -static -shared
 #cp *.o  @BDIR@

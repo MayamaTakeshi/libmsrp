@@ -329,7 +329,7 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 			st = lmsrp_mess_set_header(mess, &name, data, lend - kt);
 			if (st < 0) {
 				ctx->data_read = ctx->data_read + keep;
-				PJ_LOG(1, (this,"dulicate header"));
+				PJ_LOG(1, (this,"duplicate header"));
 				return PJ_FALSE;
 			}
 
@@ -400,6 +400,7 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 						start = 0;
 					ctx->data_read = ctx->data_read + keep;
 					ctx->content_leng = start;
+					mess->contend.slen = start ;
 					return PJ_TRUE;
 				}
 			} else {

@@ -85,20 +85,30 @@ static int session_stream_prase(void *arg) {
 	lmsrp_recv_stream *sess = arg;
 	lmsrp_recv_data_block *rblock;
 	lmsrp_recv_data_block *rblock2;
+
 	rblock = sess->rblock->prev;
 	lmsrp_context ctx;
 	pj_bool_t rp;
 	pj_int32_t count = 1;
+#if LMSRP_DEBUG == 1
+	FILE *tmprecv2 = fopen("/tmp/trecv2", "wb");
+	FILE *tmprecv3 = fopen("/tmp/tlog", "wb");
+# endif
 	lmsrp_context_init(&ctx, sess->module->get_cp(sess->module),
 			sess->block_size + 500, arg, &export);
 
 	pj_pool_t *pool = sess->pool;
 	while (sess->flag != lmsrp_flag_close && sess->flag != lmsrp_flag_suspend) {
-//		puts("ssaaa wws sss  tun");
+
 		rblock2 = lmsrp_get_recv_data_block(pool, rblock, count);
 		if (rblock2 != NULL) {
-//			puts("write data");
 			int ls = rblock2->size;
+
+#if LMSRP_DEBUG == 1
+			fprintf(stderr, "size in put is %d\n", ls);
+			fprintf(tmprecv3, "%d\n", ls);
+			fwrite(rblock2->data, 1, rblock2->size, tmprecv2);
+# endif
 			rp = lmsrp_context_update(&ctx, rblock2->data, rblock2->size);
 			if (rp == PJ_FALSE) {
 				fprintf(stderr, "ls %d\n", ls);
@@ -111,6 +121,10 @@ static int session_stream_prase(void *arg) {
 
 		}
 	}
+#if LMSRP_DEBUG == 1
+	fclose(tmprecv2);
+	fclose(tmprecv3);
+#endif
 	lmsrp_context_clear(&ctx);
 	return PJ_SUCCESS;
 }
@@ -121,10 +135,16 @@ static int lmsrp_get_handle(void *arg) {
 	lmsrp_recv_module *module = sess->module;
 	int end = sess->sizeof_file + 1;
 	pj_str_t ran = pj_str("dwijda");
+
 	pj_pool_t *pool = sess->pool;
-	lmsrp_codec *codec = lmsrp_r128_create(pool);
+//	lmsrp_codec *codec = lmsrp_r128_create(pool);
+	lmsrp_codec *codec = lmsrp_base64_create(pool);
+#if LMSRP_DEBUG == 1
+	FILE *tmprecv = fopen("/tmp/trecv", "wb");
+	int count = 1;
+# endif
 	// tinh toan gia tri sau khi decode data
-	const int realleng = codec->decode_leng(sess->block_size) + 1;
+	const int realleng = codec->decode_leng(sess->block_size);
 	char decode_buff[realleng];
 	lmsrp_mess *mess = lmsrp_mess_create_request(pool, &ran, &report);
 	mess->to_path = lmsrp_list_uri_create(pool, sess->info->caller);
@@ -144,9 +164,11 @@ static int lmsrp_get_handle(void *arg) {
 	min_start = sess->sizeof_file;
 	char buff[1000];
 	pj_uint32_t dem;
-	dem = module->create_header(buff, &sess->info->caller->authority.userinfo,
-			sess->sizeof_file, 0);
-	module->write_header(module->data, buff, dem);
+	if (module->create_header)
+		dem = module->create_header(buff,
+				&sess->info->caller->authority.userinfo, sess->sizeof_file, 0);
+	if (dem > 0)
+		module->write_header(module->data, buff, dem);
 	while (start < end && sess->flag != lmsrp_flag_close
 			&& sess->flag != lmsrp_flag_suspend) {
 		next = neo;
@@ -162,6 +184,12 @@ static int lmsrp_get_handle(void *arg) {
 					if (start < next->range.end + 1)
 						start = next->range.end + 1;
 					dem = realleng;
+#if LMSRP_DEBUG == 1
+					fprintf(tmprecv, "%d\n", count);
+					count++;
+					fwrite(next->data, sizeof(char), (int) next->size, tmprecv);
+					fprintf(tmprecv, "\n");
+# endif
 					codec->decode(next->data, next->size, decode_buff, &dem);
 					module->write(module->data, decode_buff, next->range.start,
 							next->range.end);
@@ -197,6 +225,9 @@ static int lmsrp_get_handle(void *arg) {
 	} else {
 		sess->flag = lmsrp_flag_suspend;
 	}
+#if LMSRP_DEBUG == 1
+	fclose(tmprecv);
+# endif
 	return PJ_SUCCESS;
 }
 

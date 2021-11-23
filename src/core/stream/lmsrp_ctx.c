@@ -80,7 +80,97 @@ static void change_point(lmsrp_mess *mess, char *str_old, char *str) {
 		} while (type != mess->content_type->type);
 	}
 }
+static int _lmsrp_context_update2(lmsrp_context *ctx, char *buff,
+		pj_int32_t size, pj_bool_t *report) {
+
+	switch (ctx->state) {
+	case lmsrp_prase_state_done:
+		;
+		pj_pool_reset(ctx->pool);
+		ctx->mess = pj_pool_zalloc(ctx->pool, sizeof(lmsrp_mess));
+		ctx->mess->pool = ctx->pool;
+		ctx->content_leng = 0;
+		ctx->data_read = 0;
+		ctx->sum = 0;
+		*report = lmsrp_stream_prase(ctx, buff, size);
+		if (*report == PJ_FALSE) {
+			ctx->state = lmsrp_prase_state_done;
+			*report = PJ_FALSE;
+			return ctx->data_read;
+		}
+		if (ctx->state == lmsrp_prase_state_done) {
+			ctx->export(ctx->data, ctx->mess->contend.ptr,
+					ctx->mess->contend.slen, ctx->mess);
+			*report = PJ_TRUE;
+			return ctx->data_read;
+		} else {
+			// perpare for new update
+			if (size > ctx->max_byte) {
+				PJ_LOG(3, ("msrp ctx", "over data to prase"));
+				*report = PJ_FALSE;
+				return ctx->data_read;
+			}
+			pj_memcpy(ctx->tmp, buff, size);
+			ctx->sum = size;
+			change_point(ctx->mess, buff, ctx->tmp);
+			return size;
+		}
+		break;
+	default: {
+		//all header leng + maxbyte
+		int cpy = ctx->max_byte - ctx->sum;
+		int nlen = 0; //no copy len
+		if (cpy > size) {
+			cpy = size;
+		} else {
+			if (cpy <= 0) {
+				PJ_LOG(3, ("msrp ctx", "over data to prase"));
+				ctx->state = lmsrp_prase_state_done;
+				*report = PJ_FALSE;
+				return ctx->data_read;
+			}
+			nlen = size - cpy;
+		}
+		pj_memcpy((ctx->tmp + ctx->sum), buff, cpy);
+		// so data can doc
+		ctx->sum = ctx->sum + cpy;
+		pj_size_t size2 = ctx->sum - ctx->data_read;
+		*report = lmsrp_stream_prase(ctx, (ctx->tmp + ctx->data_read), size2);
+		if (*report == PJ_FALSE) {
+			ctx->state = lmsrp_prase_state_done;
+			return ctx->data_read;
+		}
+		if (ctx->state == lmsrp_prase_state_done) {
+			ctx->export(ctx->data, ctx->mess->contend.ptr,
+					ctx->mess->contend.slen, ctx->mess);
+			/*
+			 * after update ctx , ctx->data_read=total byte are readed
+			 */
+			return size - (ctx->sum - ctx->data_read) -nlen;
+		} else {
+			// khang dinh sum =size
+//			old_leng = ctx->data_read - old_leng;
+//			pj_memcpy(ctx->tmp + ctx->sum, buff, size2);
+
+			return cpy;
+		}
+	}
+		break;
+	}
+	return size;
+}
 pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) {
+	pj_int32_t count = 0;
+	pj_bool_t rp;
+	while (size > 0) {
+		count = _lmsrp_context_update2(ctx, buff, size, &rp);
+		size = size - count;
+		buff = buff + count;
+	}
+	return PJ_TRUE;
+}
+static  __attribute__((unused)) pj_bool_t test_lmsrp_context_update(lmsrp_context *ctx, char *buff,
+		pj_int32_t size) {
 
 	pj_bool_t report;
 	switch (ctx->state) {
@@ -161,7 +251,8 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 	return PJ_TRUE;
 }
 void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
-		void *data,void (*export)(void *data, char *buff, int leng, lmsrp_mess *arg)) {
+		void *data,
+		void (*export)(void *data, char *buff, int leng, lmsrp_mess *arg)) {
 	ctx->pool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
 	ctx->spool = pj_pool_create(&cp->factory, "tmp", 4000, 4000, NULL);
 	ctx->max_byte = (max_size + 500) * 2;

@@ -58,8 +58,14 @@ static int lmsrp_send_session(void *arg) {
 	pj_ssize_t start, end;
 	start = 1;
 	end = 1;
-	lmsrp_codec *codec = lmsrp_r128_create(pool);
+//	lmsrp_codec *codec = lmsrp_r128_create(pool);
+#if LMSRP_DEBUG == 1
+	FILE *tmpsend = fopen("/tmp/tsend", "wb");
+	int count = 1 ;
+# endif
+	lmsrp_codec *codec = lmsrp_base64_create(pool);
 	const int byte_read = codec->decode_leng(sends->block_size);
+
 	sends->codec_size = byte_read;
 	const int leng = sends->block_size + 500;
 	char mess_send[leng]; //max_data  in messs
@@ -91,9 +97,14 @@ static int lmsrp_send_session(void *arg) {
 	PJ_THREAD_DEFAULT_STACK_SIZE, 0, &sends->thread_send_handle);
 	lmsrp_report_list *res;
 	pj_uint32_t dem;
-	while (sends->flag != lmsrp_flag_close
-			&& sends->flag != lmsrp_flag_suspend) {
-		pj_thread_sleep(1);
+	int stime;
+	if (LMSRP_LOW_MEMORY) {
+		stime = 10;
+	} else {
+		stime = 2;
+	}
+	while (sends->flag != lmsrp_flag_close && sends->flag != lmsrp_flag_suspend) {
+		pj_thread_sleep(stime);
 		res = am_sip_send_get_report(sends->list);
 		if (res != NULL) {
 
@@ -106,7 +117,6 @@ static int lmsrp_send_session(void *arg) {
 			dem = codec->encode(readbuff, dem, mess->contend.ptr,
 					(pj_uint32_t*) &mess->contend.slen);
 
-			printf("status %d encode size :%ld\n", dem, mess->contend.slen);
 			dem = lmsrp_mess_tostring(mess, mess_send, leng);
 			module->send(module->data, mess_send, dem);
 			res->active = PJ_FALSE;
@@ -125,9 +135,17 @@ static int lmsrp_send_session(void *arg) {
 
 				dem = module->read(module->data, readbuff, start, end);
 				mess->contend.slen = sends->block_size;
+//				printf("status %d encode size :%ld\n", dem, mess->contend.slen);
 				dem = codec->encode(readbuff, dem, mess->contend.ptr,
 						(pj_uint32_t*) &mess->contend.slen);
 //				printf("status %d encode size :%d\n", dem, mess->contend.slen);
+#if LMSRP_DEBUG == 1
+				fprintf(tmpsend,"%d\n",count);
+				count++ ;
+				fwrite(mess->contend.ptr, sizeof(char), (int) mess->contend.slen,
+						tmpsend);
+				fprintf(tmpsend,"\n");
+# endif
 				dem = lmsrp_mess_tostring(mess, mess_send, leng);
 //				printf("mess leng :%d\n", dem);
 				module->send(module->data, mess_send, dem);
@@ -136,7 +154,9 @@ static int lmsrp_send_session(void *arg) {
 		}
 
 	}
-
+#if LMSRP_DEBUG == 1
+	fclose(tmpsend);
+# endif
 	if (sends->flag == lmsrp_flag_suspend) {
 		PJ_LOG(3, (NAME,"suppend send sesson"));
 		module->suppend(module->data);
@@ -157,8 +177,7 @@ static int lmsrp_report_handle(void *arg) {
 
 //	int
 	int period = 10;
-	while (send->flag != lmsrp_flag_close
-			&& send->flag != lmsrp_flag_suspend) {
+	while (send->flag != lmsrp_flag_close && send->flag != lmsrp_flag_suspend) {
 		leng = 1000;
 		st = module->get_report(module->data, buff, &leng);
 		if (send->flag == lmsrp_flag_end) {
@@ -246,8 +265,7 @@ void lmsrp_send_stream_close(lmsrp_send_stream *send) {
 	send->list = NULL;
 	send->pool = NULL;
 }
-void lmsrp_send_stream_init(lmsrp_send_stream *send,
-		lmsrp_send_module *module) {
+void lmsrp_send_stream_init(lmsrp_send_stream *send, lmsrp_send_module *module) {
 	pj_bzero(send, sizeof(send));
 	send->module = module;
 }

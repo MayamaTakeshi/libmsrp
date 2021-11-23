@@ -42,17 +42,10 @@ void test_msrp() {
 	puts(buff);
 
 }
-extern void test_prase(pj_pool_t *pool);
-extern void test_authenticaion(pj_pool_t *pool);
-extern void test_encode();
-extern void test_base64();
-int main(void) {
+
+extern void test_prase(pj_pool_t *pool) ;
+int main(int argc, char **argv) {
+
 	init();
-//	test_encode();
-	test_base64();
-//	test_authenticaion(pool);
-//	test_prase(pool);
-//	test_msrp();
-
-
+	test_prase(pool);
 }

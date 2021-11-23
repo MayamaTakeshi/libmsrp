@@ -17,11 +17,12 @@ static pj_uint32_t r128_encode_size(pj_uint32_t size) {
 	return (size * 8 + 6) / 7;
 }
 
-static pj_status_t r128_decode(void *input, pj_uint32_t input_length, void *output,
-		pj_uint32_t *output_length) {
+static pj_status_t r128_decode(void *input, pj_uint32_t input_length,
+		void *output, pj_uint32_t *output_length) {
 	pj_uint32_t cp = (input_length * 7) / 8;
 	if (cp > *output_length)
 		return -1;
+	pj_bzero(output, *output_length);
 	unsigned char *p = input;
 	unsigned char *s = output;
 	pj_uint32_t step = input_length / 8;
@@ -58,12 +59,13 @@ static pj_status_t r128_decode(void *input, pj_uint32_t input_length, void *outp
 	*output_length = cp;
 	return 0;
 }
-static pj_status_t r128_encode(void *input,pj_uint32_t input_length, void *output,
-		pj_uint32_t *output_length) {
+static pj_status_t r128_encode(void *input, pj_uint32_t input_length,
+		void *output, pj_uint32_t *output_length) {
 	pj_uint32_t cp = (input_length * 8 + 6) / 7;
 
 	if (cp > *output_length)
 		return -1;
+	pj_bzero(output, *output_length);
 	pj_int32_t step = input_length / 7;
 	unsigned char *p = input;
 	unsigned char *s = output;

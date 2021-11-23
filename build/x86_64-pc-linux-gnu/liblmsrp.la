@@ -23,9 +23,9 @@ dependency_libs=''
 weak_library_names=''
 
 # Version information for liblmsrp.
-current=
-age=
-revision=
+current=0
+age=0
+revision=0
 
 # Is this an already installed library?
 installed=no
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir=''
+libdir='/usr/local/lib'

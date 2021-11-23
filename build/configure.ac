@@ -4,14 +4,14 @@ AC_PREREQ([2.69])
 #AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
 AC_INIT(RCS_AS,0.1)
 
-
-#LT_INIT
 AM_INIT_AUTOMAKE([ foreign -Wnone ])
 AC_CONFIG_SRCDIR([../src/libmsrp.c])
 AM_SILENT_RULES([yes])
 # Checks for programs.
 AC_PROG_CC
 AM_PROG_AR
+LT_INIT([ disable-shared ])
+
 AC_PROG_RANLIB
 # Checks for libraries.
 PKG_CHECK_MODULES([PJSIP],[libpjproject])
@@ -19,24 +19,15 @@ PKG_CHECK_MODULES([PJSIP],[libpjproject])
 AC_SUBST([BDIR])
 AC_SUBST([LIB_NAME])
 
-
-#AC_SUBST([NAME])
-
+AM_CONDITIONAL([SHARE_LIB], [test "x$enable_shared" = "xyes"])
 
 LIB_NAME="lmsrp"
 
-
-
-if test -z $host
-    then
-     BDIR="unknow"
-    else
-     BDIR="$host"
-fi
-#AC_CONFIG_FILES([Makefile
-#                 build/Makefile
-#                build/output/Makefile
-#])
+AC_ARG_WITH([name],
+[AS_HELP_STRING([--with-name=NAME],[config build name default same with host])],
+[ BDIR="$with_name" ],
+[ BDIR="$host" ]
+)
 
 AC_CONFIG_FILES([
 			Makefile
