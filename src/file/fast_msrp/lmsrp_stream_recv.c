@@ -105,7 +105,7 @@ static int session_stream_prase(void *arg) {
 			int ls = rblock2->size;
 
 #if LMSRP_DEBUG == 1
-			fprintf(stderr, "size in put is %d\n", ls);
+//			fprintf(stderr, "size in put is %d\n", ls);
 			fprintf(tmprecv3, "%d\n", ls);
 			fwrite(rblock2->data, 1, rblock2->size, tmprecv2);
 # endif

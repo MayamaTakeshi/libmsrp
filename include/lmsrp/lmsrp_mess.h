@@ -72,7 +72,8 @@ pj_bool_t lmsrp_check_end2(char *buff, int leng, lmsrp_mess_endline *end);
  * @param end  poniter
  * @return
  */
-lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end);
+
+lmsrp_mess* lmsrp_mess_prase_from_buff(pj_pool_t *pool, char *data, int end);
 
 int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size);
 lmsrp_mess* lmsrp_mess_create_request(pj_pool_t *pool, pj_str_t *sessid,

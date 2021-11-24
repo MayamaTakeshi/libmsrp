@@ -32,7 +32,7 @@ $(top_srcdir)/../src/core/util/lmsrp_base64.c \
 $(top_srcdir)/../src/core/create/lmsrp_mess_create.c \
 $(top_srcdir)/../src/core/create/lmsrp_auth_create.c
 
-___@BDIR@_lib@LIB_NAME@_la_CFLAGS = -DPJ_AUTOCONF=1 -O2 -DPJ_IS_BIG_ENDIAN=0 -DPJ_IS_LITTLE_ENDIAN=1 $(PJSIP_CFLAGS) -I$(top_srcdir)/../include -std=c99
+___@BDIR@_lib@LIB_NAME@_la_CFLAGS = -w $(PJSIP_CFLAGS) -I$(top_srcdir)/../include -std=c99
 
 
 if SHARE_LIB

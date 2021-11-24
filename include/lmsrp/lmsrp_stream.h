@@ -23,7 +23,7 @@ typedef struct lmsrp_context {
 	lmsrp_prase_state state;
 	lmsrp_mess *mess;
 	int data_read; /// number of data is prase in mess
-	pj_size_t content_leng; /// number of data read in contend lend
+//	pj_size_t content_leng; /// number of data read in contend lend
 	char tid[20];
 	char *tmp; /// tmp buffer to keep previous data size is  2*(maxbyte + 500)
 	int sum; /// sum of data in tmp buffer

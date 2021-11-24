@@ -30,14 +30,14 @@ static void lmsrp_list_uri_change(lmsrp_list_uri *list, char *str_old,
 	} while (list != start);
 }
 //static
-static void change_point(lmsrp_mess *mess, char *str_old, char *str) {
+static void change_point(lmsrp_mess *mess, char *str_old, char *str , lmsrp_prase_state prase_state) {
 
 	if (mess->tid.slen > 0) {
 		convert_str(&mess->tid, str_old, str);
 	}
-	if (mess->contend.slen > 0) {
-		convert_str(&mess->contend, str_old, str);
-	}
+	if (prase_state == lmsrp_prase_state_content) {
+			convert_str(&mess->contend, str_old, str);
+		}
 	if (mess->auth != NULL) {
 		fconvert(mess->auth->scheme);
 		fconvert(mess->auth->username);
@@ -89,7 +89,7 @@ static int _lmsrp_context_update2(lmsrp_context *ctx, char *buff,
 		pj_pool_reset(ctx->pool);
 		ctx->mess = pj_pool_zalloc(ctx->pool, sizeof(lmsrp_mess));
 		ctx->mess->pool = ctx->pool;
-		ctx->content_leng = 0;
+		ctx->mess->contend.slen=0 ;
 		ctx->data_read = 0;
 		ctx->sum = 0;
 		*report = lmsrp_stream_prase(ctx, buff, size);
@@ -112,7 +112,7 @@ static int _lmsrp_context_update2(lmsrp_context *ctx, char *buff,
 			}
 			pj_memcpy(ctx->tmp, buff, size);
 			ctx->sum = size;
-			change_point(ctx->mess, buff, ctx->tmp);
+			change_point(ctx->mess, buff, ctx->tmp , ctx->state );
 			return size;
 		}
 		break;
@@ -169,87 +169,87 @@ pj_bool_t lmsrp_context_update(lmsrp_context *ctx, char *buff, pj_int32_t size) 
 	}
 	return PJ_TRUE;
 }
-static  __attribute__((unused)) pj_bool_t test_lmsrp_context_update(lmsrp_context *ctx, char *buff,
-		pj_int32_t size) {
-
-	pj_bool_t report;
-	switch (ctx->state) {
-	case lmsrp_prase_state_done:
-		;
-		pj_pool_reset(ctx->pool);
-		ctx->mess = pj_pool_zalloc(ctx->pool, sizeof(lmsrp_mess));
-		ctx->mess->pool = ctx->pool;
-		ctx->content_leng = 0;
-		ctx->data_read = 0;
-		ctx->sum = 0;
-		report = lmsrp_stream_prase(ctx, buff, size);
-		if (report == PJ_FALSE) {
-			ctx->state = lmsrp_prase_state_done;
-			return report;
-		}
-		if (ctx->state == lmsrp_prase_state_done) {
-			ctx->export(ctx->data, ctx->mess->contend.ptr,
-					ctx->mess->contend.slen, ctx->mess);
-			if (ctx->data_read < size) {
-				buff = buff + ctx->data_read;
-				size = size - ctx->data_read;
-				return lmsrp_context_update(ctx, buff, size);
-			}
-		} else {
-			// perpare for new update
-			if (size > ctx->max_byte) {
-				PJ_LOG(3, ("msrp ctx", "over data to prase"));
-				ctx->state = lmsrp_prase_state_done;
-				return -1;
-			}
-			pj_memcpy(ctx->tmp, buff, size);
-			ctx->sum = size;
-			change_point(ctx->mess, buff, ctx->tmp);
-		}
-		break;
-	default: {
-		//all header leng + maxbyte
-		int cpy = ctx->max_byte - ctx->sum;
-		if (cpy > size) {
-			cpy = size;
-		} else {
-			if (cpy < size) {
-				PJ_LOG(3, ("msrp ctx", "over data to prase"));
-				ctx->state = lmsrp_prase_state_done;
-				return -1;
-			}
-		}
-		pj_memcpy((ctx->tmp + ctx->sum), buff, cpy);
-		// so data can doc
-		int old_leng = ctx->sum;
-		pj_size_t size2 = cpy + ctx->sum - ctx->data_read;
-		report = lmsrp_stream_prase(ctx, (ctx->tmp + ctx->data_read), size2);
-		if (report == PJ_FALSE) {
-			ctx->state = lmsrp_prase_state_done;
-			return report;
-		}
-		if (ctx->state == lmsrp_prase_state_done) {
-			ctx->export(ctx->data, ctx->mess->contend.ptr,
-					ctx->mess->contend.slen, ctx->mess);
-			/*
-			 * after update ctx , ctx->data_read=total byte are readed
-			 */
-			size2 = ctx->data_read - old_leng;
-			if (size2 < size) {
-				size = size - size2;
-				buff = buff + size2;
-				return lmsrp_context_update(ctx, buff, size);
-			}
-		} else {
-			// khang dinh sum =size
-			pj_memcpy(ctx->tmp + ctx->sum, buff, size2);
-			ctx->sum = ctx->sum + cpy;
-		}
-	}
-		break;
-	}
-	return PJ_TRUE;
-}
+//static  __attribute__((unused)) pj_bool_t test_lmsrp_context_update(lmsrp_context *ctx, char *buff,
+//		pj_int32_t size) {
+//
+//	pj_bool_t report;
+//	switch (ctx->state) {
+//	case lmsrp_prase_state_done:
+//		;
+//		pj_pool_reset(ctx->pool);
+//		ctx->mess = pj_pool_zalloc(ctx->pool, sizeof(lmsrp_mess));
+//		ctx->mess->pool = ctx->pool;
+//		ctx->mess->contend.slen=0 ;
+//		ctx->data_read = 0;
+//		ctx->sum = 0;
+//		report = lmsrp_stream_prase(ctx, buff, size);
+//		if (report == PJ_FALSE) {
+//			ctx->state = lmsrp_prase_state_done;
+//			return report;
+//		}
+//		if (ctx->state == lmsrp_prase_state_done) {
+//			ctx->export(ctx->data, ctx->mess->contend.ptr,
+//					ctx->mess->contend.slen, ctx->mess);
+//			if (ctx->data_read < size) {
+//				buff = buff + ctx->data_read;
+//				size = size - ctx->data_read;
+//				return lmsrp_context_update(ctx, buff, size);
+//			}
+//		} else {
+//			// perpare for new update
+//			if (size > ctx->max_byte) {
+//				PJ_LOG(3, ("msrp ctx", "over data to prase"));
+//				ctx->state = lmsrp_prase_state_done;
+//				return -1;
+//			}
+//			pj_memcpy(ctx->tmp, buff, size);
+//			ctx->sum = size;
+//			change_point(ctx->mess, buff, ctx->tmp);
+//		}
+//		break;
+//	default: {
+//		//all header leng + maxbyte
+//		int cpy = ctx->max_byte - ctx->sum;
+//		if (cpy > size) {
+//			cpy = size;
+//		} else {
+//			if (cpy < size) {
+//				PJ_LOG(3, ("msrp ctx", "over data to prase"));
+//				ctx->state = lmsrp_prase_state_done;
+//				return -1;
+//			}
+//		}
+//		pj_memcpy((ctx->tmp + ctx->sum), buff, cpy);
+//		// so data can doc
+//		int old_leng = ctx->sum;
+//		pj_size_t size2 = cpy + ctx->sum - ctx->data_read;
+//		report = lmsrp_stream_prase(ctx, (ctx->tmp + ctx->data_read), size2);
+//		if (report == PJ_FALSE) {
+//			ctx->state = lmsrp_prase_state_done;
+//			return report;
+//		}
+//		if (ctx->state == lmsrp_prase_state_done) {
+//			ctx->export(ctx->data, ctx->mess->contend.ptr,
+//					ctx->mess->contend.slen, ctx->mess);
+//			/*
+//			 * after update ctx , ctx->data_read=total byte are readed
+//			 */
+//			size2 = ctx->data_read - old_leng;
+//			if (size2 < size) {
+//				size = size - size2;
+//				buff = buff + size2;
+//				return lmsrp_context_update(ctx, buff, size);
+//			}
+//		} else {
+//			// khang dinh sum =size
+//			pj_memcpy(ctx->tmp + ctx->sum, buff, size2);
+//			ctx->sum = ctx->sum + cpy;
+//		}
+//	}
+//		break;
+//	}
+//	return PJ_TRUE;
+//}
 void lmsrp_context_init(lmsrp_context *ctx, pj_caching_pool *cp, int max_size,
 		void *data,
 		void (*export)(void *data, char *buff, int leng, lmsrp_mess *arg)) {

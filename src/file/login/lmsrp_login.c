@@ -39,7 +39,7 @@ pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 			return NULL;
 		car->send(sock, out.ptr, out.slen);
 		car->recv(sock, m_recv.ptr, &m_recv.slen);
-		lmsrp_mess *au = lmsrp_mess_create_from_buff(pool, m_recv.ptr,
+		lmsrp_mess *au = lmsrp_mess_prase_from_buff(pool, m_recv.ptr,
 				m_recv.slen);
 		if (au->type == lmsrp_mess_type_respone) {
 			if (au->info.respone.code == 200) {

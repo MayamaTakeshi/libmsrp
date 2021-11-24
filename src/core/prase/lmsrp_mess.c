@@ -244,7 +244,7 @@ pj_bool_t lmsrp_check_end2(char *buff, int leng, lmsrp_mess_endline *end) {
 	}
 	return PJ_FALSE;
 }
-lmsrp_mess* lmsrp_mess_create_from_buff(pj_pool_t *pool, char *data, int end) {
+lmsrp_mess* lmsrp_mess_prase_from_buff(pj_pool_t *pool, char *data, int end) {
 	lmsrp_mess_endline line;
 	// luu gia bien dem
 	int keep = 0;
@@ -304,85 +304,99 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 	check = 0;
 	pj_str_t name;
 	pj_int32_t st;
+
 	if (ctx->state == lmsrp_prase_state_done)
 		ctx->state = lmsrp_prase_state_unknow;
 	else if (ctx->state == lmsrp_prase_state_content)
 		goto CONTENT;
-	{
-		while (1) {
-			dem = lmsrp_get_str(&name, data, end, lmsrp_mess_check, NULL);
-			if (dem < 1)
-				break;
+	// prepre check contend
+	if (end < 2)
+		return PJ_TRUE;
+	if (ctx->state == lmsrp_prase_state_header) {
+		if (data[0] == '\n')
+			check = 1;
+		else if (data[1] == '\n')
+			check = 2;
+		if (check)
+			goto SET_CONTEN;
+	}
+	while (1) {
 
-			data = data + dem;
-			end = end - dem;
-			lend = find_CRLF(data, end);
-			if (lend > end) {
-				ctx->data_read = ctx->data_read + keep;
-				return PJ_TRUE;
+//			PARSE_MESS:
+		dem = lmsrp_get_str(&name, data, end, lmsrp_mess_check,
+		NULL);
+		if (dem < 1)
+			break;
+
+		data = data + dem;
+		end = end - dem;
+		lend = find_CRLF(data, end);
+		if (lend > end) {
+			ctx->data_read = ctx->data_read + keep;
+			return PJ_TRUE;
+		}
+		keep = keep + dem;
+		if (data[lend - 2] == '\r')
+			kt = 2;
+		else
+			kt = 1;
+		st = lmsrp_mess_set_header(mess, &name, data, lend - kt);
+		if (st < 0) {
+			ctx->data_read = ctx->data_read + keep;
+			PJ_LOG(1, (this,"duplicate header"));
+			return PJ_FALSE;
+		}
+
+		if (st == lmsrp_mess_header_msrp)
+			ctx->state = lmsrp_prase_state_mess;
+		else
+			ctx->state = lmsrp_prase_state_header;
+		if (st == -1) {
+			return PJ_FALSE;
+		}
+		data = data + lend;
+		end = end - lend;
+		keep = keep + lend;
+		if (st == lmsrp_mess_header_end) {
+			ctx->state = lmsrp_prase_state_done;
+			int i = 0;
+			while (i < end) {
+				if (data[i] > ' ')
+					break;
+				i++;
 			}
-			keep = keep + dem;
-			if (data[lend - 2] == '\r')
-				kt = 2;
-			else
-				kt = 1;
-			st = lmsrp_mess_set_header(mess, &name, data, lend - kt);
-			if (st < 0) {
-				ctx->data_read = ctx->data_read + keep;
-				PJ_LOG(1, (this,"duplicate header"));
+			ctx->data_read = ctx->data_read + keep + i - 1;
+			if (i < 2)
 				return PJ_FALSE;
-			}
+			return PJ_TRUE;
+		}
 
-			if (st == lmsrp_mess_header_msrp)
-				ctx->state = lmsrp_prase_state_mess;
-			else
-				ctx->state = lmsrp_prase_state_header;
-			if (st == -1) {
-				return PJ_FALSE;
-			}
-			data = data + lend;
-			end = end - lend;
-			keep = keep + lend;
-			if (st == lmsrp_mess_header_end) {
-				ctx->state = lmsrp_prase_state_done;
-				int i = 0;
-				while (i < end) {
-					if (data[i] > ' ')
-						break;
-					i++;
-				}
-				ctx->data_read = ctx->data_read + keep + i - 1;
-				if (i < 2)
-					return PJ_FALSE;
-				return PJ_TRUE;
-			}
-
-			if (end < 2) {
-				ctx->data_read = ctx->data_read + keep;
-				return PJ_TRUE;
-			}
-			if (data[0] == '\n')
-				check = 1;
-			else if (data[1] == '\n')
-				check = 2;
-			if (check) {
-				data = data + check;
-				end = end - check;
-				keep = keep + check;
-				ctx->state = lmsrp_prase_state_content;
-				mess->contend.ptr = data;
-				goto CONTENT;
-			}
-
+		if (end < 2) {
+			ctx->data_read = ctx->data_read + keep;
+			return PJ_TRUE;
+		}
+		if (data[0] == '\n')
+			check = 1;
+		else if (data[1] == '\n')
+			check = 2;
+		if (check) {
+			break;
 		}
 
 	}
+
+	SET_CONTEN: data = data + check;
+	end = end - check;
+	keep = keep + check;
+	ctx->state = lmsrp_prase_state_content;
+	mess->contend.ptr = data;
+	goto CONTENT;
 	CONTENT: {
 		// gioi han data
 		int all = 0;
-		if (ctx->content_leng + end > ctx->max_byte)
+		if (mess->contend.slen + end > ctx->max_byte)
 			all = 1;
-		int start = ctx->content_leng;
+		int start = mess->contend.slen;
 		dem = sprintf(ctx->tid, "\n-------%.*s", (int) mess->tid.slen,
 				mess->tid.ptr);
 		pj_str_t tid = pj_str(ctx->tid);
@@ -399,8 +413,8 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 					if (start < 0)
 						start = 0;
 					ctx->data_read = ctx->data_read + keep;
-					ctx->content_leng = start;
-					mess->contend.slen = start ;
+//					ctx->content_leng = start;
+					mess->contend.slen = start;
 					return PJ_TRUE;
 				}
 			} else {
@@ -411,11 +425,11 @@ pj_bool_t lmsrp_stream_prase(lmsrp_context *ctx, char *data, int end) {
 						PJ_LOG(1, (this,"data is over end line"));
 						return PJ_FALSE;
 					}
-					start = slen + end - (tid.slen - 1);
+					start = slen;
 					if (start < 0)
 						start = 0;
 					ctx->data_read = ctx->data_read + keep;
-					ctx->content_leng = start;
+					mess->contend.slen = start;
 					return PJ_TRUE;
 				}
 				char flag = el[tid.slen];

@@ -58,11 +58,12 @@ static int lmsrp_send_session(void *arg) {
 	pj_ssize_t start, end;
 	start = 1;
 	end = 1;
-//	lmsrp_codec *codec = lmsrp_r128_create(pool);
+
 #if LMSRP_DEBUG == 1
 	FILE *tmpsend = fopen("/tmp/tsend", "wb");
 	int count = 1 ;
 # endif
+//	lmsrp_codec *codec = lmsrp_r128_create(pool);
 	lmsrp_codec *codec = lmsrp_base64_create(pool);
 	const int byte_read = codec->decode_leng(sends->block_size);
 
@@ -201,7 +202,7 @@ static int lmsrp_report_handle(void *arg) {
 			} else
 				continue;
 		}
-		mess = lmsrp_mess_create_from_buff(pool, buff, leng);
+		mess = lmsrp_mess_prase_from_buff(pool, buff, leng);
 		if (mess != NULL) {
 			if (mess->status != NULL) {
 				if (mess->status->rfc_code == lmsrp_REPORT_RESEND) {
