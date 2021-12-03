@@ -185,7 +185,15 @@ typedef struct lmsrp_send_module {
 	 * @note this function is optional
 	 * @return total size of octet
 	 */
+
 	pj_int64_t (*init)(void *module_data, pj_str_t *filepath);
+	/**
+	 * suport for encrypt ,
+	 * @param module_data
+	 * @param inleng length of out put
+	 * @return length of in put
+	 */
+	pj_int64_t (*decrypt_leng)(void *module_data , pj_int64_t inleng);
 	/**
 	 * read data from source
 	 * @param module_data pointer to module data
@@ -257,7 +265,7 @@ typedef struct lmsrp_recv_module {
 	 * @note : you should free memnory of write data , when it is no use
 	 */
 
-	int (*write)(void *getdata, char *buff, pj_int64_t start, pj_int64_t end);
+	int (*write)(void *getdata, char *buff,pj_int32_t buff_len , pj_int64_t start, pj_int64_t end);
 	/**
 	 * write data file header
 	 * @param getdata user data

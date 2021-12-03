@@ -27,7 +27,7 @@ With another , set flag LMSRP_ONLY_PJLIB in lmsrp_config.h to 1 , the lib only r
 
 On your code , remember call pj_init();
 Document pjlib in https://trac.pjsip.org/repos
-# Demo code is comming son!
+# Demo code is comming soon!
 
 
 

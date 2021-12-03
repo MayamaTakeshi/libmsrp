@@ -48,7 +48,15 @@ static lmsrp_report_list* am_sip_send_get_free_lot(pj_pool_t *pool,
 	}
 	return res;
 }
-
+// TODO : add support for pre encode base 64
+/**
+ *
+ * @param arg module data
+ * @return
+ * to ensure the message is not drop by msrp server such as Kamailio , etc
+ * the contend of message is auto encode with base64 or base128 ( 7byte -> 8 byte)
+ * pre encode is support on future
+ */
 static int lmsrp_send_session(void *arg) {
 	PJ_CHECK_STACK();
 	lmsrp_send_stream *sends = arg;
@@ -65,9 +73,13 @@ static int lmsrp_send_session(void *arg) {
 # endif
 //	lmsrp_codec *codec = lmsrp_r128_create(pool);
 	lmsrp_codec *codec = lmsrp_base64_create(pool);
-	const int byte_read = codec->decode_leng(sends->block_size);
+	int pre_read = codec->decode_leng(sends->block_size);
+	if (module->decrypt_leng != NULL) {
+		pre_read = module->decrypt_leng(module->data, pre_read);
+	}
+	const int byte_read = pre_read;
+	sends->codec_size = pre_read;
 
-	sends->codec_size = byte_read;
 	const int leng = sends->block_size + 500;
 	char mess_send[leng]; //max_data  in messs
 	char contend[sends->block_size];
@@ -165,6 +177,7 @@ static int lmsrp_send_session(void *arg) {
 		module->close(module->data);
 	return PJ_SUCCESS;
 }
+
 static int lmsrp_report_handle(void *arg) {
 	lmsrp_send_stream *send = arg;
 	pj_status_t st;

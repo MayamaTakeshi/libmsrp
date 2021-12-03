@@ -27,6 +27,9 @@ void close_lib() {
 }
 void demo_msrp() {
 	init_lib();
-
+// create request mess
+//	pj_str_t *lmess_id = pj_str("353245");
+//	pj_str_t *lmess_method = pj_str("SEND");
+//	lmsrp_mess * lms = lmsrp_mess_create_request(pool, sessid, method)
 	close_lib();
 }

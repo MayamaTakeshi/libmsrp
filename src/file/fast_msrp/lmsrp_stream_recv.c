@@ -131,6 +131,7 @@ static int session_stream_prase(void *arg) {
 static int lmsrp_get_handle(void *arg) {
 	PJ_LOG(2, (t_name,"star handle"));
 	int start = 1;
+	int pre_start = start;
 	lmsrp_recv_stream *sess = arg;
 	lmsrp_recv_module *module = sess->module;
 	int end = sess->sizeof_file + 1;
@@ -181,8 +182,10 @@ static int lmsrp_get_handle(void *arg) {
 				if (next->range.start <= start) {
 					pj_gettimeofday(&past);
 					min_start = sess->sizeof_file;
-					if (start < next->range.end + 1)
+					if (start < next->range.end + 1) {
+						pre_start = start;
 						start = next->range.end + 1;
+					}
 					dem = realleng;
 #if LMSRP_DEBUG == 1
 					fprintf(tmprecv, "%d\n", count);
@@ -191,8 +194,18 @@ static int lmsrp_get_handle(void *arg) {
 					fprintf(tmprecv, "\n");
 # endif
 					codec->decode(next->data, next->size, decode_buff, &dem);
-					module->write(module->data, decode_buff, next->range.start,
-							next->range.end);
+					dem = module->write(module->data, decode_buff, dem,
+							next->range.start, next->range.end);
+					if (dem != 0 ) {
+
+						mess->byte_range->start = next->range.start;
+						mess->byte_range->end = next->range.end;
+						dem = lmsrp_mess_tostring(mess, buff, 1000);
+						PJ_LOG(3, (t_name,"report"));
+						module->send_report(module->data, buff, dem);
+						// revert start ;
+						start = pre_start;
+					}
 					time = 4;
 					next->state = lmsrp_block_state_free;
 				} else {
@@ -208,7 +221,7 @@ static int lmsrp_get_handle(void *arg) {
 			mess->byte_range->start = start;
 			mess->byte_range->end = min_start;
 			dem = lmsrp_mess_tostring(mess, buff, 1000);
-			PJ_LOG(1, (t_name,"report"));
+			PJ_LOG(3, (t_name,"report"));
 			module->send_report(module->data, buff, dem);
 			pj_gettimeofday(&past);
 			time--;

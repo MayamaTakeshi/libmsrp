@@ -14,7 +14,7 @@
 # define LMSRP_ONLY_PJLIB 0
 # define LMSRP_LOW_MEMORY 1
 
-#	define  LMSRP_DEBUG 1
+#	define  LMSRP_DEBUG 0
 
 # ifndef LMSRP_DEBUG
 #	define  LMSRP_DEBUG 0
