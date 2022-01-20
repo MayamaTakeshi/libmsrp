@@ -8,7 +8,7 @@
 #include <lmsrp.h>
 #include <lmsrp_file.h>
 extern pj_caching_pool cp;
-extern pj_pool_t *pool;
+//extern pj_pool_t *pool;
 
 static void export(void *data, char *buff, int leng, lmsrp_mess *mess);
 FILE *output_data;
@@ -25,6 +25,7 @@ void test_prase(pj_pool_t *pool) {
 	int prelen = 0;
 	(void) prelen;
 	int lcount = 0;
+	(void) lcount;
 //	while (!feof(input_leng)) {
 //		prelen = read_lend ;
 //		read_lend = 0;

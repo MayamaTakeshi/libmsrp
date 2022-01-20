@@ -59,7 +59,7 @@ static int lmsrp_get_socket(void *arg) {
 			}
 		}
 	}
-	PJ_LOG(1, (t_name ,"end connect"));
+	PJ_LOG(2, (t_name ,"end connect"));
 	if (sess->flag == lmsrp_flag_close)
 		module->close(module->data, 0);
 	else
@@ -91,8 +91,8 @@ static int session_stream_prase(void *arg) {
 	pj_bool_t rp;
 	pj_int32_t count = 1;
 #if LMSRP_DEBUG == 1
-	FILE *tmprecv2 = fopen("/tmp/trecv2", "wb");
-	FILE *tmprecv3 = fopen("/tmp/tlog", "wb");
+	FILE *tmprecv2 = fopen("/tmp/trecv2.log", "wb");
+	FILE *tmprecv3 = fopen("/tmp/tlog.log", "wb");
 # endif
 	lmsrp_context_init(&ctx, sess->module->get_cp(sess->module),
 			sess->block_size + 500, arg, &export);
@@ -129,7 +129,7 @@ static int session_stream_prase(void *arg) {
 	return PJ_SUCCESS;
 }
 static int lmsrp_get_handle(void *arg) {
-	PJ_LOG(2, (t_name,"star handle"));
+	PJ_LOG(2, (t_name,"start handle"));
 	int start = 1;
 	int pre_start = start;
 	lmsrp_recv_stream *sess = arg;
@@ -141,7 +141,7 @@ static int lmsrp_get_handle(void *arg) {
 //	lmsrp_codec *codec = lmsrp_r128_create(pool);
 	lmsrp_codec *codec = lmsrp_base64_create(pool);
 #if LMSRP_DEBUG == 1
-	FILE *tmprecv = fopen("/tmp/trecv", "wb");
+	FILE *tmprecv = fopen("/tmp/trecv.log", "wb");
 	int count = 1;
 # endif
 	// tinh toan gia tri sau khi decode data

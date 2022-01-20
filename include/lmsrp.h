@@ -46,3 +46,9 @@ pj_status_t lmsrp_authorizate_mess(lmsrp_mess *mess, lmsrp_mess *respone,
 #endif
 
 #endif /* LMSRP_H_ */
+
+
+// todo : sua lai encrypt mote
+// todo : quan ly phan gui lai tuong thich e]voi encrypt mode
+// todo sua lai luong
+// todo : gioi han khich thuoc nhan

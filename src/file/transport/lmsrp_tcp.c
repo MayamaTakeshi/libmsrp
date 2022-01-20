@@ -64,11 +64,11 @@ static pj_status_t msrp_tcp_send(void *socks, void *data, pj_ssize_t length) {
 	pj_status_t st = pj_sock_send(sock, data, &length, 0);
 //	printf("length 2 %ld\n", length);
 	if (st != 0 || length == 0) {
-		puts("send error");
+		PJ_LOG(2, (__LNAME__,"Send error"));
 		int dem = 1000;
 		char lol[dem];
 		pj_strerror(st, lol, dem);
-		PJ_LOG(1, ("get report","st :%d ,leng %ld err: %s",st,leng,lol));
+		PJ_LOG(2, ("Get report","st :%d ,leng %ld err: %s",st,leng,lol));
 	}
 	return st;
 }

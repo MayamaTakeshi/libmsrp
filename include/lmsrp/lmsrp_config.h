@@ -14,7 +14,9 @@
 # define LMSRP_ONLY_PJLIB 0
 # define LMSRP_LOW_MEMORY 1
 
-#	define  LMSRP_DEBUG 0
+#define  LMSRP_DEBUG 0
+// thu nhiem cac tinh nang moi
+#define LM_STABLE 1
 
 # ifndef LMSRP_DEBUG
 #	define  LMSRP_DEBUG 0

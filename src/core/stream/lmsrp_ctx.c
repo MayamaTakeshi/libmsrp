@@ -60,7 +60,7 @@ static void change_point(lmsrp_mess *mess, char *str_old, char *str , lmsrp_pras
 		fconvert(mess->www->algorithm);
 		fconvert(mess->www->qop);
 	}
-	// TODO : tam thoi bo qua to , from , user path
+	// done : tam thoi bo qua to , from , user path
 	if (mess->to_path) {
 		lmsrp_list_uri_change(mess->to_path, str_old, str);
 	}

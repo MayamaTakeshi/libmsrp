@@ -13,7 +13,7 @@ static int lmsrp_byte_range_check(char d, void *arg) {
 }
 void lmsrp_byte_range_prase(pj_pool_t *pool, lmsrp_byte_range *header,
 		char *data, int end) {
-	//TODO kiem tra cac dieu kien '-' '/' sau nay
+	//done kiem tra cac dieu kien '-' '/' sau nay
 	int dem;
 	pj_bzero(header, sizeof(lmsrp_byte_range));
 	header->pool = pool;

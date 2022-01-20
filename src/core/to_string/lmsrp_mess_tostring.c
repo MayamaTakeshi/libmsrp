@@ -143,7 +143,7 @@ int lmsrp_mess_tostring(lmsrp_mess *mess, char *data, int size) {
 		dem = sprintf(point, "\r\n");
 		_LMSRP_MESSEND;
 	}
-// TODO add content type
+// done add content type
 	if (mess->content_type) {
 		dem = sprintf(point, "Content-Type:");
 		_LMSRP_MESSEND;

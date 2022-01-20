@@ -175,11 +175,12 @@ typedef enum lmsrp_report_code {
 /**
  * @note : info must custom in each session . this is fisrt verion , and it is not support for mutil session in one time
  */
+#if LM_STABLE == 1
 typedef struct lmsrp_send_module {
 	pj_pool_t *pool; /// session pool , it will be reset after session close
 	/**
 	 * init data modules
-	* @param module_data pointer to module data
+	 * @param module_data pointer to module data
 	 * @param filepath filepath to send if you want
 	 * @return pj_susscess if ook
 	 * @note this function is optional
@@ -193,7 +194,7 @@ typedef struct lmsrp_send_module {
 	 * @param inleng length of out put
 	 * @return length of in put
 	 */
-	pj_int64_t (*decrypt_leng)(void *module_data , pj_int64_t inleng);
+	pj_int64_t (*decrypt_leng)(void *module_data, pj_int64_t inleng);
 	/**
 	 * read data from source
 	 * @param module_data pointer to module data
@@ -244,7 +245,73 @@ typedef struct lmsrp_send_module {
 	void *data;
 
 } lmsrp_send_module;
+#else
+typedef struct lmsrp_send_module {
+	pj_pool_t *pool; /// session pool , it will be reset after session close
+	/**
+	 * init data modules
+	 * @param module_data pointer to module data
+	 * @param filepath filepath to send if you want
+	 * @return pj_susscess if ook
+	 * @note this function is optional
+	 * @return total size of octet
+	 */
 
+	pj_int64_t (*init)(void *module_data, pj_str_t *filepath);
+
+	/**
+	 * read data from source
+	 * @param module_data pointer to module data
+	 * @param buf array buffer
+	 * @param
+	 * @param max_byre max data in one message
+	 * @return number of byte is read , -1 if error
+	 */
+
+	pj_ssize_t (*read)(void *module_data, char *buf, const pj_ssize_t max_byte,
+			pj_uint64_t start, pj_uint64_t *end);
+	/**
+	 * send msrp message by user's transport
+	 * @param module_data pointer to  module data
+	 * @param buff message
+	 * @param leng length of message
+	 * @return 0 if succcess full
+	 */
+	int (*send)(void *module_data, char *buff, long leng);
+
+	/**
+	 * get report from callee
+	 * @param module_data pointer to module data
+	 * @param buff buffer to store data
+	 * @param leng leng of buff
+	 * @return respone cose
+	 */
+	pj_status_t (*get_report)(void *module_data, char *buff, pj_ssize_t *leng);
+
+	/**
+	 * close all resource to use
+	 * @param module_data pointer to  module data
+	 * @param report report it is done [0] or fail [1]
+	 * @return return 0 if done , otherwise is fail
+	 * @note this function is optional
+	 */
+	int (*close)(void *module_data);
+
+	/**
+	 * suppend data if error
+	 * @param module_data pointer to  module data
+	 * @return return 0 if done , otherwise is fail
+	 * @note this function is optional
+	 */
+
+	int (*suppend)(void *module_data);
+	/**
+	 * module data
+	 */
+	void *data;
+
+} lmsrp_send_module;
+#endif
 typedef struct lmsrp_recv_module {
 	pj_pool_t *pool;  /// session pool , it will be reset after session close
 	/**
@@ -265,7 +332,8 @@ typedef struct lmsrp_recv_module {
 	 * @note : you should free memnory of write data , when it is no use
 	 */
 
-	int (*write)(void *getdata, char *buff,pj_int32_t buff_len , pj_int64_t start, pj_int64_t end);
+	int (*write)(void *getdata, char *buff, pj_int32_t buff_len,
+			pj_int64_t start, pj_int64_t end);
 	/**
 	 * write data file header
 	 * @param getdata user data
@@ -334,6 +402,6 @@ pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 		lmsrp_cred_info *cred, pj_sockaddr_in *server, int local_port,
 		pj_str_t *sessid);
 
-//TODO : doi ten sau
+
 
 #endif /* SIP_lmsrp_H_ */

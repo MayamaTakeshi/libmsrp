@@ -8,7 +8,6 @@
 
 #include <lmsrp_file.h>
 
-
 pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 		lmsrp_cred_info *cred, pj_sockaddr_in *server, int local_port,
 		pj_str_t *sessid) {
@@ -17,7 +16,7 @@ pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 			lmsrp_transport_type_tcp);
 #else
 	lmsrp_mess *mess = lmsrp_gen_auth_mess(pool, cred, local_port, sessid,
-				lmsrp_transport_type_tcp);
+			lmsrp_transport_type_tcp);
 #endif
 
 	// create message
@@ -28,7 +27,7 @@ pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 	// sending mess age
 	pj_status_t st = car->connect(sock, server);
 	if (st != PJ_SUCCESS) {
-		printf("loi xmnr \n");
+		PJ_LOG(2, (__LNAME__,"loi xmnr \n"));
 		return NULL;
 	}
 	pj_str_t m_recv = { buff + 1000, 1000 };
@@ -43,7 +42,7 @@ pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 				m_recv.slen);
 		if (au->type == lmsrp_mess_type_respone) {
 			if (au->info.respone.code == 200) {
-				PJ_LOG(1, (__FILE__,"msrp login succes full"));
+				PJ_LOG(2, (__LNAME__,"msrp login succes full"));
 				pj_str_t *rs = pj_pool_alloc(pool, sizeof(pj_str_t));
 				pj_strdup(pool, rs, &au->use_path->uri->session_id);
 				return rs;
@@ -57,7 +56,7 @@ pj_str_t* lmsrp_login(pj_pool_t *pool, void *sock, lmsrp_transport_module *car,
 #endif
 			}
 		} else {
-			PJ_LOG(1, (__FILE__,"msrp login error"));
+			PJ_LOG(3, (__FILE__,"msrp login error"));
 			return NULL;
 		}
 	}
